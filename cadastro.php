@@ -16,6 +16,10 @@
 
 <body>
     <div id="sign-square">
+        <div class="sign-left">
+            <img src="https://cdn.photoroom.com/v2/image-cache?path=gs://background-7ef44.appspot.com/backgrounds_v3/black/Photoroom_black_background_extremely_fine_texture_only_black_co_c3ee01bd-a082-44ff-b184-e338a13b2ffa.jpg"
+                alt="IncludeGen">
+        </div>
         <div id="sign-right">
             <form id="loginForm">
                 <div id="form-id">
