@@ -96,3 +96,13 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+#reset-password{
+    display: flex;
+    width: 70%;
+    max-width: 900px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
