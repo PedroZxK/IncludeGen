@@ -1,99 +1,127 @@
-/* Estilizando o body */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
 }
 
 #sign-square {
     display: flex;
-    width: 70%;
-    max-width: 900px;
-    background-color: #ffffff;
-    border: 1px solid black;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .sign-left {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #000;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    background: url('../img/fundo_cadastro.png') no-repeat top left;
+    background-size: contain;
+    width: 100%;
+    height: 100vh;
+    position: relative;
 }
+
 
 .sign-left img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
 }
 
 #sign-right {
-    width: 60%;
-    padding: 20px;
+    padding-left: 250px;
+    width: 50%;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-#loginForm {
+#form-id {
     width: 100%;
     max-width: 400px;
 }
 
-#form-id {
-    display: flex;
-    flex-direction: column;
-}
-
-h2 {
+#form-id h1 {
+    font-size: 35px;
     text-align: center;
-    color: black;
-    margin-bottom: 20px;
+    color: #525252;
 }
 
 label {
+    font-size: 14px;
+    color: #828282;
     display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: black;
+    margin-bottom: 5px;
 }
 
 input[type="email"],
 input[type="text"],
-input[type="password"],
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+input[type="password"],
+button[type="submit"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    border: 1px solid #DED2D9;
     border-radius: 5px;
     font-size: 16px;
     box-sizing: border-box;
 }
 
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+button[type="submit"] {
+    background-color: #000000;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 18px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+button[type="submit"]:hover {
+    background-color: #080808;
+}
+
+.sign-right form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.already-account {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #828282;
+}
+
+.already-account a {
+    color: #F8B500;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.already-account a:hover {
+    text-decoration: underline;
+}
+
+#form-id img {
+    width: 14%;
+    margin-left: 10vh;
+    margin-bottom: -20px;
+}
+
+#form-id p {
+    color: #828282;
+}
+
+.role-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
 }
