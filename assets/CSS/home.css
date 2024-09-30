@@ -3,8 +3,285 @@ body {
     margin: 0;
     padding: 0;
     background-color: #FFFFFF;
+}
+
+#navbar {
+    background-color: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-includeGen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.itens-nav-div ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.itens-nav-div ul li {
+    margin: 0 15px;
+}
+
+.itens-nav-div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itens-nav-div ul li a:hover {
+    color: #ddd;
+}
+
+.right-nav-div img,
+.left-nav-div img {
+    border-radius: 50%;
+    height: 50px;
+}
+
+#presentation {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 60px;
+}
+
+.presentation-left {
+    position: absolute;
+    left: 20%;
+    z-index: 1;
+    color: white;
+}
+
+.presentation-left h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    max-width: 300px;
+}
+
+.presentation-left button {
+    background-color: #FFC62C;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.presentation-left button:hover {
+    background-color: #e6c300;
+}
+
+.presentation-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#about-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 20px;
+    margin-top: 0;
+    width: 100%;
+}
+
+.left-about-me {
+    max-width: 40%;
+    text-align: left;
+}
+
+.left-about-me h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.left-about-me p {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #555;
+}
+
+.right-about-me {
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-about-me img {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+}
+
+#meet-seniors {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #FFC62C;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.left-meet-seniors {
+    max-width: 40%;
+    text-align: left;
+    margin-left: 10%;
+}
+
+.left-meet-seniors h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    width: 190px;
+}
+
+.left-meet-seniors button {
+    background-color: white;
+    border: none;
+    border-radius: 8px;
+    color: #333;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.left-meet-seniors button:hover {
+    background-color: #e6e6e6;
+}
+
+.right-meet-seniors {
+    max-width: 50%;
+    overflow: hidden;
+    position: relative;
+    height: 400px;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.7s ease-in-out;
+}
+
+.carousel img {
+    width: 100%;
+    height: 400px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#card-seniors {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-top: 40px;
+    gap: 5px;
+}
+
+.card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px;
+    width: 250px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.background-text {
+    position: absolute;
+    margin: 10px;
+    background-color: rgba(217, 217, 217, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.arrow-card {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(217, 217, 217, 0.6);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.arrow-card img {
+    width: 20px;
+}
+
+#footer-div {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+}
+
+.includeGen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-footer-logo {
+    margin-right: 10px;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a {
+    margin: 0 5px;
+}
+
+.contact-links p {
+    margin-left: 10px;
+    font-size: 14px;
 }
