@@ -1,3 +1,48 @@
+<?php
+include 'conexao.php';
+
+$emailCookie = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $remember = isset($_POST['remember']);
+
+    if (empty($email) || empty($password)) {
+        $error_message = 'Por favor, preencha todos os campos do formulário.';
+    } else {
+        $sql = "SELECT id, email, password FROM users WHERE email = ?";
+        $stmt = $mysqli->prepare($sql);
+        if ($stmt) {
+            $stmt->bind_param('s', $email);
+            $stmt->execute();
+            $stmt->bind_result($id, $dbEmail, $dbPassword);
+            if ($stmt->fetch() && password_verify($password, $dbPassword)) {
+                $_SESSION['logged_in'] = true;
+                $_SESSION['user_id'] = $id;
+                $_SESSION['email'] = $dbEmail;
+
+                if ($remember) {
+                    setcookie('email', $email, time() + (86400 * 30), "/");
+                } else {
+                    setcookie('email', '', time() - 3600, "/");
+                }
+
+                header('Location: home.php');
+                exit();
+            } else {
+                $error_message = 'Credenciais inválidas.';
+            }
+            $stmt->close();
+        } else {
+            echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+        }
+    }
+}
+
+$mysqli->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,136 +51,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
         content="Bem-vindo à IncludeGen, uma plataforma dedicada ao bem-estar e à inclusão da pessoa idosa. Encontre cuidadores de idosos, explore alternativas de entretenimento, descubra oportunidades de trabalho para a terceira idade e entenda o sistema previdenciário brasileiro.">
-
-    <title>Home - IncludeGen</title>
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/responsivel-home.css">
+    <title>Login - IncludeGen</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/responsivel-login.css">
     <link rel="shortcut icon" type="imagex/png"
         href="assets/img/logo.png">
 </head>
 
 <body>
-    <div id="content">
-        <nav id="navbar">
-            <div class="navbar-includeGen">
-                <div class="left-nav-div">
+    <div class="sign-left"></div>
+    <div id="sign-square">
+        <div id="sign-right">
+            <form id="loginForm" method="POST">
+                <div id="form-id">
                     <img src="assets/img/logo.png" alt="Logo">
-                </div>
-                <div class="itens-nav-div">
-                    <ul>
-                        <li><a href="#">Página inicial</a></li>
-                        <li><a href="#">Saúde</a></li>
-                        <li><a href="#">Fórum</a></li>
-                        <li><a href="#">Previdência</a></li>
-                    </ul>
-                </div>
-                <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                </div>
-            </div>
-        </nav>
+                    <h1>Entre na sua conta</h1>
+                    <button type="button" class="login-with-google-btn" disabled>
+                        Continuar com o Google
+                    </button>
+                    <p>------------- ou entre com seu e-mail -------------</p>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" required placeholder="exemplo@gmail.com" value="<?php echo htmlspecialchars($emailCookie); ?>">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" required>
+                    <?php if (isset($error_message)) : ?>
+                        <p style="color: red;"><?php echo $error_message; ?></p>
+                    <?php endif; ?>
+                    <label class="control control-checkbox">
+                        Lembrar-me
+                        <input type="checkbox" name="remember" value="1" <?php echo $emailCookie ? 'checked' : ''; ?> />
+                        <div class="control_indicator"></div>
+                    </label>
 
-
-        <div id="presentation">
-            <div class="presentation-left">
-                <h1>Unindo gerações através da inclusão</h1>
-                <button>Saiba mais</button>
+                    <button type="submit">Entrar</button>
+                </div>
+            </form>
+            <div class="no-account">
+                Ainda não está registrado? <a href="cadastro.php">Crie uma nova conta.</a>
             </div>
-            <div class="presentation-right">
-                <img src="assets/img/presentation_seniors.png" alt="Idosos se abraçando">
-            </div>
-        </div>
-
-        <div id="about-me">
-            <div class="left-about-me">
-                <h1>Sobre nós</h1>
-                <p>Nulla facilisi. Vivamus congue tincidunt euismod. Proin nec ornare urna. Sed ullamcorper ante at nibh finibus, tincidunt finibus odio varius. Curabitur et semper quam, eget posuere leo. Sed pharetra ex ac sapien mattis convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, sapien quis dapibus placerat, quam dolor rutrum nunc, quis tristique mi diam vel nisi. Aenean vehicula venenatis ligula. Fusce vehicula turpis quis sapien pellentesque pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis nec arcu vel massa congue rhoncus.</p>
-            </div>
-            <div class="right-about-me">
-                <img src="assets/img/about_me_seniors.png" alt="Idosos sobre mim">
+            <div class="remember-password">
+                <a href="redefinir_senha.php">Esqueceu a senha?</a>
             </div>
         </div>
-
-        <div id="meet-seniors">
-            <div class="left-meet-seniors">
-                <h1>Encontre cuidadores de idosos</h1>
-                <button>Explorar</button>
-            </div>
-            <div class="right-meet-seniors">
-                <div class="carousel" id="carousel">
-                    <img src="assets/img/meet_seniors_1.png" alt="Encontre Idosos imagem 1">
-                    <img src="assets/img/meet_seniors_2.png" alt="Encontre Idosos imagem 2">
-                    <img src="assets/img/meet_seniors_1.png" alt="Encontre Idosos imagem 1">
-                    <img src="assets/img/meet_seniors_2.png" alt="Encontre Idosos imagem 2">
-                </div>
-            </div>
-        </div>
-
-        <div id="card-seniors">
-            <div class="card">
-                <div class="background-text">
-                    <h2>Espaço saúde do idoso</h2>
-                </div>
-                <img src="assets/img/seniors_card1.png" alt="Encontre Idosos imagem 1" class="card-image">
-                <div class="arrow-card">
-                    <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
-            </div>
-
-            <a href="atividades.php">
-                <div class="card">
-                    <div class="background-text">
-                        <h2>Entretenimento para idosos</h2>
-                    </div>
-                    <img src="assets/img/seniors_card2.png" alt="Encontre Idosos imagem 2" class="card-image">
-                    <div class="arrow-card">
-                        <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                    </div>
-                </div>
-            </a>
-
-            <div class="card">
-                <div class="background-text">
-                    <h2>Trabalho para maioridade</h2>
-                </div>
-                <img src="assets/img/seniors_card3.png" alt="Encontre Idosos imagem 3" class="card-image">
-                <div class="arrow-card">
-                    <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
-            </div>
-            <div class="card">
-                <div class="background-text">
-                    <h2>Cálculo e notícias da previdência</h2>
-                </div>
-                <img src="assets/img/seniors_card4.png" alt="Encontre Idosos imagem 4" class="card-image">
-                <div class="arrow-card">
-                    <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
-            </div>
-        </div>
-
-
-        <div id="footer-div">
-            <footer class="includeGen-footer">
-                <div class="left-footer">
-                    <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
-                    <p>Unindo gerações através da inclusão</p>
-                </div>
-
-                <div class="right-footer">
-                    <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen" width="50vh"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact" alt="Facebook IncludeGen" width="50vh"></a>
-                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact" alt="Twitter IncludeGen" width="50vh"></a>
-                        <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
-                    </div>
-                </div>
-            </footer>
-        </div>
-
     </div>
-
-    <script src="assets/js/home.js"></script>
 </body>
 
 </html>
