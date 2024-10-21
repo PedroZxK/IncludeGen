@@ -81,15 +81,19 @@
                     <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
                 </div>
             </div>
-            <div class="card">
-                <div class="background-text">
-                    <h2>Entretenimento para idosos</h2>
+
+            <a href="atividades.php">
+                <div class="card">
+                    <div class="background-text">
+                        <h2>Entretenimento para idosos</h2>
+                    </div>
+                    <img src="assets/img/seniors_card2.png" alt="Encontre Idosos imagem 2" class="card-image">
+                    <div class="arrow-card">
+                        <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
+                    </div>
                 </div>
-                <img src="assets/img/seniors_card2.png" alt="Encontre Idosos imagem 2" class="card-image">
-                <div class="arrow-card">
-                    <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
-            </div>
+            </a>
+
             <div class="card">
                 <div class="background-text">
                     <h2>Trabalho para maioridade</h2>
