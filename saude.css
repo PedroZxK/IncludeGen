@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo img {
+  height: 50px;
+}
+
+nav {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #ffcc00;
+  color: #000000;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.user-info span {
+  margin-right: 10px;
+  color: #d2a925;
+}
+
+.user-info i {
+  color: #ffcc00;
+  font-size: 1.5em;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.hero img {
+  width: 90%;
+  height: auto;
+}
+
+.profissionais, .saude {
+  padding: 40px 0;
+}
+
+.profissionais h2, .saude h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 2.3em;
+  color: #00000080;
+  padding-left: 100px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+  padding: 20px;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.saude .card img {
+  border-radius: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card p {
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Footer */
+
+#footer-div {
+  background-color: #111111;
+  color: white;
+  padding: 20px;
+}
+
+.includeGen-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-footer {
+  display: flex;
+  align-items: center;
+}
+
+.img-footer-logo {
+  margin-right: 10px;
+}
+
+.right-footer {
+  display: flex;
+  align-items: center;
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+}
+
+.contact-links a {
+  margin: 0 5px;
+}
+
+.contact-links p {
+  margin-left: 10px;
+  font-size: 14px;
+}
