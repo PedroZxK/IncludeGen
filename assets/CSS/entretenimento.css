@@ -5,14 +5,18 @@ body {
     background-color: #FFFFFF;
 }
 
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #navbar {
     background-color: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    width: 100%;
-    z-index: 1000;
 }
 
 .navbar-includeGen {
@@ -20,7 +24,6 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    max-width: 1200px;
 }
 
 .itens-nav-div ul {
@@ -53,12 +56,33 @@ body {
     height: 50px;
 }
 
+.voltar {
+    margin: 2vw;
+    padding: 20px;
+}
+
+.btn-voltar {
+    background-color: #111111;
+    color: white;
+    border: solid 1px black;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 10%;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-voltar:hover {
+    background-color: white;
+    color: black;
+    transition: .2;
+}
+
 #banner {
     display: flex;
     justify-content: center;
     position: relative;
     width: 100%;
-    margin-top: 100px;
 }
 
 .banner {
@@ -72,10 +96,10 @@ body {
 .text {
     display: flex;
     flex-direction: row;
-    gap: 200px;
+    gap: 200px;  
     position: absolute;
-    top: 20%;
-    left: 50%;
+    top: 30%;
+    left: 50%;  
     transform: translate(-50%, -50%);
     color: white;
     font-size: 2.5vw;
@@ -88,15 +112,58 @@ body {
         "wdth"100,
         "YTLC"500;
     float: left;
-    shape-outside: circle(50%);
 }
 
-#teste {
+.text1 {
+    text-align: end ;
+}
+
+#topicos {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    row-gap: 1rem;
+    margin: 50px 0 50px 0
+}
+
+.card-img {
+    width: 100%;
+}
+
+.card1 {
+    width: 60%;
+    border: solid 1px black;
+    border-radius: 20px;
     padding: 10px;
 }
 
-#teste p {
-    text-align: justify;
+.title {
+    font-weight: bold;
+    padding: 10px;
+}
+
+.card-text {
+    padding: 10px;
+}
+
+.card1 button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 0 20px 0 20px;
+    cursor: pointer;
+    transition: .2s;
+    border: solid 1px black;
+    transition: .2s;
+}
+
+.card1 button:hover {
+    background-color: white;
+    color: black;
+    transition: .2s;
 }
 
 #footer-div {

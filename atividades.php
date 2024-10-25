@@ -28,6 +28,7 @@
                     <ul>
                         <li><a href="#">Página inicial</a></li>
                         <li><a href="#">Saúde</a></li>
+                        <li><a href="#">Entretenimento</a></li>
                         <li><a href="#">Fórum</a></li>
                         <li><a href="#">Previdência</a></li>
                     </ul>
@@ -38,27 +39,88 @@
             </div>
         </nav>
 
+        <div class="voltar">
+            <button class="btn-voltar" onclick="history.back()">
+                <p>⬅ Voltar</p>
+            </button>
+        </div>
 
         <div id="banner">
             <img class="banner" src="assets/img/entretenimento-banner.jpg" alt="Idoso andando de bicicleta">
             <div class="text">
-                <p>A importância do <br> na terceira</p>
-                <p>entretenimento <br> idade</p>
+                <p class="text1">A importância do <br> na terceira</p>
+                <div class="space"></div>
+                <p class="text2">entretenimento <br> idade</p>
             </div>
         </div>
 
-        <div id="teste">
-            <p>
+        <div id="topicos">
 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et imperdiet leo, sed varius sem. Donec in mattis nibh. Nulla non tincidunt felis. Donec vel luctus nibh, vitae congue quam. Proin dictum sit amet odio in faucibus. Sed viverra libero ac magna rhoncus eleifend. Suspendisse sed velit eget turpis dapibus congue. Curabitur vitae porta orci. Aliquam lacus libero, pharetra vel condimentum dapibus, suscipit sit amet dolor.
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (1).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
 
-                Morbi gravida pulvinar ligula et vestibulum. Vivamus suscipit et risus vel consequat. Sed aliquam ligula sed cursus viverra. Etiam vel sem eget urna volutpat tincidunt in id lorem. Vivamus et gravida mi, vel bibendum lorem. Cras mi justo, elementum at iaculis eu, rutrum ac tortor. Aliquam commodo et ligula ut ultricies. Donec vulputate imperdiet magna sit amet congue. Phasellus vel sodales metus, vel suscipit purus. Suspendisse metus diam, rhoncus at fringilla vel, tincidunt a lectus. Maecenas eu tortor et erat iaculis rhoncus vel posuere velit. Quisque tempus urna ac fringilla malesuada. Aliquam vel suscipit metus, non bibendum ligula.
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (2).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
 
-                Donec mauris enim, fermentum et scelerisque a, hendrerit quis quam. Nunc et purus iaculis, viverra nunc nec, varius dui. Donec iaculis a mauris vel rhoncus. Mauris in convallis massa. Vivamus a iaculis nibh. Integer egestas dignissim tempor. Curabitur accumsan dapibus venenatis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sed metus nec arcu aliquet rutrum vel mollis enim. Etiam facilisis ut tortor eu faucibus. Duis sit amet ipsum mattis, porttitor odio et, molestie lacus.
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (3).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
 
-                Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse in molestie nulla. Morbi eu elementum leo. Praesent dapibus nibh vitae dui blandit volutpat. Nunc blandit vel ligula egestas dignissim. Donec porta egestas lacinia. Suspendisse odio arcu, varius vel ex sed, tempus viverra sapien. Mauris nec justo imperdiet, viverra mi eu, dapibus turpis. Praesent magna augue, laoreet porta mi id, varius porttitor neque. Sed faucibus aliquam turpis, ultricies ornare dui volutpat ut. Sed finibus ex in ligula congue iaculis.
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (4).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
 
-                Suspendisse sed tellus velit. Sed sed ex augue. Nulla vitae nisl scelerisque, posuere ipsum in, elementum tortor. Suspendisse sollicitudin semper justo, nec hendrerit mi vestibulum vel. Donec lacus mi, maximus pulvinar massa quis, sodales posuere urna. In diam est, molestie non orci ut, fringilla rutrum felis. Aliquam a faucibus elit. Sed non mattis mi, a sollicitudin ante. In hac habitasse platea dictumst. Nunc consectetur nisi ut mi gravida, in commodo dui pellentesque. Mauris blandit metus iaculis nunc commodo, a pellentesque nunc mollis. Integer bibendum lobortis nisi, vitae malesuada nisi hendrerit in. Sed nec metus pulvinar massa fermentum eleifend. Cras urna augue, auctor nec rhoncus sit amet, condimentum ut quam. Integer semper eros quis ullamcorper volutpat. Vestibulum accumsan, nisl in venenatis condimentum, nulla ante laoreet magna, ut rutrum arcu nisl eu leo. </p>
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (5).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
+
+            <div class="card1">
+                <div class="card-img">
+                    <img class="card-img" src="./assets/img/image (7).jpg" alt="Idosos se divertindo com jogos">
+                </div>
+                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
+                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
+                <button>
+                    <p>Saiba mais</p>
+                </button>
+            </div>
 
         </div>
 
