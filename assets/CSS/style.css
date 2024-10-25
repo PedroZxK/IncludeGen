@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background: #f0f4f8;
+    color: #333;
+}
+
+header {
+    background: #FFDA77;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+}
+
+.atividade-idosos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.atividade {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    width: 300px;
+    position: relative;
+    transition: transform 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+
+.atividade h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0;
+    color: #000;
+}
+
+.atividade p {
+    font-size: 1rem;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.atividade:hover p {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 1rem;
+    transition: .2s;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #5a9;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s;
+}
+
+.atividade:hover .btn {
+    opacity: 1;
+    visibility: visible;
+    transition: .2s;
+}
+
+.atividade:hover {
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+.btn:hover {
+    background-color: #4c8;
+    transition: .2s;
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

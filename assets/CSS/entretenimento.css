@@ -1,0 +1,140 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+#navbar {
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-includeGen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.itens-nav-div ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.itens-nav-div ul li {
+    margin: 0 15px;
+}
+
+.itens-nav-div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itens-nav-div ul li a:hover {
+    color: #ddd;
+}
+
+.right-nav-div img,
+.left-nav-div img {
+    border-radius: 50%;
+    height: 50px;
+}
+
+#banner {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    margin-top: 100px;
+}
+
+.banner {
+    width: 90%;
+    height: auto;
+    border-radius: 27px;
+    box-shadow: 5px 5px 3px 5px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.6);
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5vw;
+    text-align: left;
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+    font-variation-settings:
+        "wdth"100,
+        "YTLC"500;
+    float: left;
+    shape-outside: circle(50%);
+}
+
+#teste {
+    padding: 10px;
+}
+
+#teste p {
+    text-align: justify;
+}
+
+#footer-div {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+}
+
+.includeGen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-footer-logo {
+    margin-right: 10px;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a {
+    margin: 0 5px;
+}
+
+.contact-links p {
+    margin-left: 10px;
+    font-size: 14px;
+}

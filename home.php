@@ -26,7 +26,7 @@
                         <li><a href="#">Página inicial</a></li>
                         <li><a href="#">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
-                        <li><a href="previdencia.php">Previdência</a></li>
+                        <li><a href="#">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
@@ -90,15 +90,19 @@
                     <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
                 </div>
             </div>
-            <div class="card">
-                <div class="background-text">
-                    <h2>Entretenimento para idosos</h2>
+
+            <a href="atividades.php">
+                <div class="card">
+                    <div class="background-text">
+                        <h2>Entretenimento para idosos</h2>
+                    </div>
+                    <img src="assets/img/seniors_card2.png" alt="Encontre Idosos imagem 2" class="card-image">
+                    <div class="arrow-card">
+                        <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
+                    </div>
                 </div>
-                <img src="assets/img/seniors_card2.png" alt="Encontre Idosos imagem 2" class="card-image">
-                <div class="arrow-card">
-                    <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
-            </div>
+            </a>
+
             <div class="card">
                 <div class="background-text">
                     <h2>Trabalho para maioridade</h2>

@@ -11,10 +11,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     z-index: 1000;
 }
@@ -111,7 +107,6 @@ body {
     flex-direction: row;
     padding: 20px;
     margin-top: 0;
-    width: 100%;
 }
 
 .left-about-me {
