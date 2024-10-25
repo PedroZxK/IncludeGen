@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IncludeGen</title>
     <link rel="stylesheet" href="assets\css\landingPage.css">
+    <link rel="shortcut icon" href="assets\img\logo.png" type="image/x-icon">
     <link rel="icon" href="logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,6 +21,8 @@
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#missao">Missão</a></li>
                 <li><a href="#encontra">Aqui você encontra</a></li>
+                <li class= "btn-nav-principal"><a href="login.php">Logar</a></li>
+                <li class= "btn-nav-principal"><a href="cadastro.php">Cadastrar-se</a></li>
             </ul>
         </nav>
     </header>
@@ -31,11 +37,14 @@
         </div>
     </section>
 
+    <div id="categoria-missao">
+    <img src="assets\img\image 7.png" alt="">
     <section class="mission">
         <h2>Conectando pessoas de todas as idades, criando um futuro mais inclusivo.</h2>
         <p>Incluir é unir, e no IncludeGen, essa é a nossa missão.</p>
         <button class="mission-button">Conhecer a missão</button>
     </section>
+    </div>
 
     <section class="features">
         <h2>Nossa missão de inclusão com você</h2>
@@ -57,13 +66,6 @@
                 <p>Atividades físicas para idosos</p>
             </div>
         </div>
-    </section>
-
-    <section class="call-to-action">
-        <h2>A inclusão começa aqui</h2>
-        <button class="cta-button">Realizar cadastro</button>
-        <p>ou</p>
-        <button class="cta-button">Realizar login</button>
     </section>
 
     <div id="footer-div">

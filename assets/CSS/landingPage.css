@@ -1,3 +1,16 @@
+.abeezee-regular {
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .abeezee-regular-italic {
+    font-family: "ABeeZee", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+
 * {
     margin: 0;
     padding: 0;
@@ -25,6 +38,7 @@ header nav {
     list-style: none;
     display: flex;
     gap: 20px;
+    font-family: Abeezee;
 }
 
 .nav-links a {
@@ -32,16 +46,27 @@ header nav {
     text-decoration: none;
 }
 
+.btn-nav-principal {
+    padding: 4px;
+    border-radius: 6px;
+    background-color: #FFC62C;
+}
+
+.btn-nav-principal a {
+    color: #000;
+
+}
+
 .logo img {
-    height: 40px;
+    height: 62px;
 }
 
 .hero {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #F7D46E;
     padding: 50px;
+    justify-content: space-around;
 }
 
 .logo-hero {
@@ -54,20 +79,29 @@ header nav {
 }
 
 .hero-image img {
-    width: 45vw;
+    width: 22vw;
+}
+
+#categoria-missao {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    justify-content: space-around;
 }
 
 .mission {
-    text-align: center;
+    text-align: justify;
     padding: 50px 20px;
+    width: 32vw;
 }
 
 .mission h2 {
     font-size: 1.8rem;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
 }
 
 .mission-button {
+    margin: 15px 0 0px 0px;
     padding: 10px 20px;
     background-color: #FFD700;
     border: none;
@@ -103,26 +137,6 @@ header nav {
 
 .feature img {
     height: 63px;
-}
-
-.call-to-action {
-    text-align: center;
-    padding: 50px;
-    background-color: #FFF7CC;
-}
-
-.call-to-action h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
-.cta-button {
-    padding: 10px 20px;
-    background-color: #FFD700;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 5px;
 }
 
 #footer-div {
