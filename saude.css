@@ -1,0 +1,177 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#navbar {
+  background-color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar-includeGen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.itens-nav-div ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.itens-nav-div ul li {
+  margin: 0 15px;
+}
+
+.itens-nav-div ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.itens-nav-div ul li a:hover {
+  color: #ddd;
+}
+
+
+.right-nav-div img,
+.left-nav-div img {
+  border-radius: 50%;
+  height: 50px;
+}
+
+.right-nav-div {
+  display: flex;
+  gap: 1rem;
+}
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.hero img {
+  width: 90%;
+  height: auto;
+}
+
+.profissionais, .saude {
+  padding: 40px 0;
+}
+
+.profissionais h2, .saude h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-size: 2.3em;
+  color: #00000080;
+  padding-left: 100px;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+  padding: 20px;
+}
+
+.card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.saude .card img {
+  border-radius: 0;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 10px 0;
+}
+
+.card p {
+  margin-bottom: 15px;
+}
+
+button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Footer */
+
+#footer-div {
+  background-color: #111111;
+  color: white;
+  padding: 20px;
+}
+
+.includeGen-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left-footer {
+  display: flex;
+  align-items: center;
+}
+
+.img-footer-logo {
+  margin-right: 10px;
+}
+
+.right-footer {
+  display: flex;
+  align-items: center;
+}
+
+.contact-links {
+  display: flex;
+  align-items: center;
+}
+
+.contact-links a {
+  margin: 0 5px;
+}
+
+.contact-links p {
+  margin-left: 10px;
+  font-size: 14px;
+}

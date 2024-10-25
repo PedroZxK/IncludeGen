@@ -164,4 +164,8 @@ header nav {
     margin-left: 10px;
     font-size: 14px;
 }
+
+.contact-links img {
+    max-width: 32px;
+}
     
