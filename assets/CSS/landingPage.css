@@ -1,0 +1,171 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #000;
+    padding: 20px 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #F7D46E;
+    padding: 50px;
+}
+
+.logo-hero {
+    width: 10vw;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    width: 27vw;
+}
+
+.hero-image img {
+    width: 45vw;
+}
+
+.mission {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.mission h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.mission-button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.features {
+    background-color: #f9f9f9;
+    padding: 50px;
+    text-align: center;
+}
+
+#figura {
+    margin: 0 auto;
+    background-color: #ffc72c7e;
+    width: 5vw;
+    border-radius: 20vw;
+}
+
+.features h2 {
+    margin-bottom: 30px;
+}
+
+.feature-boxes {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature {
+    text-align: center;
+}
+
+.feature img {
+    height: 63px;
+}
+
+.call-to-action {
+    text-align: center;
+    padding: 50px;
+    background-color: #FFF7CC;
+}
+
+.call-to-action h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #FFD700;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 5px;
+}
+
+#footer-div {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+}
+
+.includeGen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-footer-logo {
+    margin-right: 10px;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a {
+    margin: 0 5px;
+}
+
+.contact-links p {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.contact-links img {
+    max-width: 32px;
+}
+    
