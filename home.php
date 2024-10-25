@@ -62,12 +62,21 @@
                 <button>Explorar</button>
             </div>
             <div class="right-meet-seniors">
-                <div class="carousel" id="carousel">
-                    <img src="assets/img/meet_seniors_1.png" alt="Encontre Idosos imagem 1">
-                    <img src="assets/img/meet_seniors_2.png" alt="Encontre Idosos imagem 2">
-                    <img src="assets/img/meet_seniors_1.png" alt="Encontre Idosos imagem 1">
-                    <img src="assets/img/meet_seniors_2.png" alt="Encontre Idosos imagem 2">
-                </div>
+            <div class="img-container">
+            <!-- 1 -->
+            <img src="./assets/img/cuidador-de-idosos1.jpg">
+            <img src="./assets/img/cuidador-de-idosos2.jpg">
+            <img src="./assets/img/cuidador-de-idosos3.jpg">
+            <img src="./assets/img/cuidador-de-idosos4.jpg">
+            <img src="./assets/img/cuidador-de-idosos5.jfif">
+            
+            <!-- 2 -->
+            <img src="./assets/img/cuidador-de-idosos1.jpg">
+            <img src="./assets/img/cuidador-de-idosos2.jpg">
+            <img src="./assets/img/cuidador-de-idosos3.jpg">
+            <img src="./assets/img/cuidador-de-idosos4.jpg">
+            <img src="./assets/img/cuidador-de-idosos5.jfif">
+            </div>
             </div>
         </div>
 

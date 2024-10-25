@@ -144,21 +144,23 @@ body {
 }
 
 #meet-seniors {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px;
-    background-color: #FFC62C;
     border-radius: 10px;
+    margin: 0 5%;
+    width: 90%;
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+    background-color: #FFC62C;
     overflow: hidden;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 .left-meet-seniors {
-    max-width: 40%;
+    width: 50%;
+    height: 100%;
+    padding: 5% 10%;
     text-align: left;
-    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
 }
 
 .left-meet-seniors h1 {
@@ -183,25 +185,38 @@ body {
 }
 
 .right-meet-seniors {
-    max-width: 50%;
-    overflow: hidden;
-    position: relative;
-    height: 400px;
-}
-
-.carousel {
+    width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    transition: transform 0.7s ease-in-out;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
-.carousel img {
-    width: 100%;
-    height: 400px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.img-container {
+    display: flex;
+    flex-direction: column;
+    animation: scroll 15s linear infinite;
 }
+
+.img-container img {
+    width: 80%;
+    height: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(-50%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 
 #card-seniors {
     display: flex;
