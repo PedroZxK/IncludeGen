@@ -150,7 +150,7 @@ body {
 }
 
 .left-meet-seniors {
-    width: 50%;
+    width: 40%;
     height: 100%;
     padding: 5% 10%;
     text-align: left;
@@ -180,7 +180,7 @@ body {
 }
 
 .right-meet-seniors {
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -192,7 +192,7 @@ body {
 .img-container {
     display: flex;
     flex-direction: column;
-    animation: scroll 15s linear infinite;
+    animation: scroll 20s linear infinite;
 }
 
 .img-container img {
