@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'conexao.php';
 
 $emailCookie = isset($_COOKIE['email']) ? $_COOKIE['email'] : '';

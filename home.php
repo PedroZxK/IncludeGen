@@ -1,3 +1,31 @@
+<?php
+include 'conexao.php';
+include 'validacao.php';
+
+$id = $_SESSION['user_id'] ?? null;
+
+if ($id) {
+    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
+} else {
+    $username = "ID de usuário não definido";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,8 +38,7 @@
     <title>Home - IncludeGen</title>
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/responsivel-home.css">
-    <link rel="shortcut icon" type="imagex/png"
-        href="assets/img/logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
 </head>
 
 <body>
@@ -31,6 +58,7 @@
                 </div>
                 <div class="right-nav-div">
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
             </div>
         </nav>
@@ -49,7 +77,13 @@
         <div id="about-me">
             <div class="left-about-me">
                 <h1>Sobre nós</h1>
-                <p>Nulla facilisi. Vivamus congue tincidunt euismod. Proin nec ornare urna. Sed ullamcorper ante at nibh finibus, tincidunt finibus odio varius. Curabitur et semper quam, eget posuere leo. Sed pharetra ex ac sapien mattis convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet, sapien quis dapibus placerat, quam dolor rutrum nunc, quis tristique mi diam vel nisi. Aenean vehicula venenatis ligula. Fusce vehicula turpis quis sapien pellentesque pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis nec arcu vel massa congue rhoncus.</p>
+                <p>Nulla facilisi. Vivamus congue tincidunt euismod. Proin nec ornare urna. Sed ullamcorper ante at nibh
+                    finibus, tincidunt finibus odio varius. Curabitur et semper quam, eget posuere leo. Sed pharetra ex
+                    ac sapien mattis convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet,
+                    sapien quis dapibus placerat, quam dolor rutrum nunc, quis tristique mi diam vel nisi. Aenean
+                    vehicula venenatis ligula. Fusce vehicula turpis quis sapien pellentesque pharetra. Pellentesque
+                    habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis nec arcu vel
+                    massa congue rhoncus.</p>
             </div>
             <div class="right-about-me">
                 <img src="assets/img/about_me_seniors.png" alt="Idosos sobre mim">
@@ -124,9 +158,12 @@
 
                 <div class="right-footer">
                     <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen" width="50vh"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact" alt="Facebook IncludeGen" width="50vh"></a>
-                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact" alt="Twitter IncludeGen" width="50vh"></a>
+                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact"
+                                alt="Instagram IncludeGen" width="50vh"></a>
+                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact"
+                                alt="Facebook IncludeGen" width="50vh"></a>
+                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact"
+                                alt="Twitter IncludeGen" width="50vh"></a>
                         <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                     </div>
                 </div>
@@ -135,6 +172,7 @@
 
     </div>
 
+    <a href="logout.php">sair</a>
     <script src="assets/js/home.js"></script>
 </body>
 

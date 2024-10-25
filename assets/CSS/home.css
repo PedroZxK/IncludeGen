@@ -47,10 +47,16 @@ body {
     color: #ddd;
 }
 
+
 .right-nav-div img,
 .left-nav-div img {
     border-radius: 50%;
     height: 50px;
+}
+
+.right-nav-div {
+    display: flex;
+    gap: 1rem;
 }
 
 #presentation {
