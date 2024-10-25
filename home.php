@@ -26,7 +26,7 @@
                         <li><a href="#">Página inicial</a></li>
                         <li><a href="#">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
-                        <li><a href="#">Previdência</a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
