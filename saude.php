@@ -9,24 +9,28 @@
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <div class="logo">
-        <img src="assets/img/logo.png" alt="Logo">
-      </div>
-      <nav>
-  <ul>
-    <li><a href="#" class="active">Página Inicial</a></li>
-    <li><a href="#">Saúde</a></li>
-    <li><a href="#">Entretenimento</a></li>
-    <li><a href="#">Fórum</a></li>
-    <li><a href="#">Previdência</a></li>
-  </ul>
-</nav>
+<div id="content">
+        <nav id="navbar">
+            <div class="navbar-includeGen">
+                <div class="left-nav-div">
+                    <img src="assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="itens-nav-div">
+                    <ul>
+                        <li><a href="#">Página inicial</a></li>
+                        <li><a href="#">Saúde</a></li>
+                        <li><a href="#">Entretenimento</a></li>
+                        <li><a href="#">Fórum</a></li>
+                        <li><a href="#">Previdência</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-div">
+                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                </div>
+            </div>
+        </nav>
 
-      
-    </div>
-  </header>
 
 
   <section class="hero">
