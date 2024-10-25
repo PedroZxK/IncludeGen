@@ -29,7 +29,6 @@
 
     <section class="hero">
         <div class="hero-text">
-            <img src="assets\img\logo2.png" alt="" class="logo-hero">
             <h1>Unindo gerações através da inclusão</h1>
         </div>
         <div class="hero-image">
