@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param('ssssss', $email, $name, $phone, $date_of_birth, $hashed_password, $role);
 
             if ($stmt->execute()) {
-                echo '<script>alert("Usuário cadastrado com sucesso!");window.location.href="login.php";</script>';
+                echo '<script>alert("Usuário cadastrado com sucesso!");window.location.href="index.php";</script>';
             } else {
                 echo 'Erro ao cadastrar usuário.';
             }
