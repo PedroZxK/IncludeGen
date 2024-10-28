@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
-    width: 100%;
+    width: auto;
     z-index: 1000;
 }
 
@@ -301,3 +301,8 @@ body {
     margin-left: 10px;
     font-size: 14px;
 }
+
+.contact-links img {
+    max-width: 32px;
+}
+    

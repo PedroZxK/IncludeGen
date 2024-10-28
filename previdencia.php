@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<?php
+include 'conexao.php';
+include 'validacao.php';
+
+$id = $_SESSION['user_id'] ?? null;
+
+if ($id) {
+    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
+} else {
+    $username = "ID de usuário não definido";
+}
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema Previdenciário</title>
+    <link rel="shortcut icon" href="assets\img\logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/previdencia.css">
 </head>
 
 <body>
-    <div id="content">
+<div id="content">
         <nav id="navbar">
             <div class="navbar-includeGen">
                 <div class="left-nav-div">
@@ -18,20 +47,18 @@
                 <div class="itens-nav-div">
                     <ul>
                         <li><a href="home.php">Página inicial</a></li>
-                        <li><a href="#">Saúde</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
+                        <li><a href="entretenimento .php">Entretenimento </a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                </nav>
             </div>
-        </nav>
-        <div class="header">
-            <h1>Sistema Previdenciário</h1>
-        </div>
-
         <div class="container">
 
             <div class="section">
@@ -106,38 +133,38 @@
                     </tr>
                     <tr>
                         <td>2029</td>
-                        <td>105 (limite)</td>
+                        <td>105</td>
                         <td>96</td>
                     </tr>
                     <tr>
                         <td>2030</td>
-                        <td>105 (limite)</td>
+                        <td>105</td>
                         <td>97</td>
                     </tr>
                     <tr>
                         <td>2031</td>
-                        <td>105 (limite)</td>
+                        <td>105</td>
                         <td>98</td>
                     </tr>
                     <tr>
                         <td>2032</td>
-                        <td>105 (limite)</td>
+                        <td>105</td>
                         <td>99</td>
                     </tr>
                     <tr>
                         <td>2033</td>
-                        <td>105 (limite)</td>
+                        <td>105</td>
                         <td>100 (limite)</td>
                     </tr>
                     <tr>
                         <td>2034</td>
-                        <td>105 (limite)</td>
-                        <td>100 (limite)</td>
+                        <td>105</td>
+                        <td>100</td>
                     </tr>
                     <tr>
-                        <td>...s</td>
-                        <td>105 (limite)</td>
-                        <td>100 (limite)</td>
+                        <td>...</td>
+                        <td>105</td>
+                        <td>100</td>
                     </tr>
 
                 </table>
@@ -145,14 +172,14 @@
 
             <div class="section">
                 <h2>Quais são os requisitos?</h2>
-                <p>- Pontuação necessária: Homens precisam atingir 101 pontos e mulheres 91 pontos. A pontuação é uma
+                <p><span>Pontuação necessária:</span> Homens precisam atingir 101 pontos e mulheres 91 pontos. A pontuação é uma
                     soma
-                    da idade com o tempo de contribuição.<br>
+                    da idade com o tempo de contribuição.</p>
 
-                    - Idade mínima: A idade mínima de aposentadoria é de 65 anos para homens e 62 anos para
-                    mulheres.<br>
+                    <p><span>Idade mínima:</span> A idade mínima de aposentadoria é de 65 anos para homens e 62 anos para
+                    mulheres.</p>
 
-                    - Tempo mínimo de contribuição: É preciso ter, no mínimo, 15 anos de contribuição.<br></p>
+                    <p><span>Tempo mínimo de contribuição:</span> É preciso ter, no mínimo, 15 anos de contribuição.</p>
             </div>
 
 
@@ -179,15 +206,15 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section2">
+
+        <div class="section">
             <h2>Como acompanhar o pedido de aposentadoria</h2>
             <p>Após solicitar seu benefício, é essencial que você acompanhe como está o andamento de sua solicitação. Da
                 mesma forma do requerimento, seu pedido pode ser acompanhado pelo Portal Meu INSS (na opção consultar
-                pedidos), ou você pode ligar para o 135, que é a central de atendimento do INSS.<br> 
-                É interessante que você cheque o andamento do procedimento pelo menos uma vez por semana após realizar o pedido.</p>
+                pedidos), ou você pode ligar para o 135, que é a central de atendimento do INSS.</p>
+                <p>É interessante que você cheque o andamento do procedimento pelo menos uma vez por semana após realizar o pedido.</p>
         </div>
-
+    </div>
         <div id="footer-div">
             <footer class="includeGen-footer">
                 <div class="left-footer">
@@ -197,9 +224,9 @@
 
                 <div class="right-footer">
                     <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen" width="50vh"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact" alt="Facebook IncludeGen" width="50vh"></a>
-                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact" alt="Twitter IncludeGen" width="50vh"></a>
+                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen"></a>
+                        <a href="https://facebook.com"><img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen"></a>
+                        <a href="https://twitter.com"><img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen"></a>
                         <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                     </div>
                 </div>

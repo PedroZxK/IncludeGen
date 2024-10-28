@@ -50,20 +50,20 @@ if ($id) {
                 </div>
                 <div class="itens-nav-div">
                     <ul>
-                        <li><a href="#">Página inicial</a></li>
-                        <li><a href="#">Saúde</a></li>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
-                        <li><a href="#">Previdência</a></li>
+                        <li><a href="entretenimento .php">Entretenimento </a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                </nav>
             </div>
-        </nav>
-
-
+        
         <div id="presentation">
             <div class="presentation-left">
                 <h1>Unindo gerações através da inclusão</h1>
@@ -167,19 +167,14 @@ if ($id) {
 
                 <div class="right-footer">
                     <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact"
-                                alt="Instagram IncludeGen" width="50vh"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact"
-                                alt="Facebook IncludeGen" width="50vh"></a>
-                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact"
-                                alt="Twitter IncludeGen" width="50vh"></a>
+                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen"></a>
+                        <a href="https://facebook.com"><img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen"></a>
+                        <a href="https://twitter.com"><img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen"></a>
                         <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                     </div>
                 </div>
             </footer>
         </div>
-
-    </div>
 
     <a href="logout.php">sair</a>
     <script src="assets/js/home.js"></script>
