@@ -1,5 +1,33 @@
+<?php
+include 'conexao.php';
+include 'validacao.php';
+
+$id = $_SESSION['user_id'] ?? null;
+
+if ($id) {
+    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
+} else {
+    $username = "ID de usuário não definido";
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -26,24 +54,19 @@
                 </div>
                 <div class="itens-nav-div">
                     <ul>
-                        <li><a href="#">Página inicial</a></li>
-                        <li><a href="#">Saúde</a></li>
-                        <li><a href="#">Entretenimento</a></li>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
-                        <li><a href="#">Previdência</a></li>
+                        <li><a href="entretenimento.php">Entretenimento </a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                </nav>
             </div>
-        </nav>
-
-        <div class="voltar">
-            <button class="btn-voltar" onclick="history.back()">
-                <p>⬅ Voltar</p>
-            </button>
-        </div>
 
         <div id="banner">
             <img class="banner" src="assets/img/entretenimento-banner.jpg" alt="Idoso andando de bicicleta">
@@ -134,9 +157,9 @@
 
                 <div class="right-footer">
                     <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen" width="50vh"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.webp" id="facebook-contact" alt="Facebook IncludeGen" width="50vh"></a>
-                        <a href="https://twitter.com"><img src="assets/img/twitter.png" id="twitter-contact" alt="Twitter IncludeGen" width="50vh"></a>
+                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen"></a>
+                        <a href="https://facebook.com"><img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen"></a>
+                        <a href="https://twitter.com"><img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen"></a>
                         <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                     </div>
                 </div>

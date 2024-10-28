@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
 <?php
 include 'conexao.php';
 include 'validacao.php';
@@ -29,6 +26,9 @@ if ($id) {
 }
 ?>
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,7 +38,7 @@ if ($id) {
 </head>
 
 <body>
-<div id="content">
+    <div id="content">
         <nav id="navbar">
             <div class="navbar-includeGen">
                 <div class="left-nav-div">
@@ -49,7 +49,7 @@ if ($id) {
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
                         <li><a href="#">Fórum</a></li>
-                        <li><a href="entretenimento .php">Entretenimento </a></li>
+                        <li><a href="entretenimento.php">Entretenimento </a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>

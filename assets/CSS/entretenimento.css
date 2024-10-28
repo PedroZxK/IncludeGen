@@ -5,18 +5,14 @@ body {
     background-color: #FFFFFF;
 }
 
-#content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 #navbar {
     background-color: #111111;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
+    width: auto;
+    z-index: 1000;
 }
 
 .navbar-includeGen {
@@ -24,6 +20,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 1200px;
 }
 
 .itens-nav-div ul {
@@ -50,10 +47,16 @@ body {
     color: #ddd;
 }
 
+
 .right-nav-div img,
 .left-nav-div img {
     border-radius: 50%;
     height: 50px;
+}
+
+.right-nav-div {
+    display: flex;
+    gap: 1rem;
 }
 
 .voltar {
@@ -79,6 +82,7 @@ body {
 }
 
 #banner {
+    margin: 50px 0 0 0;
     display: flex;
     justify-content: center;
     position: relative;
@@ -204,4 +208,8 @@ body {
 .contact-links p {
     margin-left: 10px;
     font-size: 14px;
+}
+
+.contact-links img {
+    width: 32px;
 }
