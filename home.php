@@ -52,7 +52,7 @@ if ($id) {
                     <ul>
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
-                        <li><a href="#">Fórum</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
                         <li><a href="entretenimento .php">Entretenimento </a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
@@ -70,7 +70,7 @@ if ($id) {
                 <button>Saiba mais</button>
             </div>
             <div class="presentation-right">
-                <img src="assets/img/presentation_seniors.png" alt="Idosos se abraçando">
+                <img src="assets/img/idosoimghome.png" alt="Idosos se abraçando">
             </div>
         </div>
 

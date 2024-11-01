@@ -48,7 +48,7 @@ if ($id) {
                     <ul>
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
-                        <li><a href="#">Fórum</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
                         <li><a href="entretenimento.php">Entretenimento </a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
