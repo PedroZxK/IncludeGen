@@ -31,12 +31,12 @@ if ($id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/forum.css">
-    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
-    <title>Forum</title>
+    <link rel="stylesheet" href="assets\css\perfil.css">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png"> 
+    <title>Perfil - Ana Laura</title>
 </head>
 <body>
-    <div id="content">
+<div id="content">
         <nav id="navbar">
             <div class="navbar-includeGen">
                 <div class="left-nav-div">
@@ -57,60 +57,8 @@ if ($id) {
                 </div>
                 </nav>
             </div>
-
-            <div id="forum-content">
-    <div class="search-category-section">
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquise algum fórum">
-            <button>🔍</button>
-        </div>
-        <div class="category-section">
-            <h3>Categoria</h3>
-            <ul>
-                <li><a href="#">Tudo</a></li>
-                <li><a href="#">Saúde</a></li>
-                <li><a href="#">Entretenimento</a></li>
-                <li><a href="#">Dúvida</a></li>
-                <li><a href="#">Conselho</a></li>
-                <li><a href="#">Recomendação</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="forum-post-section">
-        <div class="new-post">
-            <input type="text" placeholder="Título">
-            <textarea placeholder="Descrição"></textarea>
-            <div class="tag-buttons">
-                <span>#Saúde</span>
-                <span>#Dúvida</span>
-                <span>#Conselho</span>
-                <span>#Recomendação</span>
-                <span>#Entretenimento</span>
-            </div>
-            <button class="publish-btn">Publicar</button>
-        </div>
-
-        <div class="post">
-            <h4>O que eu devo fazer para aumentar minha imunidade?</h4>
-            <p>eu acho que a minha imunidade está muito baixa, gostaria de aumentar ela mas não sei quais alimentos eu devo consumir para aumentá-la</p>
-            <div class="post-tags">
-                <span>#Saúde</span>
-                <span>#Dúvida</span>
-                <span>#Conselho</span>
-                <span>#Recomendação</span>
-            </div>
-            <div class="post-info">
-                <span>6 comentários</span>
-                <span>6 horas atrás</span>
-                <span>❤️ 666</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div id="footer-div">
+            
+            <div id="footer-div">
     <footer class="includeGen-footer">
         <div class="left-footer">
             <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">

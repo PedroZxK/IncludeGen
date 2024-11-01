@@ -149,23 +149,28 @@ if ($id) {
 
 
         <div id="footer-div">
-            <footer class="includeGen-footer">
-                <div class="left-footer">
-                    <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
-                    <p>Unindo gerações através da inclusão</p>
-                </div>
-
-                <div class="right-footer">
-                    <div class="contact-links">
-                        <a href="https://instagram.com"><img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen"></a>
-                        <a href="https://facebook.com"><img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen"></a>
-                        <a href="https://twitter.com"><img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen"></a>
-                        <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
-                    </div>
-                </div>
-            </footer>
+    <footer class="includeGen-footer">
+        <div class="left-footer">
+            <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
+            <p>Unindo gerações através da inclusão</p>
         </div>
-    </div>
+
+        <div class="right-footer">
+            <div class="contact-links">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
+                </a>
+                <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</div>
 
 </body>
 
