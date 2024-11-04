@@ -79,8 +79,10 @@ body {
 }
 
 .hero img {
-  width: 90%;
-  height: auto;
+  width: 75%;
+  height: 26vw;
+  object-fit: cover;
+  border-radius: 1vw;
 }
 
 .profissionais, .saude {

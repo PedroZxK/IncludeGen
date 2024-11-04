@@ -78,13 +78,14 @@ if ($id) {
         <div id="about-me">
             <div class="left-about-me">
                 <h1>Sobre nós</h1>
-                <p>Nulla facilisi. Vivamus congue tincidunt euismod. Proin nec ornare urna. Sed ullamcorper ante at nibh
-                    finibus, tincidunt finibus odio varius. Curabitur et semper quam, eget posuere leo. Sed pharetra ex
-                    ac sapien mattis convallis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam laoreet,
-                    sapien quis dapibus placerat, quam dolor rutrum nunc, quis tristique mi diam vel nisi. Aenean
-                    vehicula venenatis ligula. Fusce vehicula turpis quis sapien pellentesque pharetra. Pellentesque
-                    habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis nec arcu vel
-                    massa congue rhoncus.</p>
+                <p>Na IncludeGen, nossa missão é apoiar os idosos, oferecendo informações
+                    essenciais para seu bem-estar e autonomia. Sabemos que o mundo está
+                    em constante mudança, e queremos garantir que todos, independentemente
+                    da idade, tenham acesso às novidades que impactam suas vidas. Nossa equipe 
+                    está dedicada a fornecer conteúdos relevantes e de fácil compreensão, 
+                    ajudando-os a ficar por dentro de assuntos importantes como saúde, entretenimento 
+                    e cuidados especiais. Estamos aqui para tornar a inclusão digital uma 
+                    realidade para todos.</p>
             </div>
             <div class="right-about-me">
                 <img src="assets/img/about_me_seniors.png" alt="Idosos sobre mim">
