@@ -53,6 +53,10 @@ body {
     color: #ddd;
 }
 
+.img-sair img {
+    width: 2.5vw;
+}
+
 /* Fórum */
 #forum-content {
     display: flex;

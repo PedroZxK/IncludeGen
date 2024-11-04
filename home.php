@@ -184,8 +184,6 @@ if ($id) {
     </footer>
 </div>
 
-
-    <a href="logout.php">sair</a>
     <script src="assets/js/home.js"></script>
 </body>
 

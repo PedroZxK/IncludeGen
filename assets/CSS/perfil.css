@@ -59,6 +59,10 @@ body {
     gap: 1rem;
 }
 
+.img-sair img {
+    width: 2.5vw;
+}
+
 
 #footer-div {
     background-color: #111111;

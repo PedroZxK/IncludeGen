@@ -46,7 +46,7 @@ if ($id) {
 
 <body>
 
-    <div id="content">
+        <div id="content">
         <nav id="navbar">
             <div class="navbar-includeGen">
                 <div class="left-nav-div">
@@ -65,6 +65,7 @@ if ($id) {
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
                 </nav>
             </div>
 
