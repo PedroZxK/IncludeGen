@@ -31,6 +31,10 @@ body {
   max-width: 1200px;
 }
 
+.navbar-includeGen p {
+  margin: 16px;
+}
+
 .itens-nav-div ul {
   list-style-type: none;
   display: flex;
@@ -66,6 +70,7 @@ body {
   display: flex;
   gap: 1rem;
 }
+
 
 .img-sair img {
   width: 2.5vw;

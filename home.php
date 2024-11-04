@@ -116,7 +116,7 @@ if ($id) {
             </div>
         </div>
 
-        <div id="card-seniors">
+        <a href="saude.php"><div id="card-seniors">
             <div class="card">
                 <div class="background-text">
                     <h2>Espaço saúde do idoso</h2>
@@ -125,9 +125,9 @@ if ($id) {
                 <div class="arrow-card">
                     <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
                 </div>
-            </div>
+            </div></a>
 
-            <a href="atividades.php">
+            <a href="entretenimento.php">
                 <div class="card">
                     <div class="background-text">
                         <h2>Entretenimento para idosos</h2>
@@ -139,16 +139,17 @@ if ($id) {
                 </div>
             </a>
 
-            <div class="card">
+            <a href="forum.php"><div class="card">
                 <div class="background-text">
-                    <h2>Trabalho para maioridade</h2>
+                    <h2>Forum para mentoria e suporte</h2>
                 </div>
                 <img src="assets/img/seniors_card3.png" alt="Encontre Idosos imagem 3" class="card-image">
                 <div class="arrow-card">
                     <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
-                </div>
+                </div></a>
             </div>
-            <div class="card">
+
+           <a href="previdencia.php"> <div class="card">
                 <div class="background-text">
                     <h2>Cálculo e notícias da previdência</h2>
                 </div>
@@ -157,7 +158,7 @@ if ($id) {
                     <img src="assets/img/seta.webp" alt="Seta" width="50vh" class="arrow-image">
                 </div>
             </div>
-        </div>
+        </div></a>
 
 
         <div id="footer-div">
