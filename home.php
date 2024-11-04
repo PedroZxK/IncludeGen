@@ -53,7 +53,7 @@ if ($id) {
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
                         <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento .php">Entretenimento </a></li>
+                        <li><a href="entretenimento.php">Entretenimento </a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
@@ -61,6 +61,7 @@ if ($id) {
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
                 </nav>
             </div>
         
@@ -182,8 +183,6 @@ if ($id) {
     </footer>
 </div>
 
-
-    <a href="logout.php">sair</a>
     <script src="assets/js/home.js"></script>
 </body>
 

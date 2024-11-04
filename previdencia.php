@@ -57,6 +57,7 @@ if ($id) {
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
                 </nav>
             </div>
         <div class="container">
@@ -77,9 +78,9 @@ if ($id) {
                 </p>
                 <table>
                     <tr>
-                        <th>Ano</th>
-                        <th>Pontos (Homens)</th>
-                        <th>Pontos (Mulheres)</th>
+                        <th class="tituloTabela">Ano</th>
+                        <th class="tituloTabela">Pontos (Homens)</th>
+                        <th class="tituloTabela">Pontos (Mulheres)</th>
                     </tr>
                     <tr>
                         <td>2019</td>
