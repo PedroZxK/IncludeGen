@@ -1,0 +1,144 @@
+body {
+    font-family: "Lora", serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #1B1E25;
+    margin-bottom: 130px;
+}
+
+
+nav {
+    font-family: 'Josefin Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0C0B0B;
+    padding: 10px;
+}
+
+#btn-nav {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 26px;
+    padding: 18px;
+}
+
+nav li:hover {
+    background-color: #1D5F15;
+    border-radius: 12px;
+    height: 100%;
+    transition: .35s;
+}
+
+nav li {
+    transition: .35s;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.img-logout {
+
+    width: 46px;
+}
+
+#header h1 {
+    color: white;
+    text-decoration: underline;
+}
+
+#voltar {
+    color: white;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/60/60577.png');
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: 25px center;
+    padding-left: 50px;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#form-mensagem {
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background-color: #1B1E25;
+}
+
+#mensagem {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin: 0;
+    border: none;
+    color: #fff;
+}
+
+#mensagem::placeholder {
+    color: #fff;
+}
+
+#form-mensagem input {
+    padding: 10px 20px;
+    background-color: #0C0B0B;
+    color: #fff;
+    border: none;
+}
+
+.a-ft {
+    color: white;
+}
+
+footer {
+    background-color: #121212;
+    color: white;
+    flex-direction: row;
+    display: flex;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+footer li {
+    list-style: none;
+    padding: 0 0px 11px 0;
+    font-size: 1.7vw;
+}
+
+footer li,
+a {
+    text-decoration: none;
+    color: white;
+    text-align: left;
+}
+
+.img-footer-logo {
+    width: 15vw;
+}
+
+.redes-footer img {
+    width: 4vw;
+    padding: 0 11px 0 0;
+    cursor: pointer;
+}
+
+.cont-2,
+.cont-1 {
+    padding: 20px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+}

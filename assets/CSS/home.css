@@ -138,7 +138,7 @@ body {
 }
 
 .left-about-me p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     line-height: 1.4;
     color: #555;
 }
@@ -247,7 +247,8 @@ body {
 }
 
 .card img {
-    width: 100%;
+    width: 16vw;
+    height: 271px;
     border-radius: 10px;
 }
 
@@ -270,7 +271,8 @@ body {
 }
 
 .arrow-card img {
-    width: 20px;
+    width: 35px;
+    height: 31px;
 }
 
 #footer-div {

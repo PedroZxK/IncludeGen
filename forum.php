@@ -1,139 +1,284 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header("Location: login");
+    exit;
+}
+
 include 'conexao.php';
-include 'validacao.php';
 
-$id = $_SESSION['user_id'] ?? null;
+$mysqli = new mysqli($hostname, $username, $password, $database);
 
-if ($id) {
-    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
-    if ($stmt) {
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['criar_pergunta'])) {
+        $titulo = $_POST['titulo'];
+        $descricao = $_POST['descricao'];
 
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $username = $row['name'];
-        } else {
-            $username = "Usuário não encontrado";
-        }
-        $stmt->close();
-    } else {
-        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+        $sql = "INSERT INTO perguntas (titulo, descricao) VALUES ('$titulo', '$descricao')";
+        $resultado = $mysqli->query($sql);
+
+        header("Location: forum");
+        exit();
     }
-} else {
-    $username = "ID de usuário não definido";
+
+    if (isset($_POST['editar_pergunta'])) {
+        $id = $_POST['editar_pergunta'];
+        header("Location: editar_noticia?id=$id");
+        exit();
+    }
+
+    if (isset($_POST['excluir_pergunta'])) {
+        $id = $_POST['excluir_pergunta'];
+        if ($_SESSION['email'] === 'admin@gmail.com') {
+            echo '<script>';
+            echo 'if (confirm("Tem certeza de que deseja excluir esta pergunta?")) {';
+            echo 'window.location.href = "excluir_noticia?id=' . $id . '";';
+            echo '}';
+            echo '</script>';
+        }
+    }
+}
+
+$sql = "SELECT * FROM perguntas";
+$resultado = $mysqli->query($sql);
+$perguntas = array();
+
+while ($pergunta = $resultado->fetch_assoc()) {
+    $perguntas[] = $pergunta;
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum - RigRover</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/forum.css">
-    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
-    <title>Forum</title>
+    <link rel="stylesheet" href="assets\css\responsividade\forum-responsivo.css">
+    <script src="assets/js/hamburguinho.js"></script>
+    <script src="assets/js/dropdownuser.js"></script>
+    <script src="assets/js/logout.js"></script>
+
+        <link rel="shortcut icon" type="imagex/png" href="assets/img/logourl.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
+
 <body>
-<div id="content">
-        <nav id="navbar">
-            <div class="navbar-includeGen">
-                <div class="left-nav-div">
-                    <img src="assets/img/logo.png" alt="Logo">
+    <div class="rigrover-1">
+        <nav class="navbar">
+            <ul>
+                <li>
+                    <a href="home" id="btn-nav">Página Inicial</a>
+                </li>
+                <li>
+                    <a href="noticias" id="btn-nav">Notícias</a>
+                </li>
+                <li>
+                    <a href="eventos" id="btn-nav">Eventos</a>
+                </li>
+                <li>
+                    <a href="forum" id="btn-nav">Fórum</a>
+                </li>
+                <li>
+                    <a href="hardware" id="btn-nav">Hardware</a>
+                </li>
+                <li>
+                    <a href="games.php" id="btn-nav">Wiki Jogos</a>
+                </li>
+                <div class="dropdown">
+                    <a href="#" onclick="toggleDropdown(event)"><img class="dropbtn" src="assets/img/imagemuserdrop.png" alt=""></a>
+                    <div class="dropdown-content">
+                        <a class="btn-dropdown" href="#" onclick="confirmLogout()">Sair</a>
+                    </div>
                 </div>
-                <div class="itens-nav-div">
+
+            </ul>
+        </nav>
+
+        <!-- --------Hamburguinho Menu----------  -->
+        <div class="topnav">
+            <div class="active">
+                <a href="#myLinks"></a>
+            </div>
+
+            <div id="myLinks">
+                <a href="home">Página Inicial</a>
+                <a href="noticias">Notícias</a>
+                <a href="eventos">Eventos</a>
+                <a href="forum">Fórum</a>
+                <a href="comparar_hardwares">Hardware</a>
+                <a href="games.php">Wiki Jogos</a>
+                <a href="logout">Deslogar da Conta</a>
+            </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- ----------------------------------------- -->
+
+        <div class="main-content">
+            <h3>Fórum Rig Rover</h3>
+            <div class="noticias">
+
+                <form method="post" action="">
+
+                    <div class="criar-pergunta">
+                    <h3>Criar Nova Pergunta</h3>
+                        <div class="titulo-criar">     
+                            <textarea id="titulo" name="titulo" placeholder="Digite o título do fórum" rows="4" required></textarea>
+                        </div>
+                        <div class="descricao-criar">
+                            <textarea id="descricao" name="descricao"  placeholder="Escreva a descrição dele" rows="4" required></textarea>
+                        </div>
+                        <input class="btn-criar" type="submit" name="criar_pergunta" value="Criar Pergunta">
+                    </div>
+
+                </form>
+
+                <?php foreach ($perguntas as $pergunta): ?>
+                    <div class="pergunta">
+                        <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>&titulo=<?php echo urlencode($pergunta['titulo']); ?>"
+                                class="titulo-pergunta">
+                                <?php echo $pergunta['titulo']; ?>
+                            </a></h2>
+                        <p>
+                            <?php echo $pergunta['descricao']; ?>
+                        </p>
+                        <?php
+                        $sql = "SELECT COUNT(*) AS total FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "'";
+                        $result = $mysqli->query($sql);
+                        $row = $result->fetch_assoc();
+                        $numero_elementos = $row['total'];
+
+                        if ($numero_elementos > 0) {
+                            $ultimaMensagemQuery = "SELECT mensagem, data_envio FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "' ORDER BY id DESC LIMIT 1";
+                            $ultimaMensagemResult = $mysqli->query($ultimaMensagemQuery);
+                            $ultimaMensagemRow = $ultimaMensagemResult->fetch_assoc();
+                            $ultimaMensagem = $ultimaMensagemRow['mensagem'];
+                            $data_envio = $ultimaMensagemRow['data_envio'];
+                            $textoIntervalo = "";
+                            if ($data_envio) {
+                                $data_envio = strtotime($data_envio);
+                                $agora = time();
+                                $diff = $agora - $data_envio;
+                                if ($diff < 60) {
+                                    $textoIntervalo = "Agora";
+                                } elseif ($diff < 3600) {
+                                    $textoIntervalo = floor($diff / 60) . " min atrás";
+                                } elseif ($diff < 86400) {
+                                    $textoIntervalo = floor($diff / 3600) . " horas atrás";
+                                } else {
+                                    $textoIntervalo = date("d/m/Y H:i:s", $data_envio);
+                                }
+                            }
+                        } else {
+                            $textoIntervalo = "Nenhuma mensagem";
+                        }
+
+                        echo '<div class="elements-csv">';
+                        echo '<img src="https://icones.pro/wp-content/uploads/2021/05/message-ballons-symbole-noir.png" alt="Ícone" />';
+                        echo '<p class="numero-elementos">' . $numero_elementos . '</p>';
+                        echo '<p class="ultima-mensagem">' . $textoIntervalo . '</p>';
+                        echo '</div>';
+                        if ($_SESSION['email'] === 'admin@gmail.com'): ?>
+                            <div class="btn-div-crud">
+                                <form method="post" action="">
+                                    <input onclick="editarPergunta(<?php echo $pergunta['id']; ?>)" type="button"
+                                        name="editar_pergunta" class="btn-crud" value="Editar">
+                                </form>
+                                <form method="post" action="">
+                                    <input onclick="excluirPergunta(<?php echo $pergunta['id']; ?>)" type="button"
+                                        name="excluir_pergunta" class="btn-crud2" value="Excluir">
+                                </form>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+        <footer>
+            <div class="cont-1">
+                <img src="assets\img\mascoterigrover.png" alt="Mascote Rigrover" class="img-footer-logo">
+                <ul>
+                    <li><a href="index">Página Inicial</a></li>
+                    <li><a href="#quem-somos">Quem Somos?</a></li>
+                    <li><a href="#equipe-desenvolvedora">Equipe Desenvolvedora</a></li>
+                </ul>
+            </div>
+            <div class="cont-2">
+                <div>
+                <div class="redes-footer">
+                            <a id="instarigrover"><img src="assets/img/iconinstagram.png" alt=""></a>
+                            <a id="twiterrigrover"><img src="assets/img/iconx.png" alt=""></a>
+                            <a id="facerigrover"><img src="assets/img/iconfacebook.png" alt=""></a>
+                            <a id="youtuberigrover"><img src="assets/img/iconyoutube.png" alt=""></a>
+                        </div>
+                        <script>
+                            document.getElementById('instarigrover').addEventListener('click', function() {
+                            window.open('https://www.instagram.com/rigrovergames/', '_blank');
+                            });
+
+                            document.getElementById('twiterrigrover').addEventListener('click', function() {
+                            window.open('https://twitter.com/RigRoverGames', '_blank');
+                            });
+
+                            document.getElementById('facerigrover').addEventListener('click', function() {
+                            window.open('https://www.facebook.com/profile.php?id=61556959637519', '_blank');
+                            });
+
+                            document.getElementById('youtuberigrover').addEventListener('click', function() {
+                            window.open('https://www.youtube.com/channel/UCi9tZH0GeYkvskNO2d8mzIg', '_blank');
+                            });
+                            </script>
                     <ul>
-                        <li><a href="home.php">Página inicial</a></li>
-                        <li><a href="saude.php">Saúde</a></li>
-                        <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento.php">Entretenimento </a></li>
-                        <li><a href="previdencia.php">Previdência</a></li>
+                        <li>
+                            <a href="fale_conosco">Fale Conosco</a>
+                        </li>
+                        <li>
+                            <a href="politicas_de_privacidade">Políticas de Privacidade</a>
+                        </li>
+                        <li>
+                            <a href="termo_e_condicoes">Termos e Condições</a>
+                        </li>
                     </ul>
                 </div>
-                <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-                </div>
-                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
-                </nav>
             </div>
-
-            <div id="forum-content">
-    <div class="search-category-section">
-        <div class="search-bar">
-            <input type="text" placeholder="Pesquise algum fórum">
-            <button>🔍</button>
-        </div>
-        <div class="category-section">
-            <h3>Categoria</h3>
-            <ul>
-                <li><a href="#">Tudo</a></li>
-                <li><a href="#">Saúde</a></li>
-                <li><a href="#">Entretenimento</a></li>
-                <li><a href="#">Dúvida</a></li>
-                <li><a href="#">Conselho</a></li>
-                <li><a href="#">Recomendação</a></li>
-            </ul>
-        </div>
     </div>
-
-    <div class="forum-post-section">
-        <div class="new-post">
-            <input type="text" placeholder="Título">
-            <textarea placeholder="Descrição"></textarea>
-            <div class="tag-buttons">
-                <span>#Saúde</span>
-                <span>#Dúvida</span>
-                <span>#Conselho</span>
-                <span>#Recomendação</span>
-                <span>#Entretenimento</span>
-            </div>
-            <button class="publish-btn">Publicar</button>
-        </div>
-
-        <div class="post">
-            <h4>O que eu devo fazer para aumentar minha imunidade?</h4>
-            <p>eu acho que a minha imunidade está muito baixa, gostaria de aumentar ela mas não sei quais alimentos eu devo consumir para aumentá-la</p>
-            <div class="post-tags">
-                <span>#Saúde</span>
-                <span>#Dúvida</span>
-                <span>#Conselho</span>
-                <span>#Recomendação</span>
-            </div>
-            <div class="post-info">
-                <span>6 comentários</span>
-                <span>6 horas atrás</span>
-                <span>❤️ 666</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div id="footer-div">
-    <footer class="includeGen-footer">
-        <div class="left-footer">
-            <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
-            <p>Unindo gerações através da inclusão</p>
-        </div>
-
-        <div class="right-footer">
-            <div class="contact-links">
-                <a href="https://instagram.com" target="_blank">
-                    <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
-                </a>
-                <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
-            </div>
-        </div>
     </footer>
-</div>
 
+    <script>
+        function editarPergunta(id) {
+            window.location.href = "editar_pergunta.php?id=" + id;
+        }
+
+    function excluirPergunta(id) {
+        Swal.fire({
+            title: 'Tem certeza?',
+            text: "Você está prestes a excluir esta pergunta. Essa ação não pode ser revertida!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, exclua!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "excluir_pergunta?id=" + id;
+            }
+        });
+    }
+</script>
+    </script>
 </body>
+
 </html>
