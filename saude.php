@@ -67,24 +67,24 @@ if ($id) {
 
 
   <section class="profissionais">
-    <h2>Encontre profissionais para te ajudar</h2>
+    <h2>Encontre profissionais da região para te ajudar</h2>
     <div class="cards-container">
       <div class="card">
-        <img src="assets/img/mulher.png" alt="Ana Laura">
-        <h3>Ana Laura</h3>
-        <p>Me chamo Ana Laura tenho 35 anos e possuo 10 anos de experiência com cuidados com idosos.</p>
+        <img src="assets/img/padrao.png" alt="Ana Laura">
+        <h3>Padrão Enfermagem</h3>
+        <p>A Padrão Enfermagem São José dos Campos é uma empresa especializada na intermediação de profissionais da Enfermagem e Cuidadores de Idosos, Adultos e Crianças.</p>
         <button><a href="perfil-AnaLaura.php">Saiba mais</a></button>
       </div>
       <div class="card">
-        <img src="assets/img/mulher.png" alt="Ana Laura">
-        <h3>Ana Laura</h3>
-        <p>Me chamo Ana Laura tenho 35 anos e possuo 10 anos de experiência com cuidados com idosos.</p>
+        <img src="assets/img/family.png" alt="Ana Laura">
+        <h3>Family Care Senior</h3>
+        <p>Precisa de cuidador de idosos de confiança? Family Care Senior, o melhor custo benefício do Vale do Paraíba. Oferecem uma gama completa de serviços de cuidado, voltados para atender todas as necessidades dos clientes.</p>
         <button><a href="perfil.php">Saiba mais</a></button>
       </div>
       <div class="card">
-        <img src="assets/img/mulher.png" alt="Ana Laura">
-        <h3>Ana Laura</h3>
-        <p>Me chamo Ana Laura tenho 35 anos e possuo 10 anos de experiência com cuidados com idosos.</p>
+        <img src="assets/img/cuida.png" alt="Ana Laura">
+        <h3>Cuidadores do Vale</h3>
+        <p>Atender a necessidade do mercado oferecendo segurança e conforto ao assistido, assim como prestar sempre um serviço de elevado padrão de qualidade, garantindo tranquilidade para a família que contrata a prestação do serviço.</p>
         <button><a href="perfil.php">Saiba mais</a></button>
       </div>
     </div>

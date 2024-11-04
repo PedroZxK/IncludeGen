@@ -59,10 +59,24 @@ body {
     gap: 1rem;
 }
 
+
 .img-sair img {
     width: 2.5vw;
-}
+  }
 
+  .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+  }
+  
+  .hero img {
+    width: 75%;
+    height: 26vw;
+    object-fit: cover;
+    border-radius: 1vw;
+  }  
 
 #footer-div {
     background-color: #111111;
@@ -107,3 +121,70 @@ body {
 .contact-links img {
     max-width: 32px;
 }
+
+.hero img {
+    width: 80%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 20px;
+  }
+  
+  .profile-card, .bio-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+  }
+  
+  .profile-photo {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+  }
+  
+  .profile-card h2 {
+    margin: 10px 0;
+  }
+  
+  .profile-card p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    color: #111;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .bio-card {
+    width: 600px;
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .bio-card h2 {
+    margin-bottom: 10px;
+  }
+  
+  .bio-card p {
+    color: #555;
+  }

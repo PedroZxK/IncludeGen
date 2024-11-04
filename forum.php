@@ -48,6 +48,30 @@ $perguntas = array();
 while ($pergunta = $resultado->fetch_assoc()) {
     $perguntas[] = $pergunta;
 }
+
+$id = $_SESSION['user_id'] ?? null;
+
+if ($id) {
+    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
+} else {
+    $username = "ID de usuário não definido";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -65,84 +89,60 @@ while ($pergunta = $resultado->fetch_assoc()) {
     <script src="assets/js/dropdownuser.js"></script>
     <script src="assets/js/logout.js"></script>
 
-        <link rel="shortcut icon" type="imagex/png" href="assets/img/logourl.png">
+        <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
 
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <div class="rigrover-1">
-        <nav class="navbar">
-            <ul>
-                <li>
-                    <a href="home" id="btn-nav">Página Inicial</a>
-                </li>
-                <li>
-                    <a href="noticias" id="btn-nav">Notícias</a>
-                </li>
-                <li>
-                    <a href="eventos" id="btn-nav">Eventos</a>
-                </li>
-                <li>
-                    <a href="forum" id="btn-nav">Fórum</a>
-                </li>
-                <li>
-                    <a href="hardware" id="btn-nav">Hardware</a>
-                </li>
-                <li>
-                    <a href="games.php" id="btn-nav">Wiki Jogos</a>
-                </li>
-                <div class="dropdown">
-                    <a href="#" onclick="toggleDropdown(event)"><img class="dropbtn" src="assets/img/imagemuserdrop.png" alt=""></a>
-                    <div class="dropdown-content">
-                        <a class="btn-dropdown" href="#" onclick="confirmLogout()">Sair</a>
-                    </div>
+<div id="content">
+        <nav id="navbar">
+            <div class="navbar-includeGen">
+                <div class="left-nav-div">
+                    <img src="assets/img/logo.png" alt="Logo">
                 </div>
-
-            </ul>
-        </nav>
-
-        <!-- --------Hamburguinho Menu----------  -->
-        <div class="topnav">
-            <div class="active">
-                <a href="#myLinks"></a>
+                <div class="itens-nav-div">
+                    <ul>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
+                        <li><a href="entretenimento.php">Entretenimento </a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-div">
+                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+                </nav>
             </div>
-
-            <div id="myLinks">
-                <a href="home">Página Inicial</a>
-                <a href="noticias">Notícias</a>
-                <a href="eventos">Eventos</a>
-                <a href="forum">Fórum</a>
-                <a href="comparar_hardwares">Hardware</a>
-                <a href="games.php">Wiki Jogos</a>
-                <a href="logout">Deslogar da Conta</a>
-            </div>
-            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                <i class="fa fa-bars"></i>
-            </a>
-        </div>
-        <!-- ----------------------------------------- -->
 
         <div class="main-content">
-            <h3>Fórum Rig Rover</h3>
             <div class="noticias">
 
                 <form method="post" action="">
 
                     <div class="criar-pergunta">
-                    <h3>Criar Nova Pergunta</h3>
+                    <div class="prencher">
                         <div class="titulo-criar">     
-                            <textarea id="titulo" name="titulo" placeholder="Digite o título do fórum" rows="4" required></textarea>
+                            <textarea id="titulo" name="titulo" placeholder="Titulo" rows="4" required></textarea>
                         </div>
                         <div class="descricao-criar">
-                            <textarea id="descricao" name="descricao"  placeholder="Escreva a descrição dele" rows="4" required></textarea>
+                            <textarea id="descricao" name="descricao"  placeholder="Descrição" rows="4" required></textarea>
+                        </div>
                         </div>
                         <input class="btn-criar" type="submit" name="criar_pergunta" value="Criar Pergunta">
                     </div>
-
+                   
                 </form>
 
                 <?php foreach ($perguntas as $pergunta): ?>
@@ -206,55 +206,30 @@ while ($pergunta = $resultado->fetch_assoc()) {
                 <?php endforeach; ?>
             </div>
         </div>
-        <footer>
-            <div class="cont-1">
-                <img src="assets\img\mascoterigrover.png" alt="Mascote Rigrover" class="img-footer-logo">
-                <ul>
-                    <li><a href="index">Página Inicial</a></li>
-                    <li><a href="#quem-somos">Quem Somos?</a></li>
-                    <li><a href="#equipe-desenvolvedora">Equipe Desenvolvedora</a></li>
-                </ul>
+        <div id="footer-div">
+    <footer class="includeGen-footer">
+        <div class="left-footer">
+            <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
+            <p>Unindo gerações através da inclusão</p>
+        </div>
+
+        <div class="right-footer">
+            <div class="contact-links">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
+                </a>
+                <a href="https://facebook.com" target="_blank">
+                    <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
+                </a>
+                <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
             </div>
-            <div class="cont-2">
-                <div>
-                <div class="redes-footer">
-                            <a id="instarigrover"><img src="assets/img/iconinstagram.png" alt=""></a>
-                            <a id="twiterrigrover"><img src="assets/img/iconx.png" alt=""></a>
-                            <a id="facerigrover"><img src="assets/img/iconfacebook.png" alt=""></a>
-                            <a id="youtuberigrover"><img src="assets/img/iconyoutube.png" alt=""></a>
-                        </div>
-                        <script>
-                            document.getElementById('instarigrover').addEventListener('click', function() {
-                            window.open('https://www.instagram.com/rigrovergames/', '_blank');
-                            });
-
-                            document.getElementById('twiterrigrover').addEventListener('click', function() {
-                            window.open('https://twitter.com/RigRoverGames', '_blank');
-                            });
-
-                            document.getElementById('facerigrover').addEventListener('click', function() {
-                            window.open('https://www.facebook.com/profile.php?id=61556959637519', '_blank');
-                            });
-
-                            document.getElementById('youtuberigrover').addEventListener('click', function() {
-                            window.open('https://www.youtube.com/channel/UCi9tZH0GeYkvskNO2d8mzIg', '_blank');
-                            });
-                            </script>
-                    <ul>
-                        <li>
-                            <a href="fale_conosco">Fale Conosco</a>
-                        </li>
-                        <li>
-                            <a href="politicas_de_privacidade">Políticas de Privacidade</a>
-                        </li>
-                        <li>
-                            <a href="termo_e_condicoes">Termos e Condições</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-    </div>
+        </div>
     </footer>
+</div>
+
 
     <script>
         function editarPergunta(id) {
