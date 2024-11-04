@@ -79,33 +79,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil']))
     <link rel="stylesheet" href="assets/css/profile.css">
     <link rel="stylesheet" href="assets/css/responsivel-profile.css">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
     <div class="profile-box-1">
         <div class="picture-profile">
             <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
-            <p class="profile-name"><?= htmlspecialchars($username); ?></p>
             <!-- Formulário para alterar a foto de perfil -->
             <form action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="nova_foto_perfil" accept="image/*" required>
                 <button type="submit">Alterar foto de perfil</button>
             </form>
+            <p><?= htmlspecialchars($username); ?></p>
+            <a href="./logout.php">Sair</a>
         </div>
     </div>
     <div class="profile-box-2">
-        <p>informações gerais</p>
+        <h2>Informações gerais</h2>
         <div class="container-info">
-            <p><?= htmlspecialchars($email); ?></p>
+            <p>Email</p>
+            <p class="info-text"><?= htmlspecialchars($email); ?></p>
         </div>
         <div class="container-info">
-            <p><?= htmlspecialchars($phone); ?></p>
+            <p>Telefone</p>
+            <p class="info-text"><?= htmlspecialchars($phone); ?></p>
         </div>
         <div class="container-info">
-            <p><?= htmlspecialchars($date_of_birth); ?></p>
+            <p>Data de nascimento</p>
+            <p class="info-text"><?= htmlspecialchars($date_of_birth); ?></p>
         </div>
         <div class="container-info">
-            <p><?= htmlspecialchars($cpf); ?></p>
+            <p>Cpf</p>
+            <p class="info-text"><?= htmlspecialchars($cpf); ?></p>
         </div>
     </div>
+
 </body>
 </html>
