@@ -126,6 +126,11 @@ body {
   margin-bottom: 15px;
 }
 
+a{
+  color: #111111;
+  text-decoration: none;
+}
+
 button {
   background-color: #ffcc00;
   border: none;
@@ -180,3 +185,4 @@ button {
 .contact-links img {
   width: 32px;
 }
+
