@@ -31,7 +31,7 @@ if ($id) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets\css\perfil.css">
+    <link rel="stylesheet" href="assets\css\perfilee.css">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png"> 
     <title>Perfil - Ana Laura</title>
 </head>
@@ -59,6 +59,32 @@ if ($id) {
                 </nav>
             </div>
             
+
+            <section class="hero">
+  <img src="assets/img/sorrindo-idosos.png" alt="Idosos sorrindo">
+</section>
+
+<main class="profile-container">
+  <div class="profile-card">
+    <img src="assets/img/padrao.png" alt="Foto de Ana Laura" class="profile-photo">
+    <h2>Padrão Enfermagem</h2>
+    <p>35 anos</p>
+    <p>analauracontato@gmail.com</p>
+    <p>(12)345678910</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-x-twitter"></i></a>
+      <a href="#"><i class="fab fa-whatsapp"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+  
+  <div class="bio-card">
+    <h2>Sobre</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget dui in ex lobortis dignissim. Quisque non turpis nunc. Curabitur fermentum nulla eget sapien suscipit consequat ac quis enim. Nulla convallis magna id enim viverra, et mollis orci malesuada. Mauris non massa mi. Aliquam eu ante non.</p>
+  </div>
+</main>
+
             <div id="footer-div">
     <footer class="includeGen-footer">
         <div class="left-footer">
