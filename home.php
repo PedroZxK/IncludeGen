@@ -5,7 +5,7 @@ include 'validacao.php';
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
-    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    $stmt = $mysqli->prepare("SELECT name, foto_perfil FROM users WHERE id = ? LIMIT 1");
     if ($stmt) {
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -14,6 +14,7 @@ if ($id) {
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             $username = $row['name'];
+            $foto_perfil = $row['foto_perfil'];
         } else {
             $username = "Usuário não encontrado";
         }
@@ -53,13 +54,16 @@ if ($id) {
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
                         <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento .php">Entretenimento </a></li>
+                        <li><a href="entretenimento.php">Entretenimento</a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
                 <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                    <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+                    <div class="profile">
+                    <p class="profile-name"><?= htmlspecialchars($username); ?></p>
+                    <a class="view-profile-link" href="./perfil.php">ver perfil</a>
+                    </div>
                 </div>
                 </nav>
             </div>
@@ -102,14 +106,12 @@ if ($id) {
             <img src="./assets/img/cuidador-de-idosos2.jpg">
             <img src="./assets/img/cuidador-de-idosos3.jpg">
             <img src="./assets/img/cuidador-de-idosos4.jpg">
-            <img src="./assets/img/cuidador-de-idosos5.jfif">
             
             <!-- 2 -->
             <img src="./assets/img/cuidador-de-idosos1.jpg">
             <img src="./assets/img/cuidador-de-idosos2.jpg">
             <img src="./assets/img/cuidador-de-idosos3.jpg">
             <img src="./assets/img/cuidador-de-idosos4.jpg">
-            <img src="./assets/img/cuidador-de-idosos5.jfif">
             </div>
             </div>
         </div>
