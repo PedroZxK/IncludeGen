@@ -7,7 +7,6 @@ body {
     color: #333333;
 }
 
-/* Navbar */
 #navbar {
     background-color: #111111;
     display: flex;
@@ -73,7 +72,6 @@ body {
     margin: 0;
 }
 
-/* Estilo do Contêiner de Fundo */
 #background-voltar {
     position: relative;
     background-image: url('../img/alzheimer.png');
@@ -86,7 +84,6 @@ body {
     padding-top: 20px;
 }
 
-/* Botão "Voltar" */
 #background-voltar a button {
     position: absolute;
     top: 20px;
@@ -106,7 +103,6 @@ body {
     background-color: #333;
 }
 
-/* Texto Centralizado */
 .background-info {
     position: absolute;
     top: 50%;
@@ -127,7 +123,6 @@ body {
     color: #333;
 }
 
-/* Layout Geral da Página */
 #background-page {
     max-width: 800px;
     margin: -30px auto 0 auto;
@@ -136,7 +131,6 @@ body {
     padding-top: 60px;
 }
 
-/* Estilo das Imagens */
 #background-page img {
     width: 100%;
     height: auto;
@@ -144,7 +138,6 @@ body {
     border-radius: 8px;
 }
 
-/* Estilo do Vídeo */
 #background-page video {
     width: 100%;
     height: auto;

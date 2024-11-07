@@ -28,5 +28,4 @@ function startCarousel() {
     }, 3000);
 }
 
-// Inicia o carrossel
 startCarousel();

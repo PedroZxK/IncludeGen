@@ -30,34 +30,26 @@ if ($id) {
     $username = "ID de usuário não definido";
 }
 
-// Processamento do upload da nova foto de perfil
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil'])) {
     $novaFoto = $_FILES['nova_foto_perfil'];
     
-    // Verifica se o upload foi realizado sem erros
     if ($novaFoto['error'] === UPLOAD_ERR_OK) {
         $nomeArquivo = $novaFoto['name'];
         $caminhoTemp = $novaFoto['tmp_name'];
         $diretorioDestino = 'imagens_perfil/';
 
-        // Verifica se o diretório existe; se não, cria o diretório com permissão de escrita
         if (!is_dir($diretorioDestino)) {
             mkdir($diretorioDestino, 0777, true);
         }
 
-        // Gera um novo nome de arquivo único
         $novoNomeArquivo = uniqid() . '_' . $nomeArquivo;
         $caminhoFinal = $diretorioDestino . $novoNomeArquivo;
-
-        // Move o arquivo para o diretório de destino
         if (move_uploaded_file($caminhoTemp, $caminhoFinal)) {
-            // Atualiza o caminho da nova foto de perfil no banco de dados
             $stmt = $mysqli->prepare("UPDATE users SET foto_perfil = ? WHERE id = ?");
             $stmt->bind_param("si", $caminhoFinal, $id);
             $stmt->execute();
             $stmt->close();
 
-            // Atualiza a variável $foto_perfil para exibir a nova imagem
             $foto_perfil = $caminhoFinal;
         } else {
             echo "Erro ao mover o arquivo de upload.";
@@ -86,7 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil']))
     <div class="profile-box-1">
         <div class="picture-profile">
             <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
-            <!-- Formulário para alterar a foto de perfil -->
             <form action="" method="post" enctype="multipart/form-data">
                 <input type="file" name="nova_foto_perfil" accept="image/*" required>
                 <button type="submit">Alterar foto de perfil</button>

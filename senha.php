@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redefinir Senha - IncludeGen</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="assets/css/senha.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
         rel="stylesheet">
@@ -67,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
 
-        <a href="cadastro">Não tem uma conta? Cadastre-se aqui.</a><br>
-        <a href="login">Já tem uma conta? Logue aqui.</a>
+        <a href="cadastro.php">Não tem uma conta? Cadastre-se aqui.</a><br>
+        <a href="login.php">Já tem uma conta? Logue aqui.</a>
     </div>
 </body>
 

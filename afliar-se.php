@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 setcookie('email', '', time() - 3600, "/");
             }
 
-            // Executa a query e verifica o sucesso
             if ($stmt->execute()) {
                 echo '<script>alert("Usuário cadastrado com sucesso!");window.location.href="login.php";</script>';
             } else {

@@ -67,8 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 
 
-        <a href="cadastro">Não tem uma conta? Cadastre-se aqui.</a><br>
-        <a href="login">Já tem uma conta? Logue aqui.</a>
+        <a href="cadastro.php">Não tem uma conta? Cadastre-se aqui.</a><br>
+        <a href="login.php">Já tem uma conta? Logue aqui.</a>
     </div>
 </body>
 

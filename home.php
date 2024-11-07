@@ -102,13 +102,10 @@ if ($id) {
             </div>
             <div class="right-meet-seniors">
             <div class="img-container">
-            <!-- 1 -->
             <img src="./assets/img/cuidador-de-idosos1.jpg">
             <img src="./assets/img/cuidador-de-idosos2.jpg">
             <img src="./assets/img/cuidador-de-idosos3.jpg">
             <img src="./assets/img/cuidador-de-idosos4.jpg">
-            
-            <!-- 2 -->
             <img src="./assets/img/cuidador-de-idosos1.jpg">
             <img src="./assets/img/cuidador-de-idosos2.jpg">
             <img src="./assets/img/cuidador-de-idosos3.jpg">
