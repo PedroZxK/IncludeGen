@@ -1,0 +1,198 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    color: #333333;
+}
+
+/* Navbar */
+#navbar {
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: auto;
+    z-index: 1000;
+    position: relative;
+}
+
+.navbar-includeGen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.itens-nav-div ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.itens-nav-div ul li {
+    margin: 0 15px;
+}
+
+.itens-nav-div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itens-nav-div ul li a:hover {
+    color: #ddd;
+}
+
+.right-nav-div img,
+.left-nav-div img {
+    border-radius: 50%;
+    height: 50px;
+}
+
+.right-nav-div {
+    display: flex;
+    gap: 1rem;
+}
+
+.profile-name {
+    color: white;
+    margin: 8px 0 0 0;
+}
+
+.view-profile-link {
+    color: #727272;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* Estilo do Contêiner de Fundo */
+#background-voltar {
+    position: relative;
+    background-image: url('../img/alzheimer.png');
+    background-size: cover;
+    background-position: center;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-top: 20px;
+}
+
+/* Botão "Voltar" */
+#background-voltar a button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#background-voltar a button:hover {
+    background-color: #333;
+}
+
+/* Texto Centralizado */
+.background-info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 400px;
+    z-index: 1;
+}
+
+.background-info h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Layout Geral da Página */
+#background-page {
+    max-width: 800px;
+    margin: -30px auto 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    padding-top: 60px;
+}
+
+/* Estilo das Imagens */
+#background-page img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+/* Estilo do Vídeo */
+#background-page video {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    background-color: #000000;
+}
+
+#footer-div {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+}
+
+.includeGen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-footer-logo {
+    margin-right: 10px;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a {
+    margin: 0 5px;
+}
+
+.contact-links p {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.contact-links img {
+    max-width: 32px;
+}

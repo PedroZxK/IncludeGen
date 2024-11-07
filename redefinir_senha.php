@@ -18,13 +18,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'includegen@gmail.com'; // Seu e-mail Gmail
-        $mail->Password = 'wlxs hlgt jtca exky'; // Senha do aplicativo ou autenticação de duas etapas
+        $mail->Username = 'includegen@gmail.com';
+        $mail->Password = 'wlxs hlgt jtca exky';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-        $mail->setFrom('includegen@gmail.com'); // Remetente
-        $mail->addAddress($email); // Destinatário
+        $mail->setFrom('includegen@gmail.com');
+        $mail->addAddress($email);
 
         $mail->isHTML(true);
         $mail->Subject = 'Redefinir Senha - IncludeGen';
