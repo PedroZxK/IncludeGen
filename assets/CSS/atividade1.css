@@ -1,0 +1,164 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+#navbar {
+    background-color: #111111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    width: auto;
+    z-index: 1000;
+    margin-bottom: 20px;
+}
+
+.navbar-includeGen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.itens-nav-div ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.itens-nav-div ul li {
+    margin: 0 15px;
+}
+
+.itens-nav-div ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.itens-nav-div ul li a:hover {
+    color: #ddd;
+}
+
+
+.right-nav-div img,
+.left-nav-div img {
+    border-radius: 50%;
+    height: 50px;
+}
+
+.right-nav-div {
+    display: flex;
+    gap: 1rem;
+}
+
+.img-sair img {
+    width: 2.5vw;
+}
+
+#banner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.botao {
+    width: 80%;
+    align-items: start;
+}
+
+.button-voltar {
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid 1px black;
+    transition: .15s;
+    min-width: 5vw;
+    cursor: pointer;
+}
+
+.button-voltar:hover {
+    background-color: white;
+    color: black;
+    transition: .15s;
+}
+
+.idosos {
+    width: 80%;
+}
+
+#text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    width: 80%;
+    gap: 20px;
+    padding: 20px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.content li {
+    list-style-type: none;
+    margin: 10px;
+}
+
+#footer-div {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+}
+
+.includeGen-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-footer {
+    display: flex;
+    align-items: center;
+}
+
+.img-footer-logo {
+    margin-right: 10px;
+}
+
+.right-footer {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+}
+
+.contact-links a {
+    margin: 0 5px;
+}
+
+.contact-links p {
+    margin-left: 10px;
+    font-size: 14px;
+}
+
+.contact-links img {
+    width: 32px;
+}

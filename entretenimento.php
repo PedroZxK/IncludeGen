@@ -46,29 +46,28 @@ if ($id) {
 
 <body>
 
-        <div id="content">
-        <nav id="navbar">
-            <div class="navbar-includeGen">
-                <div class="left-nav-div">
-                    <img src="assets/img/logo.png" alt="Logo">
-                </div>
-                <div class="itens-nav-div">
-                    <ul>
-                        <li><a href="home.php">Página inicial</a></li>
-                        <li><a href="saude.php">Saúde</a></li>
-                        <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento.php">Entretenimento </a></li>
-                        <li><a href="previdencia.php">Previdência</a></li>
-                    </ul>
-                </div>
-                <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-                </div>
-                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
-                </nav>
+    <nav id="navbar">
+        <div class="navbar-includeGen">
+            <div class="left-nav-div">
+                <img src="assets/img/logo.png" alt="Logo">
             </div>
+            <div class="itens-nav-div">
+                <ul>
+                    <li><a href="home.php">Página inicial</a></li>
+                    <li><a href="saude.php">Saúde</a></li>
+                    <li><a href="forum.php">Fórum</a></li>
+                    <li><a href="entretenimento.php">Entretenimento </a></li>
+                    <li><a href="previdencia.php">Previdência</a></li>
+                </ul>
+            </div>
+            <div class="right-nav-div">
+                <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+            </div>
+            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+    </nav>
 
+    <div id="content">
         <div id="banner">
             <img class="banner" src="assets/img/entretenimento-banner.jpg" alt="Idoso andando de bicicleta">
             <div class="text">
@@ -84,94 +83,108 @@ if ($id) {
                 <div class="card-img">
                     <img class="card-img" src="./assets/img/image (1).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Jogos de memória</p>
+                <p class="card-text">Jogos de memória são atividades cognitivas que ajudam a melhorar e manter a função cerebral.</p>
+                <a href="atividade1.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
+
             </div>
 
             <div class="card1">
                 <div class="card-img">
                     <img class="card-img" src="./assets/img/image (2).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Passeios ao ar livre</p>
+                <p class="card-text">Os passeios ao ar livre são fundamentais para a saúde física e mental dos idosos.</p>
+                <a href="atividade2.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
             </div>
 
             <div class="card1">
                 <div class="card-img">
                     <img class="card-img" src="./assets/img/image (3).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Jogos de tabuleiro</p>
+                <p class="card-text">Jogos de tabuleiro são atividades cognitivas e sociais ideais para idosos.</p>
+                <a href="atividade3.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
             </div>
 
             <div class="card1">
                 <div class="card-img">
                     <img class="card-img" src="./assets/img/image (4).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Grupos de leitura</p>
+                <p class="card-text">Grupos de leitura incentivam a leitura em conjunto e oferecem espaço para discussões sobre livros e temas variados.</p>
+                <a href="atividade4.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
             </div>
 
             <div class="card1">
                 <div class="card-img">
                     <img class="card-img" src="./assets/img/image (5).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Aulas de dança</p>
+                <p class="card-text">As aulas de dança são muito populares entre idosos, promovendo atividade física, coordenação motora, equilíbrio e socialização.</p>
+                <a href="atividade5.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
             </div>
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (7).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (6).jpg" alt="Idosos se divertindo com jogos">
                 </div>
-                <p class="title">Entretenimento de idosos e os benefícios da interação </p>
-                <p class="card-text">À medida que envelhecemos, é muito fácil parar de socializar ou participar de uma rede social limitada. </p>
-                <button>
-                    <p>Saiba mais</p>
-                </button>
+                <p class="title">Música e canto</p>
+                <p class="card-text">A música e o canto têm efeitos profundos na saúde mental e emocional dos idosos.</p>
+                <a href="atividade6.php">
+                    <button>
+                        <p>Saiba mais</p>
+                    </button>
+                </a>
             </div>
 
         </div>
+    </div>
 
 
-        <div id="footer-div">
-    <footer class="includeGen-footer">
-        <div class="left-footer">
-            <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
-            <p>Unindo gerações através da inclusão</p>
-        </div>
-
-        <div class="right-footer">
-            <div class="contact-links">
-                <a href="https://instagram.com" target="_blank">
-                    <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
-                </a>
-                <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
+    <div id="footer-div">
+        <footer class="includeGen-footer">
+            <div class="left-footer">
+                <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
+                <p>Unindo gerações através da inclusão</p>
             </div>
-        </div>
-    </footer>
-</div>
+
+            <div class="right-footer">
+                <div class="contact-links">
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
+                    </a>
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
+                    </a>
+                    <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
 
 </body>
 
