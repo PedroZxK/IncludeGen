@@ -103,15 +103,13 @@ body {
 
 .text {
     display: flex;
-    flex-direction: row;
-    gap: 200px;  
+    gap: 100px;
     position: absolute;
     top: 30%;
-    left: 50%;  
+    left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     font-size: 2.5vw;
-    text-align: left;
     font-family: "Nunito Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: bold;
@@ -119,7 +117,6 @@ body {
     font-variation-settings:
         "wdth"100,
         "YTLC"500;
-    float: left;
 }
 
 .text1 {
@@ -216,4 +213,18 @@ body {
 
 .contact-links img {
     width: 32px;
+}
+
+@media screen and (max-width: 768px) {
+    .text {
+        font-size: 3vw;
+    }
+
+    .card1 {
+        width: 80%;
+    }
+
+    #topicos {
+        grid-template-columns: 1fr;
+    }
 }
