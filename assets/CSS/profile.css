@@ -8,6 +8,7 @@ body {
 }
 
 .profile-box-1 {
+    position: relative;
     margin: 1%;
     width: 40%;
     display: flex;
@@ -15,6 +16,21 @@ body {
     background-color: #dbdbdb;
     border-radius: 10px;
     align-items: center;
+}
+
+.goBack-link {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
+    color: white;
+    background-color: #111111;
+    border: solid 1px black;
+    border-radius: 5px;
 }
 
 .profile-box-2 {
@@ -51,7 +67,16 @@ body {
     justify-content: center;
 }
 
+.picture-profile form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .picture-profile img {
+    position: relative;
     border-radius: 50%;
     width: 400px; 
     height: 400px;
@@ -60,17 +85,54 @@ body {
     margin: 20px;
 }
 
+.hover-icon {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+label:hover .hover-icon {
+    opacity: 1;
+}
+
 .picture-profile p {
     font-size: 20px;
 }
 
 .picture-profile a {
     background-color: #111111;
+    border: solid 1px black;
     border-radius: 5px;
+    margin-bottom: 10px;
     padding: 10px;
     width: 100px;
     color: white;
     text-decoration: none;
     display: flex;
     justify-content: center;
+}
+
+.goBack-link:hover, .picture-profile a:hover {
+    background-color: white;
+    color: black;
+    transition: .2s;
+}
+
+@media (max-width: 1100px) {
+    body {
+        flex-direction: column;
+    }
+
+    .profile-box-1 {
+        width: 98%;
+    }
+
+    .profile-box-2 {
+        width: 98%;
+    }
 }

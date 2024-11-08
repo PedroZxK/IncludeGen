@@ -76,12 +76,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil']))
 </head>
 <body>
     <div class="profile-box-1">
+        <a class="goBack-link" href="javascript:history.back()"><ion-icon name="chevron-back-outline"></ion-icon></a>
         <div class="picture-profile">
-            <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
-            <form action="" method="post" enctype="multipart/form-data">
-                <input type="file" name="nova_foto_perfil" accept="image/*" required>
-                <button type="submit">Alterar foto de perfil</button>
-            </form>
+        <form action="" method="post" enctype="multipart/form-data">
+        <label for="nova_foto_perfil">
+        <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar" style="cursor: pointer;">
+        <ion-icon name="image-outline" class="hover-icon"></ion-icon>
+        </label>                
+                <input id="nova_foto_perfil" type="file" name="nova_foto_perfil" accept="image/*" required style="display: none;">
+                <button type="submit">Confirmar alteração</button>
+        </form>
             <p><?= htmlspecialchars($username); ?></p>
             <a href="./logout.php">Sair</a>
         </div>
@@ -99,10 +103,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil']))
         <div class="container-info">
             <p>Data de nascimento</p>
             <p class="info-text"><?= htmlspecialchars($date_of_birth); ?></p>
-        </div>
-        <div class="container-info">
-            <p>Cpf</p>
-            <p class="info-text"><?= htmlspecialchars($cpf); ?></p>
         </div>
     </div>
 
