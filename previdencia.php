@@ -35,30 +35,49 @@ if ($id) {
     <title>Sistema Previdenciário</title>
     <link rel="shortcut icon" href="assets\img\logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/previdencia.css">
+    <link rel="stylesheet" href="assets/CSS/previdenciaResponsivo.css">
+    <script src="./assets/js/hamburguer.js"></script>
 </head>
 
 <body>
     <div id="content">
-        <nav id="navbar">
-            <div class="navbar-includeGen">
-                <div class="left-nav-div">
-                    <img src="assets/img/logo.png" alt="Logo">
-                </div>
-                <div class="itens-nav-div">
-                    <ul>
-                        <li><a href="home.php">Página inicial</a></li>
-                        <li><a href="saude.php">Saúde</a></li>
-                        <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento.php">Entretenimento </a></li>
-                        <li><a href="previdencia.php">Previdência</a></li>
-                    </ul>
-                </div>
-                <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-                </div>
-                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
-        </nav>
+    <nav id="navbar">
+        <div class="navbar-includeGen">
+            <div class="left-nav-div">
+                <img src="assets/img/logo.png" alt="Logo">
+            </div>
+            <div class="itens-nav-div">
+                <ul>
+                    <li><a href="home.php">Página inicial</a></li>
+                    <li><a href="saude.php">Saúde</a></li>
+                    <li><a href="forum.php">Fórum</a></li>
+                    <li><a href="entretenimento.php">Entretenimento</a></li>
+                    <li><a href="previdencia.php">Previdência</a></li>
+                </ul>
+            </div>
+            <div class="right-nav-div">
+                <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+            </div>
+            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div id="sidebar">
+                <button class="fechar" onclick="toggleMenu()">
+                    X
+                </button>
+                <a class="sidebarlink" href="home.php">Página Inicial</a>
+                <a class="sidebarlink" href="saude.php">Saúde</a>
+                <a class="sidebarlink" href="forum.php">Fórum</a>
+                <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                <a class="sidebarlink" href="previdencia.php">Previdência</a>
+            </div>
+    </nav>
     </div>
     <div class="container">
 

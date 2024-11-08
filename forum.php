@@ -84,26 +84,26 @@ if ($id) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/forum.css">
-    <link rel="stylesheet" href="assets\css\responsividade\forum-responsivo.css">
-    <script src="assets/js/hamburguinho.js"></script>
+    <link rel="stylesheet" href="assets/CSS/forumResponsivo.css">
+    <script src="assets/js/hamburguer.js"></script>
     <script src="assets/js/dropdownuser.js"></script>
     <script src="assets/js/logout.js"></script>
 
-        <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
 
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-<div id="content">
+    <div id="content">
         <nav id="navbar">
             <div class="navbar-includeGen">
                 <div class="left-nav-div">
@@ -114,7 +114,7 @@ if ($id) {
                         <li><a href="home.php">Página inicial</a></li>
                         <li><a href="saude.php">Saúde</a></li>
                         <li><a href="forum.php">Fórum</a></li>
-                        <li><a href="entretenimento.php">Entretenimento </a></li>
+                        <li><a href="entretenimento.php">Entretenimento</a></li>
                         <li><a href="previdencia.php">Previdência</a></li>
                     </ul>
                 </div>
@@ -123,112 +123,129 @@ if ($id) {
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
                 <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
-                </nav>
-            </div>
 
-        <div class="main-content">
-            <div class="noticias">
+                <button class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-                <form method="post" action="">
+                <div id="sidebar">
+                    <button class="fechar" onclick="toggleMenu()">
+                        X
+                    </button>
+                    <a class="sidebarlink" href="home.php">Página Inicial</a>
+                    <a class="sidebarlink" href="saude.php">Saúde</a>
+                    <a class="sidebarlink" href="forum.php">Fórum</a>
+                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
+                </div>
+        </nav>
+    </div>
 
-                    <div class="criar-pergunta">
+    <div class="main-content">
+        <div class="noticias">
+
+            <form method="post" action="">
+
+                <div class="criar-pergunta">
                     <div class="prencher">
-                        <div class="titulo-criar">     
+                        <div class="titulo-criar">
                             <textarea id="titulo" name="titulo" placeholder="Titulo" rows="4" required></textarea>
                         </div>
                         <div class="descricao-criar">
-                            <textarea id="descricao" name="descricao"  placeholder="Descrição" rows="4" required></textarea>
+                            <textarea id="descricao" name="descricao" placeholder="Descrição" rows="4" required></textarea>
                         </div>
-                        </div>
-                        <input class="btn-criar" type="submit" name="criar_pergunta" value="Criar Pergunta">
                     </div>
-                   
-                </form>
+                    <input class="btn-criar" type="submit" name="criar_pergunta" value="Criar Pergunta">
+                </div>
 
-                <?php foreach ($perguntas as $pergunta): ?>
-                    <div class="pergunta">
-                        <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>&titulo=<?php echo urlencode($pergunta['titulo']); ?>"
-                                class="titulo-pergunta">
-                                <?php echo $pergunta['titulo']; ?>
-                            </a></h2>
-                        <p>
-                            <?php echo $pergunta['descricao']; ?>
-                        </p>
-                        <?php
-                        $sql = "SELECT COUNT(*) AS total FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "'";
-                        $result = $mysqli->query($sql);
-                        $row = $result->fetch_assoc();
-                        $numero_elementos = $row['total'];
+            </form>
 
-                        if ($numero_elementos > 0) {
-                            $ultimaMensagemQuery = "SELECT mensagem, data_envio FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "' ORDER BY id DESC LIMIT 1";
-                            $ultimaMensagemResult = $mysqli->query($ultimaMensagemQuery);
-                            $ultimaMensagemRow = $ultimaMensagemResult->fetch_assoc();
-                            $ultimaMensagem = $ultimaMensagemRow['mensagem'];
-                            $data_envio = $ultimaMensagemRow['data_envio'];
-                            $textoIntervalo = "";
-                            if ($data_envio) {
-                                $data_envio = strtotime($data_envio);
-                                $agora = time();
-                                $diff = $agora - $data_envio;
-                                if ($diff < 60) {
-                                    $textoIntervalo = "Agora";
-                                } elseif ($diff < 3600) {
-                                    $textoIntervalo = floor($diff / 60) . " min atrás";
-                                } elseif ($diff < 86400) {
-                                    $textoIntervalo = floor($diff / 3600) . " horas atrás";
-                                } else {
-                                    $textoIntervalo = date("d/m/Y H:i:s", $data_envio);
-                                }
+            <?php foreach ($perguntas as $pergunta): ?>
+                <div class="pergunta">
+                    <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>&titulo=<?php echo urlencode($pergunta['titulo']); ?>"
+                            class="titulo-pergunta">
+                            <?php echo $pergunta['titulo']; ?>
+                        </a></h2>
+                    <p>
+                        <?php echo $pergunta['descricao']; ?>
+                    </p>
+                    <?php
+                    $sql = "SELECT COUNT(*) AS total FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "'";
+                    $result = $mysqli->query($sql);
+                    $row = $result->fetch_assoc();
+                    $numero_elementos = $row['total'];
+
+                    if ($numero_elementos > 0) {
+                        $ultimaMensagemQuery = "SELECT mensagem, data_envio FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "' ORDER BY id DESC LIMIT 1";
+                        $ultimaMensagemResult = $mysqli->query($ultimaMensagemQuery);
+                        $ultimaMensagemRow = $ultimaMensagemResult->fetch_assoc();
+                        $ultimaMensagem = $ultimaMensagemRow['mensagem'];
+                        $data_envio = $ultimaMensagemRow['data_envio'];
+                        $textoIntervalo = "";
+                        if ($data_envio) {
+                            $data_envio = strtotime($data_envio);
+                            $agora = time();
+                            $diff = $agora - $data_envio;
+                            if ($diff < 60) {
+                                $textoIntervalo = "Agora";
+                            } elseif ($diff < 3600) {
+                                $textoIntervalo = floor($diff / 60) . " min atrás";
+                            } elseif ($diff < 86400) {
+                                $textoIntervalo = floor($diff / 3600) . " horas atrás";
+                            } else {
+                                $textoIntervalo = date("d/m/Y H:i:s", $data_envio);
                             }
-                        } else {
-                            $textoIntervalo = "Nenhuma mensagem";
                         }
+                    } else {
+                        $textoIntervalo = "Nenhuma mensagem";
+                    }
 
-                        echo '<div class="elements-csv">';
-                        echo '<img src="https://icones.pro/wp-content/uploads/2021/05/message-ballons-symbole-noir.png" alt="Ícone" />';
-                        echo '<p class="numero-elementos">' . $numero_elementos . '</p>';
-                        echo '<p class="ultima-mensagem">' . $textoIntervalo . '</p>';
-                        echo '</div>';
-                        if ($_SESSION['email'] === 'admin@gmail.com'): ?>
-                            <div class="btn-div-crud">
-                                <form method="post" action="">
-                                    <input onclick="editarPergunta(<?php echo $pergunta['id']; ?>)" type="button"
-                                        name="editar_pergunta" class="btn-crud" value="Editar">
-                                </form>
-                                <form method="post" action="">
-                                    <input onclick="excluirPergunta(<?php echo $pergunta['id']; ?>)" type="button"
-                                        name="excluir_pergunta" class="btn-crud2" value="Excluir">
-                                </form>
-                            </div>
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
+                    echo '<div class="elements-csv">';
+                    echo '<img src="https://icones.pro/wp-content/uploads/2021/05/message-ballons-symbole-noir.png" alt="Ícone" />';
+                    echo '<p class="numero-elementos">' . $numero_elementos . '</p>';
+                    echo '<p class="ultima-mensagem">' . $textoIntervalo . '</p>';
+                    echo '</div>';
+                    if ($_SESSION['email'] === 'admin@gmail.com'): ?>
+                        <div class="btn-div-crud">
+                            <form method="post" action="">
+                                <input onclick="editarPergunta(<?php echo $pergunta['id']; ?>)" type="button"
+                                    name="editar_pergunta" class="btn-crud" value="Editar">
+                            </form>
+                            <form method="post" action="">
+                                <input onclick="excluirPergunta(<?php echo $pergunta['id']; ?>)" type="button"
+                                    name="excluir_pergunta" class="btn-crud2" value="Excluir">
+                            </form>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div id="footer-div">
+        <footer class="includeGen-footer">
+            <div class="left-footer">
+                <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
+                <p>Unindo gerações através da inclusão</p>
             </div>
-        </div>
-        <div id="footer-div">
-    <footer class="includeGen-footer">
-        <div class="left-footer">
-            <img src="assets/img/logo.png" class="img-footer-logo" alt="Logo Include Gen" width="50vh">
-            <p>Unindo gerações através da inclusão</p>
-        </div>
 
-        <div class="right-footer">
-            <div class="contact-links">
-                <a href="https://instagram.com" target="_blank">
-                    <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
-                </a>
-                <a href="https://facebook.com" target="_blank">
-                    <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                </a>
-                <a href="https://twitter.com" target="_blank">
-                    <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
-                </a>
-                <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
+            <div class="right-footer">
+                <div class="contact-links">
+                    <a href="https://instagram.com" target="_blank">
+                        <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
+                    </a>
+                    <a href="https://facebook.com" target="_blank">
+                        <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
+                    </a>
+                    <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
+                </div>
             </div>
-        </div>
-    </footer>
-</div>
+        </footer>
+    </div>
 
 
     <script>
@@ -236,23 +253,23 @@ if ($id) {
             window.location.href = "editar_pergunta.php?id=" + id;
         }
 
-    function excluirPergunta(id) {
-        Swal.fire({
-            title: 'Tem certeza?',
-            text: "Você está prestes a excluir esta pergunta. Essa ação não pode ser revertida!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Sim, exclua!',
-            cancelButtonText: 'Cancelar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                window.location.href = "excluir_pergunta?id=" + id;
-            }
-        });
-    }
-</script>
+        function excluirPergunta(id) {
+            Swal.fire({
+                title: 'Tem certeza?',
+                text: "Você está prestes a excluir esta pergunta. Essa ação não pode ser revertida!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sim, exclua!',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "excluir_pergunta?id=" + id;
+                }
+            });
+        }
+    </script>
     </script>
 </body>
 

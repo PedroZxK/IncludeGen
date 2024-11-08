@@ -1,0 +1,39 @@
+@media (min-width: 320px) and (max-width: 979px) {
+
+    .hamburguer {
+        display: flex;
+    }
+
+    .fechar {
+        display: block;
+    }
+
+    .itens-nav-div ul {
+        display: none;
+    }
+
+    .logo {
+        height: auto;
+        width: 58%;
+    }
+
+    .sidebar__link.active {
+        display: flex;
+    }
+
+    .navbar-includeGen {
+        display: flex;
+        justify-content: space-between;
+    }	
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .includeGen-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
