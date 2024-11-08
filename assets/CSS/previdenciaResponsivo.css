@@ -60,4 +60,22 @@
         padding: 3px;
         text-align: center;
     }
+
+    a.ytp-title-link.yt-uix-sessionlink {
+        width: 15rem;
+    }
+
+    .iframe {
+        margin: 0;
+        width: 100%;
+    }
+
+    .ytp-cued-thumbnail-overlay-image {
+        width: 151%;
+        height: 100%;
+    }
+
+    .ytp-large-play-button {
+        left: 27%;
+    }
 }

@@ -5,24 +5,25 @@ include 'validacao.php';
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
-  $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
-  if ($stmt) {
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $stmt = $mysqli->prepare("SELECT name, foto_perfil FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($result->num_rows > 0) {
-      $row = $result->fetch_assoc();
-      $username = $row['name'];
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+            $foto_perfil = $row['foto_perfil'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
     } else {
-      $username = "Usuário não encontrado";
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
     }
-    $stmt->close();
-  } else {
-    echo 'Erro ao preparar a declaração: ' . $mysqli->error;
-  }
 } else {
-  $username = "ID de usuário não definido";
+    $username = "ID de usuário não definido";
 }
 ?>
 
@@ -58,9 +59,12 @@ if ($id) {
           </ul>
         </div>
         <div class="right-nav-div">
-          <img src="assets/img/avatar_temp.webp" alt="Avatar">
-          <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-        </div>
+                    <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+                    <div class="profile">
+                        <p class="profile-name"><?= htmlspecialchars($username); ?></p>
+                        <a class="view-profile-link" href="./perfil.php">ver perfil</a>
+                    </div>
+                </div>
         <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
         <button class="hamburguer">
@@ -115,7 +119,7 @@ if ($id) {
 
   <section class="saude">
     <h2>Saúde nunca é demais</h2>
-    <div class="cards-container">
+    <div class="cards-container2">
       <div class="card">
         <img src="assets/img/alzheimer.png" alt="Alzheimer">
         <h3>Alzheimer: Saiba tudo sobre ela</h3>
