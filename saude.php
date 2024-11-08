@@ -78,6 +78,7 @@ if ($id) {
           <a class="sidebarlink" href="forum.php">Fórum</a>
           <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
           <a class="sidebarlink" href="previdencia.php">Previdência</a>
+          <a class="sidebarlink" href="logout.php">Sair</a>
         </div>
     </nav>
   </div>

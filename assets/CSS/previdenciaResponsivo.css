@@ -25,6 +25,10 @@
         display: flex;
         justify-content: space-between;
     }	
+
+    .img-sair img {
+        display: none;
+        }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -36,4 +40,24 @@
         align-items: center;
     }
 
+
+    .step {
+         margin-left: 0px;
+    }
+
+    .inss {
+        margin-left: 0px;
+    }
+
+    .step-by-step {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        flex-direction: column;
+    }
+
+    th, td {
+        padding: 3px;
+        text-align: center;
+    }
 }
