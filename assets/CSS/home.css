@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -242,6 +246,7 @@ body {
 }
 
 .left-meet-seniors button {
+    width: 100%;
     background-color: white;
     border: none;
     border-radius: 8px;
@@ -364,6 +369,10 @@ body {
 .contact-links {
     display: flex;
     align-items: center;
+}
+
+.termos {
+    color: white;
 }
 
 .contact-links a {

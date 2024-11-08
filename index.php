@@ -96,6 +96,10 @@
             </div>
 
             <div class="right-footer">
+                <div class="documents">
+                    <a href="term   os.php" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" class="termos">Política de privacidade</a>
+                </div>
                 <div class="contact-links">
                     <a href="https://instagram.com" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
