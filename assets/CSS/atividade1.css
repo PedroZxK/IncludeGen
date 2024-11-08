@@ -120,7 +120,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
 }
 
 .botao {
@@ -149,6 +148,12 @@ body {
 
 .idosos {
     width: 80%;
+}
+
+#banner label {
+    width: 80%;
+    text-align: center;
+    font-size: .8rem;
 }
 
 #text {

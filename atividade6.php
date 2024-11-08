@@ -94,6 +94,7 @@ if ($id) {
                 </button>
             </div>
             <img src="./assets/img/image (12).png" class="idosos" alt="Idosos jogando carta.">
+            <label for="img">Fonte: https://depositphotos.com/br/photo/senior-man-with-guitar-50123347.html</label>
         </div>
 
         <div id="text">

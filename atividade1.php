@@ -94,6 +94,7 @@ if ($id) {
                 </button>
             </div>
             <img src="./assets/img/image (7).png" class="idosos" alt="Idosos jogando carta.">
+            <label for="img">Fonte: https://redesanare.com/estimulando-a-saude-cerebral-atraves-de-atividades-cognitivas/</label>
         </div>
 
         <div id="text">

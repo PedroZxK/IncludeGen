@@ -94,6 +94,7 @@ if ($id) {
                 </button>
             </div>
             <img src="./assets/img/image (11).png" class="idosos" alt="Idosos jogando carta.">
+            <label for="img">Fonte: https://www.drpaulobrambilla.com.br/reinventar-se-depois-dos-60-idosos-se-dedicam-a-hobbies-danca-e-esportes/</label>
         </div>
 
         <div id="text">

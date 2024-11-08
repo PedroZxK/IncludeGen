@@ -113,7 +113,7 @@ if ($id) {
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (2).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (8).png" alt="Idosos se divertindo com jogos">
                 </div>
                 <p class="title">Passeios ao ar livre</p>
                 <p class="card-text">Os passeios ao ar livre são fundamentais para a saúde física e mental dos idosos.</p>
@@ -126,7 +126,7 @@ if ($id) {
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (3).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (9).png" alt="Idosos se divertindo com jogos">
                 </div>
                 <p class="title">Jogos de tabuleiro</p>
                 <p class="card-text">Jogos de tabuleiro são atividades cognitivas e sociais ideais para idosos.</p>
@@ -139,7 +139,7 @@ if ($id) {
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (4).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (10).png" alt="Idosos se divertindo com jogos">
                 </div>
                 <p class="title">Grupos de leitura</p>
                 <p class="card-text">Grupos de leitura incentivam a leitura em conjunto e oferecem espaço para discussões sobre livros e temas variados.</p>
@@ -152,7 +152,7 @@ if ($id) {
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (5).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (11).png" alt="Idosos se divertindo com jogos">
                 </div>
                 <p class="title">Aulas de dança</p>
                 <p class="card-text">As aulas de dança são muito populares entre idosos, promovendo atividade física, coordenação motora, equilíbrio e socialização.</p>
@@ -165,7 +165,7 @@ if ($id) {
 
             <div class="card1">
                 <div class="card-img">
-                    <img class="card-img" src="./assets/img/image (6).jpg" alt="Idosos se divertindo com jogos">
+                    <img class="card-img" src="./assets/img/image (12).png" alt="Idosos se divertindo com jogos">
                 </div>
                 <p class="title">Música e canto</p>
                 <p class="card-text">A música e o canto têm efeitos profundos na saúde mental e emocional dos idosos.</p>
