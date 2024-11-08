@@ -31,10 +31,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt->bind_param('ssssss', $email, $name, $phone, $date_of_birth, $hashed_password, $role);
 
             if ($stmt->execute()) {
-                echo '<script>alert("Usuário cadastrado com sucesso!");window.location.href="index.php";</script>';
+                echo '<script>
+                    window.onload = function() {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+            
+                        Toast.fire({
+                            icon: "success",
+                            title: "Usuário cadastrado com sucesso!"
+                        }).then(() => {
+                            window.location.href = "login.php";
+                        });
+                    };
+                </script>';
             } else {
-                echo 'Erro ao cadastrar usuário.';
-            }
+                echo '<script>
+                    window.onload = function() {
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: "top-end",
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.onmouseenter = Swal.stopTimer;
+                                toast.onmouseleave = Swal.resumeTimer;
+                            }
+                        });
+            
+                        Toast.fire({
+                            icon: "error",
+                            title: "Erro ao cadastrar usuário!"
+                        });
+                    };
+                </script>';
+            }                    
 
             $stmt->close();
         } else {
@@ -57,6 +97,10 @@ $mysqli->close();
     <meta name="description" content="Bem-vindo à IncludeGen, uma plataforma dedicada ao bem-estar e à inclusão da pessoa idosa. Encontre cuidadores de idosos, explore alternativas de entretenimento, descubra oportunidades de trabalho para a terceira idade e entenda o sistema previdenciário brasileiro.">
 
     <title>Cadastro - IncludeGen</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <link rel="stylesheet" href="assets/css/cadastro.css">
     <link rel="stylesheet" href="assets/css/responsivel-cadastro.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/logo.png">
@@ -106,6 +150,7 @@ $mysqli->close();
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
