@@ -94,6 +94,7 @@ if ($id) {
                 </button>
             </div>
             <img src="./assets/img/image (8).png" class="idosos" alt="Idosos jogando carta.">
+            <label for="img">Fonte: https://marjan.com.br/blog/exercicios-para-fazer-ao-ar-livre/</label>
         </div>
 
         <div id="text">

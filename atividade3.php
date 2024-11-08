@@ -94,6 +94,7 @@ if ($id) {
                 </button>
             </div>
             <img src="./assets/img/image (9).png" class="idosos" alt="Idosos jogando carta.">
+            <label for="img">Fonte: https://metodosupera.com.br/jogos-para-idosos-2/</label>
         </div>
 
         <div id="text">
