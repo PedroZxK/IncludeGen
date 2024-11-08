@@ -5,7 +5,7 @@ include 'validacao.php';
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
-  $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+  $stmt = $mysqli->prepare("SELECT name, foto_perfil FROM users WHERE id = ? LIMIT 1");
   if ($stmt) {
     $stmt->bind_param("i", $id);
     $stmt->execute();
@@ -14,6 +14,7 @@ if ($id) {
     if ($result->num_rows > 0) {
       $row = $result->fetch_assoc();
       $username = $row['name'];
+      $foto_perfil = $row['foto_perfil'];
     } else {
       $username = "Usuário não encontrado";
     }
@@ -58,8 +59,11 @@ if ($id) {
           </ul>
         </div>
         <div class="right-nav-div">
-          <img src="assets/img/avatar_temp.webp" alt="Avatar">
-          <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+          <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+          <div class="profile">
+            <p class="profile-name"><?= htmlspecialchars($username); ?></p>
+            <a class="view-profile-link" href="./perfil.php">ver perfil</a>
+          </div>
         </div>
         <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
@@ -115,7 +119,7 @@ if ($id) {
 
   <section class="saude">
     <h2>Saúde nunca é demais</h2>
-    <div class="cards-container">
+    <div class="cards-container2">
       <div class="card">
         <img src="assets/img/alzheimer.png" alt="Alzheimer">
         <h3>Alzheimer: Saiba tudo sobre ela</h3>
@@ -132,15 +136,16 @@ if ($id) {
       </div>
 
       <div class="right-footer">
+        <div class="documents">
+          <a href="termos.php" target="_blank" class="termos">Termos de serviço</a>
+          <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
+        </div>
         <div class="contact-links">
-          <a href="https://instagram.com" target="_blank">
+          <a href="https://www.instagram.com/senaitaubate/" target="_blank">
             <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
           </a>
-          <a href="https://facebook.com" target="_blank">
+          <a href="https://www.facebook.com/senaisp.taubate" target="_blank">
             <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-          </a>
-          <a href="https://twitter.com" target="_blank">
-            <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
           </a>
           <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
         </div>

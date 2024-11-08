@@ -24,7 +24,16 @@
     .navbar-includeGen {
         display: flex;
         justify-content: space-between;
-    }	
+    }
+
+    #about-me {
+        flex-direction: column;
+    }
+
+    #card-seniors {
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
     .img-sair img {
         display: none;
@@ -38,6 +47,11 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .left-meet-seniors h1 {
+        width: 100%;
+        font-size: 1.5rem;
     }
 
 }

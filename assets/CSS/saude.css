@@ -66,6 +66,17 @@ body {
   gap: 1rem;
 }
 
+.profile-name {
+  color: white;
+  margin: 8px 0 0 0;
+}
+
+.view-profile-link {
+  color: #727272;
+  font-size: 14px;
+  margin: 0;
+}
+
 .hamburguer {
   display: none;
   flex-direction: column;
@@ -151,6 +162,12 @@ body {
 .cards-container {
   display: flex;
   justify-content: space-around;
+}
+
+.cards-container2{
+  margin: 0 0 0 100px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .card {
@@ -241,5 +258,9 @@ button {
 
 .contact-links img {
   width: 32px;
+}
+
+.termos {
+  color: white;
 }
 

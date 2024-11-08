@@ -55,9 +55,60 @@ $mysqli->close();
         content="Bem-vindo à IncludeGen, uma plataforma dedicada ao bem-estar e à inclusão da pessoa idosa. Encontre cuidadores de idosos, explore alternativas de entretenimento, descubra oportunidades de trabalho para a terceira idade e entenda o sistema previdenciário brasileiro.">
     <title>Login - IncludeGen</title>
     <link rel="stylesheet" href="assets/css/login.css">
-    <link rel="stylesheet" href="assets/css/responsivel-login.css">
-    <link rel="shortcut icon" type="imagex/png"
-        href="assets/img/logo.png">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
+
+    <script src="https://accounts.google.com/gsi/client" async></script>
+    <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+
+    <script>
+        function handleCredentialResponse(response) {
+            const token = response.credential;
+
+            // Enviar o token para o servidor para validação
+            fetch('validate_google_token.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ token: token })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Sucesso, redirecionar para home.php
+                        window.location.href = 'home.php';
+                    } else {
+                        alert("Erro ao validar a conta Google.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro ao enviar o token para validação:', error);
+                });
+        }
+
+        window.onload = function () {
+            google.accounts.id.initialize({
+                client_id: "299295953821-nqbqqb8va16klodnvebgdja6h40mogc5.apps.googleusercontent.com",
+                callback: handleCredentialResponse
+            });
+
+            google.accounts.id.renderButton(
+                document.getElementById("buttonDiv"),
+                {
+                    theme: "outline",
+                    size: "large",
+                    type: "standard",
+                    shape: "pill",
+                    text: "continue_with",
+                    logo_alignment: "center",
+                    width: "300"
+                }
+            );
+
+            google.accounts.id.prompt(); // Exibe o One Tap dialog
+        }
+    </script>
+
 </head>
 
 <body>
@@ -68,15 +119,16 @@ $mysqli->close();
                 <div id="form-id">
                     <img src="assets/img/logo.png" alt="Logo">
                     <h1>Entre na sua conta</h1>
-                    <button type="button" class="login-with-google-btn" disabled>
-                        Continuar com o Google
-                    </button>
+                    <div style="display: flex; justify-content: center;">
+                        <div id="buttonDiv"></div>
+                    </div>
                     <p>------------- ou entre com seu e-mail -------------</p>
                     <label for="email">Email:</label>
-                    <input type="email" name="email" required placeholder="exemplo@gmail.com" value="<?php echo htmlspecialchars($emailCookie); ?>">
+                    <input type="email" name="email" required placeholder="exemplo@gmail.com"
+                        value="<?php echo htmlspecialchars($emailCookie); ?>">
                     <label for="password">Password:</label>
                     <input type="password" name="password" required>
-                    <?php if (isset($error_message)) : ?>
+                    <?php if (isset($error_message)): ?>
                         <p style="color: red;"><?php echo $error_message; ?></p>
                     <?php endif; ?>
                     <label class="control control-checkbox">

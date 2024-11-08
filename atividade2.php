@@ -48,44 +48,44 @@ if ($id) {
 <body>
 
     <div id="content">
-    <nav id="navbar">
-        <div class="navbar-includeGen">
-            <div class="left-nav-div">
-                <img src="assets/img/logo.png" alt="Logo">
-            </div>
-            <div class="itens-nav-div">
-                <ul>
-                    <li><a href="home.php">Página inicial</a></li>
-                    <li><a href="saude.php">Saúde</a></li>
-                    <li><a href="forum.php">Fórum</a></li>
-                    <li><a href="entretenimento.php">Entretenimento</a></li>
-                    <li><a href="previdencia.php">Previdência</a></li>
-                </ul>
-            </div>
-            <div class="right-nav-div">
-                <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-            </div>
-            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+        <nav id="navbar">
+            <div class="navbar-includeGen">
+                <div class="left-nav-div">
+                    <img src="assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="itens-nav-div">
+                    <ul>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
+                        <li><a href="entretenimento.php">Entretenimento</a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-div">
+                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
-            <button class="hamburguer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+                <button class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-        <div id="sidebar">
-          <button class="fechar" onclick="toggleMenu()">
-            X
-          </button>
-          <a class="sidebarlink" href="home.php">Página Inicial</a>
-          <a class="sidebarlink" href="saude.php">Saúde</a>
-          <a class="sidebarlink" href="forum.php">Fórum</a>
-          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-          <a class="sidebarlink" href="previdencia.php">Previdência</a>
-          <a class="sidebarlink" href="logout.php">Sair</a>
-        </div>
-    </nav>
+                <div id="sidebar">
+                    <button class="fechar" onclick="toggleMenu()">
+                        X
+                    </button>
+                    <a class="sidebarlink" href="home.php">Página Inicial</a>
+                    <a class="sidebarlink" href="saude.php">Saúde</a>
+                    <a class="sidebarlink" href="forum.php">Fórum</a>
+                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
+                    <a class="sidebarlink" href="logout.php">Sair</a>
+                </div>
+        </nav>
 
         <div id="banner">
             <div class="botao">
@@ -99,7 +99,7 @@ if ($id) {
         <div id="text">
             <div class="content">
                 <h2>Passeios ao ar livre</h2>
-                <p>    Os passeios ao ar livre são fundamentais para a saúde física e mental dos idosos. Estudos mostram que atividades em ambientes naturais reduzem o estresse, melhoram o humor e estimulam o bem-estar geral. Caminhadas leves, observação de aves, piqueniques e passeios em parques são excelentes opções que permitem socialização, exposição ao sol (essencial para a síntese de vitamina D) e movimento físico.</p>
+                <p> Os passeios ao ar livre são fundamentais para a saúde física e mental dos idosos. Estudos mostram que atividades em ambientes naturais reduzem o estresse, melhoram o humor e estimulam o bem-estar geral. Caminhadas leves, observação de aves, piqueniques e passeios em parques são excelentes opções que permitem socialização, exposição ao sol (essencial para a síntese de vitamina D) e movimento físico.</p>
                 <h4>Benefícios:</h4>
                 <li>
                     <ul>Saúde física: Caminhar e estar ao ar livre pode ajudar a melhorar a circulação, fortalecer os músculos e aumentar a flexibilidade.</ul>
@@ -123,15 +123,16 @@ if ($id) {
                 </div>
 
                 <div class="right-footer">
+                    <div class="documents">
+                        <a href="termos.php" target="_blank" class="termos">Termos de serviço</a>
+                        <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
+                    </div>
                     <div class="contact-links">
-                        <a href="https://instagram.com" target="_blank">
+                        <a href="https://www.instagram.com/senaitaubate/" target="_blank">
                             <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
                         </a>
-                        <a href="https://facebook.com" target="_blank">
+                        <a href="https://www.facebook.com/senaisp.taubate" target="_blank">
                             <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                        </a>
-                        <a href="https://twitter.com" target="_blank">
-                            <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
                         </a>
                         <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                     </div>

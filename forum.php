@@ -59,12 +59,23 @@ while ($pergunta = $resultado->fetch_assoc()) {
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
-    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $username = $result->num_rows > 0 ? $result->fetch_assoc()['name'] : "Usuário não encontrado";
-    $stmt->close();
+    $stmt = $mysqli->prepare("SELECT name, foto_perfil FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+            $foto_perfil = $row['foto_perfil'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
 } else {
     $username = "ID de usuário não definido";
 }
@@ -106,36 +117,39 @@ if ($id) {
                     </ul>
                 </div>
                 <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                    <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+                    <div class="profile">
+                        <p class="profile-name"><?= htmlspecialchars($username); ?></p>
+                        <a class="view-profile-link" href="./perfil.php">ver perfil</a>
+                    </div>
                 </div>
                 <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
             </div>
 
-        <button class="hamburguer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <div id="sidebar">
-          <button class="fechar" onclick="toggleMenu()">
-            X
-          </button>
-          <a class="sidebarlink" href="home.php">Página Inicial</a>
-          <a class="sidebarlink" href="saude.php">Saúde</a>
-          <a class="sidebarlink" href="forum.php">Fórum</a>
-          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-          <a class="sidebarlink" href="previdencia.php">Previdência</a>
-          <a class="sidebarlink" href="logout.php">Sair</a>
-        </div>
+            <div id="sidebar">
+                <button class="fechar" onclick="toggleMenu()">
+                    X
+                </button>
+                <a class="sidebarlink" href="home.php">Página Inicial</a>
+                <a class="sidebarlink" href="saude.php">Saúde</a>
+                <a class="sidebarlink" href="forum.php">Fórum</a>
+                <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                <a class="sidebarlink" href="previdencia.php">Previdência</a>
+                <a class="sidebarlink" href="logout.php">Sair</a>
+            </div>
         </nav>
     </div>
 
     <div id="forum-content">
         <div class="search-category-section">
             <h2>Fórum</h2>
-        <p class="texto-pesquisa">Converse com pessoas e tire suas duvidas com elas </p>
+            <p class="texto-pesquisa">Converse com pessoas e tire suas duvidas com elas </p>
             <div class="search-bar">
                 <input type="text" name="search" placeholder="Pesquise algum fórum" class="noticia-icon" oninput="pesquisarNoticia()">
             </div>
@@ -161,8 +175,8 @@ if ($id) {
                 <?php foreach ($perguntas as $pergunta): ?>
                     <div class="ntc-pergunta">
                         <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>" class="titulo-pergunta">
-                            <?php echo $pergunta['titulo']; ?>
-                        </a></h2>
+                                <?php echo $pergunta['titulo']; ?>
+                            </a></h2>
                         <p><?php echo $pergunta['descricao']; ?></p>
                     </div>
                 <?php endforeach; ?>
@@ -178,15 +192,16 @@ if ($id) {
             </div>
 
             <div class="right-footer">
+                <div class="documents">
+                    <a href="termos.php" target="_blank" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
+                </div>
                 <div class="contact-links">
-                    <a href="https://instagram.com" target="_blank">
+                    <a href="https://www.instagram.com/senaitaubate/" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
                     </a>
-                    <a href="https://facebook.com" target="_blank">
+                    <a href="https://www.facebook.com/senaisp.taubate" target="_blank">
                         <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                    </a>
-                    <a href="https://twitter.com" target="_blank">
-                        <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
                     </a>
                     <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                 </div>
@@ -200,7 +215,7 @@ if ($id) {
             var filtro = input.value.toUpperCase();
             var noticias = document.querySelectorAll('.ntc-pergunta');
 
-            noticias.forEach(function (noticia) {
+            noticias.forEach(function(noticia) {
                 var titulo = noticia.querySelector('.titulo-pergunta');
                 if (titulo.innerText.toUpperCase().indexOf(filtro) > -1) {
                     noticia.style.display = 'block';

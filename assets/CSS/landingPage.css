@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .abeezee-regular {
     font-family: "ABeeZee", sans-serif;
     font-weight: 400;
@@ -141,13 +145,17 @@ header nav {
     justify-content: space-around;
 }
 
+#categoria-missao img {
+    width: 30vw;
+}
+
 .mission {
     text-align: justify;
-    padding: 50px 20px;
     width: 32vw;
 }
 
 .mission h2 {
+    text-align: left;
     font-size: 1.8rem;
     margin-bottom: 3px;
 }
@@ -225,6 +233,10 @@ header nav {
 .contact-links {
     display: flex;
     align-items: center;
+}
+
+.termos {
+    color: white;
 }
 
 .contact-links a {
