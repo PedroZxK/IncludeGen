@@ -106,7 +106,9 @@ if ($id) {
                 <tr>
                     <th class="tituloTabela">Ano</th>
                     <th class="tituloTabela">Pontos (Homens)</th>
-                    <th class="tituloTabela">Pontos (Mulheres)</th>
+                    <th sistema consiste na soma da idade com os anos de contribuição, exigindo a pontuação mínima de 87 anos para mulheres e de 97 anos para homens. Além disso, a pontuação é progressiva, aumentando 1 ponto por ano, até atingir 105 pontos para homens e 100 pontos para mulheres.
+
+th class="tituloTabela">Pontos (Mulheres)</th>
                 </tr>
                 <tr>
                     <td>2020</td>
