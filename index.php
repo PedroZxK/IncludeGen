@@ -22,8 +22,7 @@
             </div>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
-                <li><a href="#missao">Missão</a></li>
-                <li><a href="#encontra">Aqui você encontra</a></li>
+                <li><a href="#categoria-missao">Missão</a></li>
                 <li class="btn-nav-principal"><a href="login.php">Entrar</a></li>
                 <li class="btn-nav-principal"><a href="cadastro.php">Cadastrar-se</a></li>
             </ul>
@@ -39,7 +38,6 @@
                 </button>
                 <a class="sidebarlink" href="#inicio">Início</a>
                 <a class="sidebarlink" href="#missao">Missão</a>
-                <a class="sidebarlink" href="#encontra">Aqui você encontra</a>
                 <a class="sidebarlink" href="login.php">Entrar</a>
                 <a class="sidebarlink" href="cadastro.php">Cadastre-se</a>
             </div>
@@ -97,18 +95,15 @@
 
             <div class="right-footer">
                 <div class="documents">
-                    <a href="term   os.php" class="termos">Termos de serviço</a>
-                    <a href="politicas.php" class="termos">Política de privacidade</a>
+                    <a href="term   os.php" target="_blank" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
                 </div>
                 <div class="contact-links">
-                    <a href="https://instagram.com" target="_blank">
+                    <a href="https://www.instagram.com/senaitaubate/" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
                     </a>
-                    <a href="https://facebook.com" target="_blank">
+                    <a href="https://www.facebook.com/senaisp.taubate" target="_blank">
                         <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                    </a>
-                    <a href="https://twitter.com" target="_blank">
-                        <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
                     </a>
                     <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                 </div>
