@@ -12,6 +12,30 @@ include 'conexao.php';
 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 
+// Lista de palavras proibidas
+$palavras_proibidas = [
+    'estruprador', 'estuprado', 'estuprador', 'estuprar', 'estupro',
+    'l.o.l.i', 'l0l1', 'l0l1z1nh4', 'l0li', 'lloli', 'lol1', 'loli', 'lolicon', 'lolismo', 'lolli',
+    'n-word', 'n1gg3r', 'n1gg4', 'n1gga', 'nazism', 'nazismo', 'nazista',
+    'nigg4', 'nigga', 'nigger',
+    'p3d0f1l0', 'ped0f1l14', 'ped0fil0', 'pedofilia', 'pedofilo',
+    'porno', 'pornô',
+    'r4id',
+    'tr4aveco', 'tr4v3c0', 'tr4vec0', 'trav3c0', 'travecão', 'traveco', 'travecozinho',
+    'xvideos', 'zoofilia'
+];
+
+// Função para verificar se o título ou descrição é inapropriado
+function conteudo_inapropriado($texto, $palavras_proibidas) {
+    foreach ($palavras_proibidas as $palavra) {
+        if (stripos($texto, $palavra) !== false) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// Lida com os formulários de criação, edição e exclusão de perguntas
 // Lida com os formulários de criação, edição e exclusão de perguntas
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['criar_pergunta'])) {
@@ -19,6 +43,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $descricao = htmlspecialchars($_POST['descricao']);
 
 
+        // Verifica se o título ou descrição contém conteúdo inapropriado
+        if (conteudo_inapropriado($titulo, $palavras_proibidas) || conteudo_inapropriado($descricao, $palavras_proibidas)) {
+            // Bloqueia a criação e não exibe mensagem de alerta
+            header("Location: forum.php");
+            exit();
+        }
+
+        // Se não for inapropriado, cria a pergunta
         $sql = "INSERT INTO perguntas (titulo, descricao) VALUES (?, ?)";
         $stmt = $mysqli->prepare($sql);
         $stmt->bind_param("ss", $titulo, $descricao);
@@ -80,6 +112,8 @@ if ($id) {
 } else {
     $username = "ID de usuário não definido";
 }
+
+
 ?>
 
 <!DOCTYPE html>
