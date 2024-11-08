@@ -41,43 +41,43 @@ if ($id) {
 
 <body>
     <div id="content">
-    <nav id="navbar">
-        <div class="navbar-includeGen">
-            <div class="left-nav-div">
-                <img src="assets/img/logo.png" alt="Logo">
-            </div>
-            <div class="itens-nav-div">
-                <ul>
-                    <li><a href="home.php">Página inicial</a></li>
-                    <li><a href="saude.php">Saúde</a></li>
-                    <li><a href="forum.php">Fórum</a></li>
-                    <li><a href="entretenimento.php">Entretenimento</a></li>
-                    <li><a href="previdencia.php">Previdência</a></li>
-                </ul>
-            </div>
-            <div class="right-nav-div">
-                <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-            </div>
-            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+        <nav id="navbar">
+            <div class="navbar-includeGen">
+                <div class="left-nav-div">
+                    <img src="assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="itens-nav-div">
+                    <ul>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
+                        <li><a href="entretenimento.php">Entretenimento</a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-div">
+                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
-            <button class="hamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <div id="sidebar">
-                <button class="fechar" onclick="toggleMenu()">
-                    X
+                <button class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-                <a class="sidebarlink" href="home.php">Página Inicial</a>
-                <a class="sidebarlink" href="saude.php">Saúde</a>
-                <a class="sidebarlink" href="forum.php">Fórum</a>
-                <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-                <a class="sidebarlink" href="previdencia.php">Previdência</a>
-            </div>
-    </nav>
+
+                <div id="sidebar">
+                    <button class="fechar" onclick="toggleMenu()">
+                        X
+                    </button>
+                    <a class="sidebarlink" href="home.php">Página Inicial</a>
+                    <a class="sidebarlink" href="saude.php">Saúde</a>
+                    <a class="sidebarlink" href="forum.php">Fórum</a>
+                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
+                </div>
+        </nav>
     </div>
     <div class="container">
 
@@ -86,8 +86,10 @@ if ($id) {
             <p>O sistema previdenciário é um agrupamento de normas relacionadas a auxílios sociais e aposentadorias
                 principalmente para trabalhadores e/ou contribuintes em geral. Ou seja, é uma forma de garantir uma
                 aposentadoria para a população que atinge determinada idade.</p>
-            <img class="img-carteira" src="assets/img/carteira.png" alt="Carteira de Trabalho"
-                style="width:100%; max-width:800px; display:block; margin: 0 auto;">
+            <iframe class='iframe' width="560" height="315"  src="https://www.youtube.com/embed/5-FGMB6p_Sc?si=ox8VgyjcPURunB2Z"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <div class="section">
@@ -192,7 +194,8 @@ if ($id) {
 
         <div class="section">
             <h2>Quais são os requisitos?</h2>
-            <p><span>Pontuação necessária:</span> Homens precisam atingir 101 pontos e mulheres 91 pontos. A pontuação é uma
+            <p><span>Pontuação necessária:</span> Homens precisam atingir 101 pontos e mulheres 91 pontos. A pontuação é
+                uma
                 soma
                 da idade com o tempo de contribuição.</p>
 
@@ -232,7 +235,8 @@ if ($id) {
             <p>Após solicitar seu benefício, é essencial que você acompanhe como está o andamento de sua solicitação. Da
                 mesma forma do requerimento, seu pedido pode ser acompanhado pelo Portal Meu INSS (na opção consultar
                 pedidos), ou você pode ligar para o 135, que é a central de atendimento do INSS.</p>
-            <p>É interessante que você cheque o andamento do procedimento pelo menos uma vez por semana após realizar o pedido.</p>
+            <p>É interessante que você cheque o andamento do procedimento pelo menos uma vez por semana após realizar o
+                pedido.</p>
         </div>
     </div>
     <div id="footer-div">
