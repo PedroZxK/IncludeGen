@@ -15,8 +15,9 @@ $mysqli = new mysqli($hostname, $username, $password, $database);
 // Lida com os formulários de criação, edição e exclusão de perguntas
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['criar_pergunta'])) {
-        $titulo = $_POST['titulo'];
-        $descricao = $_POST['descricao'];
+        $titulo = htmlspecialchars($_POST['titulo']);
+        $descricao = htmlspecialchars($_POST['descricao']);
+
 
         $sql = "INSERT INTO perguntas (titulo, descricao) VALUES (?, ?)";
         $stmt = $mysqli->prepare($sql);
@@ -117,7 +118,7 @@ if ($id) {
                     </ul>
                 </div>
                 <div class="right-nav-div">
-                    <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+                    <img src="<?= htmlspecialchars($foto_perfil ?: 'assets/img/avatar_temp.webp'); ?>" alt="Avatar">
                     <div class="profile">
                         <p class="profile-name"><?= htmlspecialchars($username); ?></p>
                         <a class="view-profile-link" href="./perfil.php">ver perfil</a>
@@ -151,7 +152,8 @@ if ($id) {
             <h2>Fórum</h2>
             <p class="texto-pesquisa">Converse com pessoas e tire suas duvidas com elas </p>
             <div class="search-bar">
-                <input type="text" name="search" placeholder="Pesquise algum fórum" class="noticia-icon" oninput="pesquisarNoticia()">
+                <input type="text" name="search" placeholder="Pesquise algum fórum" class="noticia-icon"
+                    oninput="pesquisarNoticia()">
             </div>
         </div>
 
@@ -164,7 +166,8 @@ if ($id) {
                                 <textarea id="titulo" name="titulo" placeholder="Titulo" rows="4" required></textarea>
                             </div>
                             <div class="descricao-criar">
-                                <textarea id="descricao" name="descricao" placeholder="Descrição" rows="4" required></textarea>
+                                <textarea id="descricao" name="descricao" placeholder="Descrição" rows="4"
+                                    required></textarea>
                             </div>
                         </div>
                         <input class="btn-criar" type="submit" name="criar_pergunta" value="Publicar">
@@ -215,7 +218,7 @@ if ($id) {
             var filtro = input.value.toUpperCase();
             var noticias = document.querySelectorAll('.ntc-pergunta');
 
-            noticias.forEach(function(noticia) {
+            noticias.forEach(function (noticia) {
                 var titulo = noticia.querySelector('.titulo-pergunta');
                 if (titulo.innerText.toUpperCase().indexOf(filtro) > -1) {
                     noticia.style.display = 'block';
@@ -225,6 +228,10 @@ if ($id) {
             });
         }
     </script>
+
+    <?php
+    $mysqli->close();
+    ?>
 </body>
 
 </html>
