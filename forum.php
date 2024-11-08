@@ -2,6 +2,7 @@
 date_default_timezone_set('America/Sao_Paulo');
 session_start();
 
+// Verifica se o usuário está logado
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     header("Location: login");
     exit;
@@ -11,13 +12,17 @@ include 'conexao.php';
 
 $mysqli = new mysqli($hostname, $username, $password, $database);
 
+// Lida com os formulários de criação, edição e exclusão de perguntas
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['criar_pergunta'])) {
         $titulo = $_POST['titulo'];
         $descricao = $_POST['descricao'];
 
-        $sql = "INSERT INTO perguntas (titulo, descricao) VALUES ('$titulo', '$descricao')";
-        $resultado = $mysqli->query($sql);
+        $sql = "INSERT INTO perguntas (titulo, descricao) VALUES (?, ?)";
+        $stmt = $mysqli->prepare($sql);
+        $stmt->bind_param("ss", $titulo, $descricao);
+        $stmt->execute();
+        $stmt->close();
 
         header("Location: forum");
         exit();
@@ -41,6 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+// Busca todas as perguntas
 $sql = "SELECT * FROM perguntas";
 $resultado = $mysqli->query($sql);
 $perguntas = array();
@@ -49,29 +55,19 @@ while ($pergunta = $resultado->fetch_assoc()) {
     $perguntas[] = $pergunta;
 }
 
+// Busca o nome do usuário logado
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
     $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
-    if ($stmt) {
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $row = $result->fetch_assoc();
-            $username = $row['name'];
-        } else {
-            $username = "Usuário não encontrado";
-        }
-        $stmt->close();
-    } else {
-        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
-    }
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $username = $result->num_rows > 0 ? $result->fetch_assoc()['name'] : "Usuário não encontrado";
+    $stmt->close();
 } else {
     $username = "ID de usuário não definido";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -84,22 +80,12 @@ if ($id) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/forum.css">
-    <link rel="stylesheet" href="assets/CSS/forumResponsivo.css">
     <script src="assets/js/hamburguer.js"></script>
     <script src="assets/js/dropdownuser.js"></script>
     <script src="assets/js/logout.js"></script>
 
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -123,106 +109,48 @@ if ($id) {
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
                 <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
-
-                <button class="hamburguer">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
-                <div id="sidebar">
-                    <button class="fechar" onclick="toggleMenu()">
-                        X
-                    </button>
-                    <a class="sidebarlink" href="home.php">Página Inicial</a>
-                    <a class="sidebarlink" href="saude.php">Saúde</a>
-                    <a class="sidebarlink" href="forum.php">Fórum</a>
-                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
-                </div>
+            </div>
         </nav>
     </div>
 
-    <div class="main-content">
-        <div class="noticias">
+    <div id="forum-content">
+        <div class="search-category-section">
+            <h2>Fórum</h2>
+        <p class="texto-pesquisa">Converse com pessoas e tire suas duvidas com elas </p>
+            <div class="search-bar">
+                <input type="text" name="search" placeholder="Pesquise algum fórum" class="noticia-icon" oninput="pesquisarNoticia()">
+            </div>
+        </div>
 
-            <form method="post" action="">
-
-                <div class="criar-pergunta">
-                    <div class="prencher">
-                        <div class="titulo-criar">
-                            <textarea id="titulo" name="titulo" placeholder="Titulo" rows="4" required></textarea>
+        <div class="main-content">
+            <div class="noticias">
+                <form method="post" action="">
+                    <div class="criar-pergunta">
+                        <div class="prencher">
+                            <div class="titulo-criar">
+                                <textarea id="titulo" name="titulo" placeholder="Titulo" rows="4" required></textarea>
+                            </div>
+                            <div class="descricao-criar">
+                                <textarea id="descricao" name="descricao" placeholder="Descrição" rows="4" required></textarea>
+                            </div>
                         </div>
-                        <div class="descricao-criar">
-                            <textarea id="descricao" name="descricao" placeholder="Descrição" rows="4" required></textarea>
-                        </div>
+                        <input class="btn-criar" type="submit" name="criar_pergunta" value="Publicar">
                     </div>
-                    <input class="btn-criar" type="submit" name="criar_pergunta" value="Criar Pergunta">
-                </div>
+                </form>
 
-            </form>
-
-            <?php foreach ($perguntas as $pergunta): ?>
-                <div class="pergunta">
-                    <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>&titulo=<?php echo urlencode($pergunta['titulo']); ?>"
-                            class="titulo-pergunta">
+                <!-- Exibição das perguntas -->
+                <?php foreach ($perguntas as $pergunta): ?>
+                    <div class="ntc-pergunta">
+                        <h2><a href="pergunta.php?id=<?php echo $pergunta['id']; ?>" class="titulo-pergunta">
                             <?php echo $pergunta['titulo']; ?>
                         </a></h2>
-                    <p>
-                        <?php echo $pergunta['descricao']; ?>
-                    </p>
-                    <?php
-                    $sql = "SELECT COUNT(*) AS total FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "'";
-                    $result = $mysqli->query($sql);
-                    $row = $result->fetch_assoc();
-                    $numero_elementos = $row['total'];
-
-                    if ($numero_elementos > 0) {
-                        $ultimaMensagemQuery = "SELECT mensagem, data_envio FROM chat1 WHERE pergunta_id = '" . $pergunta['id'] . "' ORDER BY id DESC LIMIT 1";
-                        $ultimaMensagemResult = $mysqli->query($ultimaMensagemQuery);
-                        $ultimaMensagemRow = $ultimaMensagemResult->fetch_assoc();
-                        $ultimaMensagem = $ultimaMensagemRow['mensagem'];
-                        $data_envio = $ultimaMensagemRow['data_envio'];
-                        $textoIntervalo = "";
-                        if ($data_envio) {
-                            $data_envio = strtotime($data_envio);
-                            $agora = time();
-                            $diff = $agora - $data_envio;
-                            if ($diff < 60) {
-                                $textoIntervalo = "Agora";
-                            } elseif ($diff < 3600) {
-                                $textoIntervalo = floor($diff / 60) . " min atrás";
-                            } elseif ($diff < 86400) {
-                                $textoIntervalo = floor($diff / 3600) . " horas atrás";
-                            } else {
-                                $textoIntervalo = date("d/m/Y H:i:s", $data_envio);
-                            }
-                        }
-                    } else {
-                        $textoIntervalo = "Nenhuma mensagem";
-                    }
-
-                    echo '<div class="elements-csv">';
-                    echo '<img src="https://icones.pro/wp-content/uploads/2021/05/message-ballons-symbole-noir.png" alt="Ícone" />';
-                    echo '<p class="numero-elementos">' . $numero_elementos . '</p>';
-                    echo '<p class="ultima-mensagem">' . $textoIntervalo . '</p>';
-                    echo '</div>';
-                    if ($_SESSION['email'] === 'admin@gmail.com'): ?>
-                        <div class="btn-div-crud">
-                            <form method="post" action="">
-                                <input onclick="editarPergunta(<?php echo $pergunta['id']; ?>)" type="button"
-                                    name="editar_pergunta" class="btn-crud" value="Editar">
-                            </form>
-                            <form method="post" action="">
-                                <input onclick="excluirPergunta(<?php echo $pergunta['id']; ?>)" type="button"
-                                    name="excluir_pergunta" class="btn-crud2" value="Excluir">
-                            </form>
-                        </div>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
+                        <p><?php echo $pergunta['descricao']; ?></p>
+                    </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
+
     <div id="footer-div">
         <footer class="includeGen-footer">
             <div class="left-footer">
@@ -247,29 +175,21 @@ if ($id) {
         </footer>
     </div>
 
-
     <script>
-        function editarPergunta(id) {
-            window.location.href = "editar_pergunta.php?id=" + id;
-        }
+        function pesquisarNoticia() {
+            var input = document.querySelector('.noticia-icon');
+            var filtro = input.value.toUpperCase();
+            var noticias = document.querySelectorAll('.ntc-pergunta');
 
-        function excluirPergunta(id) {
-            Swal.fire({
-                title: 'Tem certeza?',
-                text: "Você está prestes a excluir esta pergunta. Essa ação não pode ser revertida!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sim, exclua!',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "excluir_pergunta?id=" + id;
+            noticias.forEach(function (noticia) {
+                var titulo = noticia.querySelector('.titulo-pergunta');
+                if (titulo.innerText.toUpperCase().indexOf(filtro) > -1) {
+                    noticia.style.display = 'block';
+                } else {
+                    noticia.style.display = 'none';
                 }
             });
         }
-    </script>
     </script>
 </body>
 

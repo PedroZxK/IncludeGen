@@ -29,6 +29,28 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $mensagens_result = $mysqli->query($mensagens_query);
 }
 
+$id = $_SESSION['user_id'] ?? null;
+
+if ($id) {
+    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
+} else {
+    $username = "ID de usuário não definido";
+}
 
 ?>
 
@@ -74,32 +96,47 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
 </head>
 
 <body>
-    <div class="rigrover-1">
-        <nav class="navbar">
-            <ul>
-                <li>
-                    <a href="home" id="btn-nav">Página Inicial</a>
-                </li>
-                <li>
-                    <a href="noticias" id="btn-nav">Notícias</a>
-                </li>
-                <li>
-                    <a href="eventos" id="btn-nav">Eventos</a>
-                </li>
-                <li>
-                    <a href="forum" id="btn-nav">Fórum</a>
-                </li>
-                <li>
-                    <a href="comparar_hardwares" id="btn-nav">Hardware</a>
-                </li>
-                <li>
-                    <a href="games.php" id="btn-nav">Wiki Jogos</a>
-                </li>
-                <a href="#" onclick="confirmLogout()">
-                    <img src="assets/img/logout.png" alt="Botão de sair da conta" class="img-logout">
-                </a>
-            </ul>
-        </nav>
+<body>
+    <div id="content">
+    <nav id="navbar">
+        <div class="navbar-includeGen">
+            <div class="left-nav-div">
+                <img src="assets/img/logo.png" alt="Logo">
+            </div>
+            <div class="itens-nav-div">
+                <ul>
+                    <li><a href="home.php">Página inicial</a></li>
+                    <li><a href="saude.php">Saúde</a></li>
+                    <li><a href="forum.php">Fórum</a></li>
+                    <li><a href="entretenimento.php">Entretenimento</a></li>
+                    <li><a href="previdencia.php">Previdência</a></li>
+                </ul>
+            </div>
+            <div class="right-nav-div">
+                <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+            </div>
+            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+
+            <button class="hamburguer">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div id="sidebar">
+                <button class="fechar" onclick="toggleMenu()">
+                    X
+                </button>
+                <a class="sidebarlink" href="home.php">Página Inicial</a>
+                <a class="sidebarlink" href="saude.php">Saúde</a>
+                <a class="sidebarlink" href="forum.php">Fórum</a>
+                <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                <a class="sidebarlink" href="previdencia.php">Previdência</a>
+            </div>
+    </nav>
+    </div>
+
 
         <div id="header">
             <h1 id="pergunta_titulo">
