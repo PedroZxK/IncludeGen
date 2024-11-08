@@ -49,4 +49,9 @@
         align-items: center;
     }
 
+    .left-meet-seniors h1 {
+        width: 100%;
+        font-size: 1.5rem;
+    }
+
 }

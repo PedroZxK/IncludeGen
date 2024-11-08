@@ -79,7 +79,7 @@ if ($id) {
                     <a class="sidebarlink" href="saude.php">Saúde</a>
                     <a class="sidebarlink" href="forum.php">Fórum</a>
                     <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-                    <a class="sidebarlink" href="previdencia.php">Previdência</a>       
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
                     <a class="sidebarlink" href="logout.php">Sair</a>
                 </div>
         </nav>
@@ -103,7 +103,7 @@ if ($id) {
             <p>O sistema consiste na soma da idade com os anos de contribuição, exigindo a pontuação mínima de 87 anos
                 para mulheres e de
                 97 anos para homens. Além disso, a pontuação é progressiva, aumentando 1 ponto por ano, até atingir 105
-                pontos para homens e 100 pontos para mulheres. 
+                pontos para homens e 100 pontos para mulheres.
 
             </p>
             <table>
@@ -251,6 +251,10 @@ if ($id) {
             </div>
 
             <div class="right-footer">
+                <div class="documents">
+                    <a href="termos.php" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" class="termos">Política de privacidade</a>
+                </div>
                 <div class="contact-links">
                     <a href="https://instagram.com" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
