@@ -33,7 +33,7 @@ if ($id) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets\css\perfilee.css">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png"> 
-    <title>Perfil - Ana Laura</title>
+    <title>Contato</title>
 </head>
 <body>
 <div id="content">
@@ -66,11 +66,11 @@ if ($id) {
 
 <main class="profile-container">
   <div class="profile-card">
-    <img src="assets/img/padrao.png" alt="Foto de Ana Laura" class="profile-photo">
-    <h2>Padrão Enfermagem</h2>
-    <p>35 anos</p>
-    <p>analauracontato@gmail.com</p>
-    <p>(12)345678910</p>
+    <img src="assets/img/family.png" alt="Foto de Ana Laura" class="profile-photo">
+    <h2>Family Care Senior</h2>
+    <p>(12) 99139-9075</p>
+    <p>contato@familycaresenior.com.br</p>
+    <p>Av Nove de Julho, 765 - Sala 31 - Jardim Apolo I São José dos Campos/SP</p>
     <div class="social-icons">
       <a href="#"><i class="fab fa-instagram"></i></a>
       <a href="#"><i class="fab fa-x-twitter"></i></a>
@@ -81,7 +81,12 @@ if ($id) {
   
   <div class="bio-card">
     <h2>Sobre</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eget dui in ex lobortis dignissim. Quisque non turpis nunc. Curabitur fermentum nulla eget sapien suscipit consequat ac quis enim. Nulla convallis magna id enim viverra, et mollis orci malesuada. Mauris non massa mi. Aliquam eu ante non.</p>
+    <p>
+    "Na Family Care Senior, entendemos que cuidar de um ente querido é uma responsabilidade repleta de amor, dedicação e, muitas vezes, desafios.
+
+É por isso que estamos aqui para oferecer um suporte acolhedor e profissional, garantindo que cada idoso receba o cuidado e a atenção que merece.
+
+Atendendo com carinho e excelência na região do Vale do Paraíba, nos dedicamos a transformar o cuidado aos idosos em uma experiência positiva e reconfortante."</p>
   </div>
 </main>
 
