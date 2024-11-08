@@ -35,6 +35,8 @@ if ($id) {
     <meta name="description" content="IncludeGen - Bem-estar e inclusão para a pessoa idosa.">
     <title>Alzheimer - IncludeGen</title>
     <link rel="stylesheet" href="assets/css/alzheimer.css">
+    <link rel="stylesheet" href="assets/CSS/alzheimerResponsivo.css">
+    <script src="./assets/js/hamburguer.js"></script>
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
 </head>
 
@@ -60,6 +62,24 @@ if ($id) {
                         <p class="profile-name"><?= htmlspecialchars($username); ?></p>
                         <a class="view-profile-link" href="./perfil.php">ver perfil</a>
                     </div>
+                </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+
+                <button class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <div id="sidebar">
+                    <button class="fechar" onclick="toggleMenu()">
+                        X
+                    </button>
+                    <a class="sidebarlink" href="home.php">Página Inicial</a>
+                    <a class="sidebarlink" href="saude.php">Saúde</a>
+                    <a class="sidebarlink" href="forum.php">Fórum</a>
+                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
                 </div>
         </nav>
     </div>

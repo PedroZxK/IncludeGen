@@ -2,14 +2,14 @@
     font-family: "ABeeZee", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
-  .abeezee-regular-italic {
+}
+
+.abeezee-regular-italic {
     font-family: "ABeeZee", sans-serif;
     font-weight: 400;
     font-style: italic;
-  }
-  
+}
+
 
 * {
     margin: 0;
@@ -59,6 +59,58 @@ header nav {
 
 .logo img {
     height: 62px;
+}
+
+.hamburguer {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.hamburguer span {
+    width: 1.8rem;
+    height: 0.2rem;
+    background: #FFD700;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    border-left: solid 3px #FFD700;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+.sidebarlink {
+    display: block;
+    padding: 20px;
+    color: black;
+    border-bottom: solid 1px black;
+    text-decoration: none;
+}
+
+.fechar {
+    border: none;
+    color: black;
+    padding: 10px;
+    position: relative;
+    background-color: white;
+    cursor: pointer;
 }
 
 .hero {
@@ -131,6 +183,11 @@ header nav {
     justify-content: space-around;
 }
 
+.feature-boxes a {
+    text-decoration: none;
+    color: black;
+}
+
 .feature {
     text-align: center;
 }
@@ -182,4 +239,3 @@ header nav {
 .contact-links img {
     max-width: 32px;
 }
-    
