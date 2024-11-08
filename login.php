@@ -30,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     setcookie('email', '', time() - 3600, "/");
                 }
 
-                header('Location: home.php');
-                exit();
+                // Sucesso no login tradicional (usuário insere informações)
+                $success_message = 'Login realizado com sucesso!';
             } else {
                 $error_message = 'Credenciais inválidas.';
             }
@@ -57,6 +57,7 @@ $mysqli->close();
     <link rel="stylesheet" href="assets/css/login.css">
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://accounts.google.com/gsi/client" async></script>
     <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
 
@@ -64,7 +65,6 @@ $mysqli->close();
         function handleCredentialResponse(response) {
             const token = response.credential;
 
-            // Enviar o token para o servidor para validação
             fetch('validate_google_token.php', {
                 method: 'POST',
                 headers: {
@@ -75,10 +75,20 @@ $mysqli->close();
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Sucesso, redirecionar para home.php
-                        window.location.href = 'home.php';
+                        // Sucesso no login via Google
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Login bem-sucedido!',
+                            text: 'Você foi autenticado com sua conta Google.',
+                        }).then(() => {
+                            window.location.href = 'home.php';
+                        });
                     } else {
-                        alert("Erro ao validar a conta Google.");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erro',
+                            text: 'Erro ao validar a conta Google.'
+                        });
                     }
                 })
                 .catch(error => {
@@ -105,10 +115,9 @@ $mysqli->close();
                 }
             );
 
-            google.accounts.id.prompt(); // Exibe o One Tap dialog
+            google.accounts.id.prompt();
         }
     </script>
-
 </head>
 
 <body>
@@ -128,9 +137,6 @@ $mysqli->close();
                         value="<?php echo htmlspecialchars($emailCookie); ?>">
                     <label for="password">Password:</label>
                     <input type="password" name="password" required>
-                    <?php if (isset($error_message)): ?>
-                        <p style="color: red;"><?php echo $error_message; ?></p>
-                    <?php endif; ?>
                     <label class="control control-checkbox">
                         Lembrar-me
                         <input type="checkbox" name="remember" value="1" <?php echo $emailCookie ? 'checked' : ''; ?> />
@@ -148,6 +154,26 @@ $mysqli->close();
             </div>
         </div>
     </div>
+
+    <?php if (isset($error_message)): ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                text: '<?php echo $error_message; ?>'
+            });
+        </script>
+    <?php elseif (isset($success_message)): ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Login bem-sucedido!',
+                text: '<?php echo $success_message; ?>',
+            }).then(() => {
+                window.location.href = 'home.php';
+            });
+        </script>
+    <?php endif; ?>
 </body>
 
 </html>

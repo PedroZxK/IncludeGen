@@ -45,8 +45,8 @@ input:focus {
 }
 
 .btn-cad {
-    background-color: black;
-    color: white;
+    background-color: #FFD700;
+    color: black;
     padding: 0.8rem;
     font-size: 1rem;
     border: none;
@@ -56,7 +56,7 @@ input:focus {
 }
 
 .btn-cad:hover {
-    background-color: #3f3f3f;
+    background-color: #dcbb00;
 }
 
 a {

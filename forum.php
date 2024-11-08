@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->close();
 
-        header("Location: forum");
+        header("Location: forum.php");
         exit();
     }
 

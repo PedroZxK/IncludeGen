@@ -1,5 +1,4 @@
 <?php
-
 include 'conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,12 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $role = $_POST["role"];
 
         if (strlen($password) < 8) {
-            echo 'A senha deve conter no mínimo 8 caracteres!';
+            echo '<script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "A senha deve conter no mínimo 8 caracteres!"
+                });
+            </script>';
             exit();
         }
 
         if ($password !== $confirm_password) {
-            echo 'As senhas não coincidem!';
+            echo '<script>
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "As senhas não coincidem!"
+                });
+            </script>';
             exit();
         }
 
@@ -74,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         });
                     };
                 </script>';
-            }                    
+            }
 
             $stmt->close();
         } else {
@@ -94,10 +105,11 @@ $mysqli->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bem-vindo à IncludeGen, uma plataforma dedicada ao bem-estar e à inclusão da pessoa idosa. Encontre cuidadores de idosos, explore alternativas de entretenimento, descubra oportunidades de trabalho para a terceira idade e entenda o sistema previdenciário brasileiro.">
+    <meta name="description"
+        content="Bem-vindo à IncludeGen, uma plataforma dedicada ao bem-estar e à inclusão da pessoa idosa. Encontre cuidadores de idosos, explore alternativas de entretenimento, descubra oportunidades de trabalho para a terceira idade e entenda o sistema previdenciário brasileiro.">
 
     <title>Cadastro - IncludeGen</title>
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -111,7 +123,7 @@ $mysqli->close();
     </div>
     <div id="sign-square">
         <div id="sign-right">
-            <form id="loginForm" method="POST">
+            <form id="loginForm" method="POST" onsubmit="return validateForm()">
                 <div id="form-id">
                     <img src="assets/img/logo.png" alt="Logo">
                     <h1>Cadastro</h1>
@@ -137,9 +149,9 @@ $mysqli->close();
                     <p>Você é um:</p>
                     <div class="role-options">
                         <label><input type="radio" name="role" value="Idoso" required> Idoso</label>
-                        <label><input type="radio" name="role" value="Cuidador de idoso" required> Cuidador de Idoso</label>
+                        <label><input type="radio" name="role" value="Cuidador de idoso" required> Cuidador de
+                            Idoso</label>
                     </div>
-
 
                     <button type="submit">Cadastrar</button>
                 </div>
@@ -150,7 +162,33 @@ $mysqli->close();
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm-password").value;
+
+            if (password.length < 8) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "A senha deve conter no mínimo 8 caracteres!"
+                });
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Erro",
+                    text: "As senhas não coincidem!"
+                });
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 
 </html>
