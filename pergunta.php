@@ -14,12 +14,49 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mensagem = isset($_POST['mensagem']) ? $_POST['mensagem'] : '';
     $pergunta_id = isset($_POST['pergunta_id']) ? $_POST['pergunta_id'] : '';
 
+    // Lista de palavras proibidas
+    // Lista de palavras proibidas
+$palavras_proibidas = [
+    'estruprador', 'estuprado', 'estuprador', 'estuprar', 'estupro', 
+    'l.o.l.i', 'l0l1', 'l0l1z1nh4', 'l0li', 'lloli', 'lol1', 'loli', 
+    'lolicon', 'lolismo', 'lolli', 'n-word', 'n1gg3r', 'n1gg4', 'n1gga', 
+    'nazism', 'nazismo', 'nazista', 'nigg4', 'nigga', 'nigger', 'p3d0f1l0', 
+    'ped0f1l14', 'ped0fil0', 'pedofilia', 'pedofilo', 'porno', 'pornô', 
+    'r4id', 'tr4aveco', 'tr4v3c0', 'tr4vec0', 'trav3c0', 'travecão', 'traveco', 
+    'travecozinho', 'xvideos', 'zoofilia'
+]; 
+
+
+    // Função para verificar se a mensagem contém palavras proibidas
+    function verificar_palavras_proibidas($mensagem, $palavras_proibidas) {
+        foreach ($palavras_proibidas as $palavra) {
+            if (stripos($mensagem, $palavra) !== false) {
+                return true; // Retorna verdadeiro se encontrar uma palavra proibida
+            }
+        }
+        return false; // Caso contrário, retorna falso
+    }
+
     if (!empty($mensagem) && !empty($pergunta_id)) {
         $nome_usuario = isset($_SESSION['name']) ? $_SESSION['name'] : '';
-
         $data_atual = date('Y-m-d H:i:s');
 
-        $mysqli->query("INSERT INTO chat1 (nome, mensagem, data_envio, pergunta_id) VALUES ('$nome_usuario', '$mensagem', '$data_atual', '$pergunta_id')");
+        // Verifica se a mensagem contém palavras proibidas
+      // Verifica se a mensagem contém palavras proibidas
+if (verificar_palavras_proibidas($mensagem, $palavras_proibidas)) {
+    // Exibe SweetAlert em vez do alerta simples
+    echo "<script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Mensagem contém palavras proibidas!',
+                text: 'Por favor, revise sua mensagem.',
+            });
+          </script>";
+} else {
+    // Se não contiver palavras proibidas, envia a mensagem para o banco de dados
+    $mysqli->query("INSERT INTO chat1 (nome, mensagem, data_envio, pergunta_id) VALUES ('$nome_usuario', '$mensagem', '$data_atual', '$pergunta_id')");
+}
+
     }
 }
 
@@ -28,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['id'])) {
     $mensagens_query = "SELECT nome, mensagem, data_envio, id FROM chat1 WHERE pergunta_id = $pergunta_id AND id > $ultimaMensagemID ORDER BY id DESC";
     $mensagens_result = $mysqli->query($mensagens_query);
 }
-
 
 $id = $_SESSION['user_id'] ?? null;
 
@@ -66,7 +102,7 @@ if ($id) {
         <?php echo isset($_GET['titulo']) ? htmlspecialchars($_GET['titulo']) : "Pergunta"; ?>
     </title>
     <link rel="stylesheet" href="assets/css/pergunta.css">
-    <link rel="shortcut icon" type="imagex/png" href="assets/img/logourl.png">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,11 +129,9 @@ if ($id) {
         }, 1000);
     </script>
 
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body>
 <body>
     <div id="content">
     <nav id="navbar">
@@ -142,7 +176,6 @@ if ($id) {
         </div>
     </nav>
     </div>
-
 
         <div id="header">
             <h1 id="pergunta_titulo">

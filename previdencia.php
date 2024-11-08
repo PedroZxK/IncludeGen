@@ -110,7 +110,9 @@ if ($id) {
                 <tr>
                     <th class="tituloTabela">Ano</th>
                     <th class="tituloTabela">Pontos (Homens)</th>
-                    <th class="tituloTabela">Pontos (Mulheres)</th>
+                    <th sistema consiste na soma da idade com os anos de contribuição, exigindo a pontuação mínima de 87 anos para mulheres e de 97 anos para homens. Além disso, a pontuação é progressiva, aumentando 1 ponto por ano, até atingir 105 pontos para homens e 100 pontos para mulheres.
+
+th class="tituloTabela">Pontos (Mulheres)</th>
                 </tr>
                 <tr>
                     <td>2020</td>
@@ -252,18 +254,15 @@ if ($id) {
 
             <div class="right-footer">
                 <div class="documents">
-                    <a href="termos.php" class="termos">Termos de serviço</a>
-                    <a href="politicas.php" class="termos">Política de privacidade</a>
+                    <a href="termos.php" target="_blank" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
                 </div>
                 <div class="contact-links">
-                    <a href="https://instagram.com" target="_blank">
+                    <a href="https://www.instagram.com/senaitaubate/" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
                     </a>
-                    <a href="https://facebook.com" target="_blank">
+                    <a href="https://www.facebook.com/senaisp.taubate" target="_blank">
                         <img src="assets/img/facebook.png" id="facebook-contact" alt="Facebook IncludeGen">
-                    </a>
-                    <a href="https://twitter.com" target="_blank">
-                        <img src="assets/img/x.png" id="twitter-contact" alt="Twitter IncludeGen">
                     </a>
                     <p>© 2024 IncludeGen. Todos os direitos reservados.</p>
                 </div>

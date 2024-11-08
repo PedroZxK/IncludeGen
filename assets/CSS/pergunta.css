@@ -15,6 +15,13 @@ body {
     z-index: 1000;
 }
 
+form#form-mensagem {
+    align-items: center;
+    display: flex;
+    width: 77vw;
+    margin: 0px 13% 0;
+}
+
 .navbar-includeGen {
     display: flex;
     justify-content: space-between;
@@ -221,4 +228,30 @@ a {
     text-decoration: none;
     text-align: center;
     margin: 0 auto;
+}
+
+#mensagens {
+    padding-bottom: 100px; /* Adiciona espaço para a caixa de mensagem */
+    overflow-y: auto;
+}
+
+.mensagem {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.mensagem strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.mensagem p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.mensagem .data {
+    font-size: 12px;
+    color: #888;
 }
