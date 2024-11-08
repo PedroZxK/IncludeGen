@@ -80,6 +80,7 @@ if ($id) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/forum.css">
+    <link rel="stylesheet" href="assets\css\forumResponsivo.css">
     <script src="assets/js/hamburguer.js"></script>
     <script src="assets/js/dropdownuser.js"></script>
     <script src="assets/js/logout.js"></script>
@@ -110,6 +111,24 @@ if ($id) {
                 </div>
                 <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
             </div>
+
+        <button class="hamburguer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div id="sidebar">
+          <button class="fechar" onclick="toggleMenu()">
+            X
+          </button>
+          <a class="sidebarlink" href="home.php">Página Inicial</a>
+          <a class="sidebarlink" href="saude.php">Saúde</a>
+          <a class="sidebarlink" href="forum.php">Fórum</a>
+          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+          <a class="sidebarlink" href="previdencia.php">Previdência</a>
+          <a class="sidebarlink" href="logout.php">Sair</a>
+        </div>
         </nav>
     </div>
 

@@ -25,15 +25,43 @@
         display: flex;
         justify-content: space-between;
     }	
+
+    .img-sair img {
+    display: none;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
 
-    .includeGen-footer {
-        display: flex;
-        flex-direction: column;
+    .hamburguer {
+        display: flex; /* Exibe o hamburguer em telas pequenas */
         justify-content: center;
         align-items: center;
+        font-size: 1.5em;
     }
 
+    .includeGen-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .texto-pesquisa {
+        width: 6rem;
+    }
+
+    #titulo {
+        width: 26vw;
+        height: 8.6vw;
+    }
+
+    #descricao {
+        width: 20vw;
+        height: 49px;
+    }
+
+    .btn-criar {
+        width: 26vw;
+    }
 }

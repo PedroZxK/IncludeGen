@@ -119,21 +119,22 @@ if ($id) {
             <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
             <button class="hamburguer">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-            <div id="sidebar">
-                <button class="fechar" onclick="toggleMenu()">
-                    X
-                </button>
-                <a class="sidebarlink" href="home.php">Página Inicial</a>
-                <a class="sidebarlink" href="saude.php">Saúde</a>
-                <a class="sidebarlink" href="forum.php">Fórum</a>
-                <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-                <a class="sidebarlink" href="previdencia.php">Previdência</a>
-            </div>
+        <div id="sidebar">
+          <button class="fechar" onclick="toggleMenu()">
+            X
+          </button>
+          <a class="sidebarlink" href="home.php">Página Inicial</a>
+          <a class="sidebarlink" href="saude.php">Saúde</a>
+          <a class="sidebarlink" href="forum.php">Fórum</a>
+          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+          <a class="sidebarlink" href="previdencia.php">Previdência</a>
+          <a class="sidebarlink" href="logout.php">Sair</a>
+        </div>
     </nav>
     </div>
 
