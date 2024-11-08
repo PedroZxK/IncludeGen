@@ -56,7 +56,7 @@
     </section>
 
     <div id="categoria-missao">
-        <img src="assets\img\image 7.png" alt="">
+        <img src="assets\img\image 7.png" alt="" class="missao-img">
         <section class="mission">
             <h2>Conectando pessoas de todas as idades, criando um futuro mais inclusivo.</h2>
             <p>Incluir é unir, e no IncludeGen, essa é a nossa missão.</p>

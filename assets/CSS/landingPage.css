@@ -141,9 +141,12 @@ header nav {
     justify-content: space-around;
 }
 
+#categoria-missao img {
+    width: 30vw;
+}
+
 .mission {
     text-align: justify;
-    padding: 50px 20px;
     width: 32vw;
 }
 
