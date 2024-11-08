@@ -50,7 +50,8 @@ body {
 .right-nav-div img,
 .left-nav-div img {
     border-radius: 50%;
-    height: 50px;
+    height: 3.4rem;
+    max-width: 3.4rem;
 }
 
 .right-nav-div {

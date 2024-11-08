@@ -51,7 +51,8 @@ body {
 .right-nav-div img,
 .left-nav-div img {
     border-radius: 50%;
-    height: 50px;
+    height: 3.4rem;
+    max-width: 3.4rem;
 }
 
 .right-nav-div {
@@ -59,9 +60,20 @@ body {
     gap: 1rem;
 }
 
+.profile-name {
+    color: white;
+    margin: 8px 0 0 0;
+}
+
+.view-profile-link {
+    color: #727272;
+    font-size: 14px;
+    margin: 0;
+}
 
 .img-sair img {
     width: 2.5vw;
+    border-radius: 0;
   }
 
   .hero {

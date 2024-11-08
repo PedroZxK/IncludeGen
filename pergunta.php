@@ -17,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Lista de palavras proibidas
     // Lista de palavras proibidas
 $palavras_proibidas = [
-    'estruprador', 'estuprado', 'estuprador', 'estuprar', 'estupro', 
-    'l.o.l.i', 'l0l1', 'l0l1z1nh4', 'l0li', 'lloli', 'lol1', 'loli', 
-    'lolicon', 'lolismo', 'lolli', 'n-word', 'n1gg3r', 'n1gg4', 'n1gga', 
-    'nazism', 'nazismo', 'nazista', 'nigg4', 'nigga', 'nigger', 'p3d0f1l0', 
-    'ped0f1l14', 'ped0fil0', 'pedofilia', 'pedofilo', 'porno', 'pornô', 
-    'r4id', 'tr4aveco', 'tr4v3c0', 'tr4vec0', 'trav3c0', 'travecão', 'traveco', 
-    'travecozinho', 'xvideos', 'zoofilia'
+    'estruprador', 'estuprado', 'estuprador', 'estuprar', 'estupro','l.o.l.i', 'l0l1', 
+    'l0l1z1nh4', 'l0li', 'lloli', 'lol1', 'loli', 'lolicon', 'lolismo', 'lolli',
+    'n-word', 'n1gg3r', 'n1gg4', 'n1gga', 'nazism', 'nazismo', 'nazista', 'nigg4', 'nigga', 'nigger', 'p3d0f1l0',
+     'ped0f1l14', 'ped0fil0', 'pedofilia', 'pedofilo', 'porno', 'pornô','smt', 'Se Mata', 'se mata', '$mt', '$e mata', 
+     '$e Mata', 'Viado', 'Viadinho', 'viadinho', 'viado', 'Bicha', 'Boiola', 'gayzinho', 'Gayzinho',
+    'tr4aveco', 'tr4v3c0', 'tr4vec0', 'trav3c0', 'travecão', 'traveco', 'travecozinho', 'xvideos', 'zoofilia',
+    'semata', '$emata',
 ]; 
 
 

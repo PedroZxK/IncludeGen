@@ -20,7 +20,7 @@ $palavras_proibidas = [
     'nigg4', 'nigga', 'nigger',
     'p3d0f1l0', 'ped0f1l14', 'ped0fil0', 'pedofilia', 'pedofilo',
     'porno', 'pornô',
-    'r4id',
+    'smt', 'Se Mata', 'se mata', 'semata', '$emata', '$mt', '$e mata', '$e Mata', 'Viado', 'Viadinho', 'viadinho', 'viado', 'Bicha', 'Boiola', 'gayzinho', 'Gayzinho',
     'tr4aveco', 'tr4v3c0', 'tr4vec0', 'trav3c0', 'travecão', 'traveco', 'travecozinho',
     'xvideos', 'zoofilia'
 ];
