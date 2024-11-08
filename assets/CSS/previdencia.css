@@ -227,6 +227,10 @@ background-color:#ffc62c;
     align-items: center;
 }
 
+.termos {
+    color: white;
+}
+
 .contact-links a {
     margin: 0 5px;
 }

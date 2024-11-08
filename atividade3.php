@@ -48,44 +48,44 @@ if ($id) {
 <body>
 
     <div id="content">
-    <nav id="navbar">
-        <div class="navbar-includeGen">
-            <div class="left-nav-div">
-                <img src="assets/img/logo.png" alt="Logo">
-            </div>
-            <div class="itens-nav-div">
-                <ul>
-                    <li><a href="home.php">Página inicial</a></li>
-                    <li><a href="saude.php">Saúde</a></li>
-                    <li><a href="forum.php">Fórum</a></li>
-                    <li><a href="entretenimento.php">Entretenimento</a></li>
-                    <li><a href="previdencia.php">Previdência</a></li>
-                </ul>
-            </div>
-            <div class="right-nav-div">
-                <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                <p style="color: white;"><?= htmlspecialchars($username); ?></p>
-            </div>
-            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+        <nav id="navbar">
+            <div class="navbar-includeGen">
+                <div class="left-nav-div">
+                    <img src="assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="itens-nav-div">
+                    <ul>
+                        <li><a href="home.php">Página inicial</a></li>
+                        <li><a href="saude.php">Saúde</a></li>
+                        <li><a href="forum.php">Fórum</a></li>
+                        <li><a href="entretenimento.php">Entretenimento</a></li>
+                        <li><a href="previdencia.php">Previdência</a></li>
+                    </ul>
+                </div>
+                <div class="right-nav-div">
+                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
+                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                </div>
+                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
-            <button class="hamburguer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+                <button class="hamburguer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-        <div id="sidebar">
-          <button class="fechar" onclick="toggleMenu()">
-            X
-          </button>
-          <a class="sidebarlink" href="home.php">Página Inicial</a>
-          <a class="sidebarlink" href="saude.php">Saúde</a>
-          <a class="sidebarlink" href="forum.php">Fórum</a>
-          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
-          <a class="sidebarlink" href="previdencia.php">Previdência</a>
-          <a class="sidebarlink" href="logout.php">Sair</a>
-        </div>
-    </nav>
+                <div id="sidebar">
+                    <button class="fechar" onclick="toggleMenu()">
+                        X
+                    </button>
+                    <a class="sidebarlink" href="home.php">Página Inicial</a>
+                    <a class="sidebarlink" href="saude.php">Saúde</a>
+                    <a class="sidebarlink" href="forum.php">Fórum</a>
+                    <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+                    <a class="sidebarlink" href="previdencia.php">Previdência</a>
+                    <a class="sidebarlink" href="logout.php">Sair</a>
+                </div>
+        </nav>
 
         <div id="banner">
             <div class="botao">
@@ -123,6 +123,10 @@ if ($id) {
                 </div>
 
                 <div class="right-footer">
+                    <div class="documents">
+                        <a href="termos.php" class="termos">Termos de serviço</a>
+                        <a href="politicas.php" class="termos">Política de privacidade</a>
+                    </div>
                     <div class="contact-links">
                         <a href="https://instagram.com" target="_blank">
                             <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">

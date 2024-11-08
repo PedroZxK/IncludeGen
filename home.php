@@ -89,7 +89,9 @@ if ($id) {
         <div id="presentation">
             <div class="presentation-left">
                 <h1>Unindo gerações através da inclusão</h1>
-                <button>Saiba mais</button>
+                <a href="#about-me">
+                    <button>Saiba mais</button>
+                </a>
             </div>
             <div class="presentation-right">
                 <img src="assets/img/idosoimghome.png" alt="Idosos se abraçando">
@@ -116,14 +118,16 @@ if ($id) {
         <div id="meet-seniors">
             <div class="left-meet-seniors">
                 <h1>Encontre cuidadores de idosos</h1>
-                <button>Explorar</button>
+                <a href="saude.php">
+                    <button>Explorar</button>
+                </a>
             </div>
             <div class="right-meet-seniors">
                 <div class="img-container">
                     <img src="./assets/img/cuidador-de-idosos1.jpg">
                     <img src="./assets/img/cuidador-de-idosos2.jpg">
                     <img src="./assets/img/cuidador-de-idosos3.jpg">
-                    <img src="./assets/img/cuidador-de-idosos4.jpg">    
+                    <img src="./assets/img/cuidador-de-idosos4.jpg">
                     <img src="./assets/img/cuidador-de-idosos1.jpg">
                     <img src="./assets/img/cuidador-de-idosos2.jpg">
                     <img src="./assets/img/cuidador-de-idosos3.jpg">
@@ -189,6 +193,10 @@ if ($id) {
             </div>
 
             <div class="right-footer">
+                <div class="documents">
+                    <a href="termos.php" class="termos">Termos de serviço</a>
+                    <a href="politicas.php" class="termos">Política de privacidade</a>
+                </div>
                 <div class="contact-links">
                     <a href="https://instagram.com" target="_blank">
                         <img src="assets/img/instagram.png" id="instagram-contact" alt="Instagram IncludeGen">
