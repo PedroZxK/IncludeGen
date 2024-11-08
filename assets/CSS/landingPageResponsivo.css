@@ -8,7 +8,7 @@
         display: block;
     }
 
-    .itens-nav-div ul {
+    .nav-links li {
         display: none;
     }
 
@@ -24,7 +24,24 @@
     .navbar-includeGen {
         display: flex;
         justify-content: space-between;
-    }	
+    }
+
+    #categoria-missao {
+        flex-direction: column;
+    }
+
+    .mission {
+        width: 90%;
+    }
+
+    .missao-img {
+        min-width: 60%;
+        max-width: 10vw;
+    }
+
+    .feature-boxes {
+        flex-direction: column;
+    }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -34,6 +51,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .hero {
+        width: 100%;
+        display: block;
+    }
+
+    .hero-image {
+        display: none;
     }
 
 }

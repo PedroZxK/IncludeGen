@@ -24,7 +24,16 @@
     .navbar-includeGen {
         display: flex;
         justify-content: space-between;
-    }	
+    }
+
+    #about-me {
+        flex-direction: column;
+    }
+
+    #card-seniors {
+        align-items: center;
+        flex-wrap: wrap;
+    }
 
     .img-sair img {
         display: none;

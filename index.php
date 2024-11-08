@@ -56,7 +56,7 @@
     </section>
 
     <div id="categoria-missao">
-        <img src="assets\img\image 7.png" alt="">
+        <img src="assets\img\image 7.png" alt="" class="missao-img">
         <section class="mission">
             <h2>Conectando pessoas de todas as idades, criando um futuro mais inclusivo.</h2>
             <p>Incluir é unir, e no IncludeGen, essa é a nossa missão.</p>
@@ -69,30 +69,22 @@
     <section class="features" id="missao">
         <h2>Nossa missão de inclusão com você</h2>
         <div class="feature-boxes">
-            <a href="entretenimento.php">
-                <div class="feature">
-                    <div id="figura"><img src="assets\img\Entretenimento.png" alt="Entretenimento para idosos"></div>
-                    <p>Entretenimento para idosos</p>
-                </div>
-            </a>
-            <a href="">
-                <div class="feature">
-                    <div id="figura"> <img src="assets\img\cuidadores.png" alt="Cadastro e procura de cuidadores"></div>
-                    <p>Cadastro e procura de cuidadores</p>
-                </div>
-            </a>
-            <a href="">
-                <div class="feature">
-                    <div id="figura"> <img src="assets\img\direito.png" alt="Direito dos idosos"></div>
-                    <p>Mais sobre o direito dos idosos</p>
-                </div>
-            </a>
-            <a href="">
-                <div class="feature">
-                    <div id="figura"> <img src="assets\img\atividadesfisicas.png" alt="Atividades físicas para idosos"></div>
-                    <p>Atividades físicas para idosos</p>
-                </div>
-            </a>
+            <div class="feature">
+                <div id="figura"><img src="assets\img\Entretenimento.png" alt="Entretenimento para idosos"></div>
+                <p>Entretenimento para idosos</p>
+            </div>
+            <div class="feature">
+                <div id="figura"> <img src="assets\img\cuidadores.png" alt="Cadastro e procura de cuidadores"></div>
+                <p>Cadastro e procura de cuidadores</p>
+            </div>
+            <div class="feature">
+                <div id="figura"> <img src="assets\img\direito.png" alt="Direito dos idosos"></div>
+                <p>Mais sobre o direito dos idosos</p>
+            </div>
+            <div class="feature">
+                <div id="figura"> <img src="assets\img\atividadesfisicas.png" alt="Atividades físicas para idosos"></div>
+                <p>Atividades físicas para idosos</p>
+            </div>
         </div>
     </section>
 
