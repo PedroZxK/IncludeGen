@@ -86,27 +86,26 @@ if ($id) {
             <p>O sistema previdenciário é um agrupamento de normas relacionadas a auxílios sociais e aposentadorias
                 principalmente para trabalhadores e/ou contribuintes em geral. Ou seja, é uma forma de garantir uma
                 aposentadoria para a população que atinge determinada idade.</p>
-            <iframe class='iframe' width="560" height="315"  src="https://www.youtube.com/embed/5-FGMB6p_Sc?si=ox8VgyjcPURunB2Z"
-                title="YouTube video player" frameborder="0"
+            <iframe class='iframe' width="560" height="315"
+                src="https://www.youtube.com/embed/5-FGMB6p_Sc?si=ox8VgyjcPURunB2Z" title="YouTube video player"
+                frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
 
         <div class="section">
             <h2>O que é o sistema de pontos?</h2>
-            <p>O sistema consiste na soma da idade com os anos de contribuição, exigindo um mínimo de 30 anos para
-                mulheres e 35 para homens. A reforma previdenciária introduziu variações nas regras de transição.
+            <p>O sistema consiste na soma da idade com os anos de contribuição, exigindo a pontuação mínima de 87 anos
+                para mulheres e de
+                97 anos para homens. Além disso, a pontuação é progressiva, aumentando 1 ponto por ano, até atingir 105
+                pontos para homens e 100 pontos para mulheres. 
+
             </p>
             <table>
                 <tr>
                     <th class="tituloTabela">Ano</th>
                     <th class="tituloTabela">Pontos (Homens)</th>
                     <th class="tituloTabela">Pontos (Mulheres)</th>
-                </tr>
-                <tr>
-                    <td>2019</td>
-                    <td>96</td>
-                    <td>86</td>
                 </tr>
                 <tr>
                     <td>2020</td>
