@@ -41,6 +41,9 @@ if ($id) {
     <link rel="stylesheet" href="assets/css/homeResponsivo.css">
     <script src="./assets/js/hamburguer.js"></script>
     <link rel="shortcut icon" type="imagex/png" href="assets/img/logo.png">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -65,7 +68,26 @@ if ($id) {
                     <a class="view-profile-link" href="./perfil.php">ver perfil</a>
                 </div>
             </div>
-            <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+            <div><a href="#" onclick="confirmLogout(event)" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+        <script>
+            function confirmLogout(event) {
+            event.preventDefault(); // Evita o redirecionamento imediato
+                Swal.fire({
+                    title: 'Você tem certeza?',
+                    text: "Deseja realmente sair?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, sair',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                     window.location.href = 'logout.php'; // Redireciona para a página de logout
+                    }
+                });
+            }
+        </script>
 
             <button class="hamburguer">
                 <span></span>

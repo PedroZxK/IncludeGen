@@ -43,6 +43,8 @@ if ($id) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -66,8 +68,27 @@ if ($id) {
                     <img src="assets/img/avatar_temp.webp" alt="Avatar">
                     <p style="color: white;"><?= htmlspecialchars($username); ?></p>
                 </div>
-                <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
+                <div><a href="#" onclick="confirmLogout(event)" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
 
+                <script>
+            function confirmLogout(event) {
+            event.preventDefault(); // Evita o redirecionamento imediato
+                Swal.fire({
+                    title: 'Você tem certeza?',
+                    text: "Deseja realmente sair?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sim, sair',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                     window.location.href = 'logout.php'; // Redireciona para a página de logout
+                    }
+                });
+            }
+        </script>
                 <button class="hamburguer">
                     <span></span>
                     <span></span>
