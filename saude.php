@@ -121,19 +121,6 @@ if ($id) {
         <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
         <a href="alzheimer.php"><button>Saiba mais</button></a>
       </div>
-      <div class="card">
-        <img src="assets/img/alzheimer.png" alt="Alzheimer">
-        <h3>Alzheimer: Saiba tudo sobre ela</h3>
-        <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
-        <a href="alzheimer.php"><button>Saiba mais</button></a>
-      </div>
-      <div class="card">
-        <img src="assets/img/alzheimer.png" alt="Alzheimer">
-        <h3>Alzheimer: Saiba tudo sobre ela</h3>
-        <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
-        <a href="alzheimer.php"><button>Saiba mais</button></a>
-      </div>
-    </div>
   </section>
 
   <div id="footer-div">
