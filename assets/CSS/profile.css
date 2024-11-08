@@ -117,6 +117,15 @@ label:hover .hover-icon {
     justify-content: center;
 }
 
+.btn-confirmar {
+    border: none;
+    background-color: #FFC62C;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .goBack-link:hover, .picture-profile a:hover {
     background-color: white;
     color: black;

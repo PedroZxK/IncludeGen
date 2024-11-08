@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['nova_foto_perfil']))
         <ion-icon name="image-outline" class="hover-icon"></ion-icon>
         </label>                
                 <input id="nova_foto_perfil" type="file" name="nova_foto_perfil" accept="image/*" required style="display: none;">
-                <button type="submit">Confirmar alteração</button>
+                <button type="submit" class="btn-confirmar">Confirmar alteração</button>
         </form>
             <p><?= htmlspecialchars($username); ?></p>
             <a href="./logout.php">Sair</a>

@@ -95,7 +95,7 @@
 
             <div class="right-footer">
                 <div class="documents">
-                    <a href="term   os.php" target="_blank" class="termos">Termos de serviço</a>
+                    <a href="termos.php" target="_blank" class="termos">Termos de serviço</a>
                     <a href="politicas.php" target="_blank" class="termos">Política de privacidade</a>
                 </div>
                 <div class="contact-links">
