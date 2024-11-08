@@ -58,6 +58,17 @@ body {
     gap: 1rem;
 }
 
+.profile-name {
+    color: white;
+    margin: 8px 0 0 0;
+}
+
+.view-profile-link {
+    color: #727272;
+    font-size: 14px;
+    margin: 0;
+}
+
 .hamburguer {
     display: none;
     flex-direction: column;
@@ -69,19 +80,20 @@ body {
     cursor: pointer;
     padding: 0;
     z-index: 10;
-}
-
-.hamburguer span {
+  }
+  
+  .hamburguer span {
     width: 1.8rem;
     height: 0.2rem;
+    margin: 2px;
     background: #FFD700;
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
     transform-origin: 1px;
 }
-
-#sidebar {
+  
+  #sidebar {
     position: fixed;
     top: 0;
     right: -260px;
@@ -91,15 +103,15 @@ body {
     border-left: solid 3px #FFD700;
     transition: right 0.3s ease;
     z-index: 999;
-}
-
-.sidebarlink {
+  }
+  
+  .sidebarlink {
     display: block;
     padding: 20px;
     color: black;
     border-bottom: solid 1px black;
     text-decoration: none;
-}
+  }
 
 .fechar {
     border: none;
@@ -261,11 +273,12 @@ h6 {
 }
 
 form {
-    padding: 22px;
-    color: white;
-    font-size: 1.2rem;
-    flex-direction: column;
-
+    width: calc(70.33% - 20px);
+    margin: 10px;
+    border: 1px solid #00000036;
+    border-radius: 29px;
+    padding: 30px;
+    position: relative;
 }
 
 
@@ -277,14 +290,14 @@ textarea {
 }
 
 #titulo {
-    width: 38vw;
-    height: 2.6vw;
+    width: 28vw;
+    height: 3.6vw;
     font-size: 26px;
     font-family: Nunito Sans;
 }
 
 #descricao {
-    width: 38vw;
+    width: 28vw;
     height: 48px;
     font-family: inter;
     font-size: 17px;
@@ -292,14 +305,6 @@ textarea {
 
 .prencher {
     margin: 17px;
-}
-
-.criar-pergunta {
-    margin: 0 auto;
-    width: 44vw;
-    height: 13vw;
-    border: 1px solid #00000036;
-    border-radius: 29px;
 }
 
 .btn-criar {

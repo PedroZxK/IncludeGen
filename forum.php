@@ -59,12 +59,23 @@ while ($pergunta = $resultado->fetch_assoc()) {
 $id = $_SESSION['user_id'] ?? null;
 
 if ($id) {
-    $stmt = $mysqli->prepare("SELECT name FROM users WHERE id = ? LIMIT 1");
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $username = $result->num_rows > 0 ? $result->fetch_assoc()['name'] : "Usuário não encontrado";
-    $stmt->close();
+    $stmt = $mysqli->prepare("SELECT name, foto_perfil FROM users WHERE id = ? LIMIT 1");
+    if ($stmt) {
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $username = $row['name'];
+            $foto_perfil = $row['foto_perfil'];
+        } else {
+            $username = "Usuário não encontrado";
+        }
+        $stmt->close();
+    } else {
+        echo 'Erro ao preparar a declaração: ' . $mysqli->error;
+    }
 } else {
     $username = "ID de usuário não definido";
 }
@@ -80,6 +91,7 @@ if ($id) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/forum.css">
+    <link rel="stylesheet" href="assets\css\forumResponsivo.css">
     <script src="assets/js/hamburguer.js"></script>
     <script src="assets/js/dropdownuser.js"></script>
     <script src="assets/js/logout.js"></script>
@@ -105,11 +117,32 @@ if ($id) {
                     </ul>
                 </div>
                 <div class="right-nav-div">
-                    <img src="assets/img/avatar_temp.webp" alt="Avatar">
-                    <p style="color: white;"><?= htmlspecialchars($username); ?></p>
+                    <img src="<?= htmlspecialchars($foto_perfil); ?>" alt="Avatar">
+                    <div class="profile">
+                        <p class="profile-name"><?= htmlspecialchars($username); ?></p>
+                        <a class="view-profile-link" href="./perfil.php">ver perfil</a>
+                    </div>
                 </div>
                 <div><a href="logout.php" class="img-sair"><img src="assets/img/sair.png" alt=""></a></div>
             </div>
+
+        <button class="hamburguer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div id="sidebar">
+          <button class="fechar" onclick="toggleMenu()">
+            X
+          </button>
+          <a class="sidebarlink" href="home.php">Página Inicial</a>
+          <a class="sidebarlink" href="saude.php">Saúde</a>
+          <a class="sidebarlink" href="forum.php">Fórum</a>
+          <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
+          <a class="sidebarlink" href="previdencia.php">Previdência</a>
+          <a class="sidebarlink" href="logout.php">Sair</a>
+        </div>
         </nav>
     </div>
 
