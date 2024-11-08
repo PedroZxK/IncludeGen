@@ -78,6 +78,7 @@ if ($id) {
           <a class="sidebarlink" href="forum.php">Fórum</a>
           <a class="sidebarlink" href="entretenimento.php">Entretenimento</a>
           <a class="sidebarlink" href="previdencia.php">Previdência</a>
+          <a class="sidebarlink" href="logout.php">Sair</a>
         </div>
     </nav>
   </div>
@@ -94,19 +95,19 @@ if ($id) {
         <img src="assets/img/padrao.png" alt="Ana Laura">
         <h3>Padrão Enfermagem</h3>
         <p>A Padrão Enfermagem São José dos Campos é uma empresa especializada na intermediação de profissionais da Enfermagem e Cuidadores de Idosos, Adultos e Crianças.</p>
-        <button><a href="perfil-AnaLaura.php">Saiba mais</a></button>
+        <button><a href="sobreEmpresa1.php">Saiba mais</a></button>
       </div>
       <div class="card">
         <img src="assets/img/family.png" alt="Ana Laura">
         <h3>Family Care Senior</h3>
         <p>Precisa de cuidador de idosos de confiança? Family Care Senior, o melhor custo benefício do Vale do Paraíba. Oferecem uma gama completa de serviços de cuidado, voltados para atender todas as necessidades dos clientes.</p>
-        <button><a href="perfil.php">Saiba mais</a></button>
+        <button><a href="sobreEmpresa2.php">Saiba mais</a></button>
       </div>
       <div class="card">
         <img src="assets/img/cuida.png" alt="Ana Laura">
         <h3>Cuidadores do Vale</h3>
         <p>Atender a necessidade do mercado oferecendo segurança e conforto ao assistido, assim como prestar sempre um serviço de elevado padrão de qualidade, garantindo tranquilidade para a família que contrata a prestação do serviço.</p>
-        <button><a href="perfil.php">Saiba mais</a></button>
+        <button><a href="sobreEmpresa3.php">Saiba mais</a></button>
       </div>
     </div>
   </section>
@@ -121,19 +122,6 @@ if ($id) {
         <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
         <a href="alzheimer.php"><button>Saiba mais</button></a>
       </div>
-      <div class="card">
-        <img src="assets/img/alzheimer.png" alt="Alzheimer">
-        <h3>Alzheimer: Saiba tudo sobre ela</h3>
-        <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
-        <a href="alzheimer.php"><button>Saiba mais</button></a>
-      </div>
-      <div class="card">
-        <img src="assets/img/alzheimer.png" alt="Alzheimer">
-        <h3>Alzheimer: Saiba tudo sobre ela</h3>
-        <p>O que é o Alzheimer, causas, prevenção e tratamento.</p>
-        <a href="alzheimer.php"><button>Saiba mais</button></a>
-      </div>
-    </div>
   </section>
 
   <div id="footer-div">

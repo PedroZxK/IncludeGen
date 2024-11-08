@@ -25,6 +25,10 @@
         display: flex;
         justify-content: space-between;
     }	
+
+    .img-sair img {
+        display: none;
+        }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
